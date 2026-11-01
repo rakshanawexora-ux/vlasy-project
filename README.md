@@ -8,8 +8,11 @@ Other salon services and the academy remain available as supporting routes.
 
 The supplied reference image informed the composition and hierarchy; the two
 reference websites were blocked by this environment's network policy and could
-not be inspected. The original logo shown in chat still needs a file attachment
-for exact integration. The existing temporary text name remains until then.
+not be inspected. A transparent web asset prepared from the supplied logo is installed in the
+header and footer. Original decorative SVG hair strands complement the brand
+without replacing its emblem. Motion includes masked headline reveals, a
+desktop-only hero parallax, scroll-drawn strands and restrained magnetic CTAs;
+reduced-motion preferences disable these effects.
 
 ## Develop
 
@@ -41,8 +44,8 @@ executor's supported escalated execution mode.
 - Placeholder imagery and replacement guidance: `public/images/README.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
   `next/font/local` because direct Google Fonts access is blocked in this runtime.
-- Original logo is pending. A temporary text wordmark is used without recreating
-  a logo. See `public/logo/README.md`.
+- Logo asset and replacement instructions: `public/logo/README.md`. Both themes
+  use the black/gold mark on a cream backing without recolouring the artwork.
 
 ## Enquiries
 
@@ -66,7 +69,7 @@ and Escape dismissal. All motion respects reduced-motion preferences.
 ## Before launch
 
 Supply approved business contact details, branch addresses, opening hours, map
-pins, the original logo, licensed real photography, verified reviews and current
+pins, licensed real photography, verified reviews and current
 academy program details. Review draft legal content, set the production URL and
 configure a real enquiry provider. Add conversion IDs only with the appropriate
 privacy/consent behavior; the thank-you page has a marked integration point.

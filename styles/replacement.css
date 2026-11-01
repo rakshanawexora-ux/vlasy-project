@@ -9,3 +9,38 @@ h1,h2,h3{font-family:var(--font-sans),Arial,sans-serif;font-weight:400;letter-sp
 
 @media(max-width:700px){.hr-hero-photo{object-position:80% 40%}}
 .hr-hero h1{letter-spacing:-.065em}.replacement-home h2{letter-spacing:-.055em}
+
+/* Brand artwork is decorative; the supplied logo remains a separate image asset. */
+.hr-hero,.hr-intro,.hr-consultation{position:relative;isolation:isolate}
+.hair-flow{position:absolute;pointer-events:none;user-select:none;color:#c6a15b;overflow:visible}
+.hair-flow-hero{width:440px;height:510px;left:-160px;bottom:-120px;z-index:-1;opacity:.2;transform:rotate(-17deg)}
+.hair-flow-intro{width:340px;height:395px;right:-38px;top:10px;z-index:-1;opacity:.13;transform:rotate(24deg)}
+.hr-intro{overflow:clip}
+.hair-flow-consultation{width:480px;height:560px;right:-60px;top:-100px;z-index:-1;opacity:.17;transform:rotate(8deg)}
+.hr-moving-image{position:absolute;inset:-4% 0;z-index:-3;will-change:transform}
+.hr-moving-image .hr-hero-photo{object-position:60% center;animation:none}
+.hr-hero h1.hr-kinetic-title{animation:none}
+.hr-title-line{display:block;overflow:hidden;padding:0 .06em .07em 0;margin-bottom:-.07em}
+.hr-title-line>span{display:block}
+.brand-scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;background:#c6a15b;transform-origin:0 50%;z-index:80;pointer-events:none}
+.hr-more-tile .photo-img{transition:transform 1s cubic-bezier(.22,1,.36,1),filter .7s}
+.hr-more-tile:hover .photo-img{transform:scale(1.055);filter:saturate(1.06)}
+.hr-round-link>svg,.hr-location-row>svg:last-child{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.hr-round-link:hover>svg,.hr-location-row:hover>svg:last-child{transform:translate(3px,-3px)}
+.hr-location-row>span{transition:transform .35s}.hr-location-row:hover>span{transform:translateX(4px)}
+@media(max-width:700px){.hair-flow-hero{width:290px;height:340px;left:-130px;bottom:-80px;opacity:.16}.hair-flow-intro{width:220px;height:255px;right:-95px;top:55px;opacity:.12}.hair-flow-consultation{width:320px;height:370px;right:-100px;top:-55px;opacity:.14}.hr-moving-image{inset:0;transform:none!important;will-change:auto}.hr-moving-image .hr-hero-photo{object-position:80% 40%}}
+@media(prefers-reduced-motion:reduce){.hair-flow path{opacity:1!important;stroke-dashoffset:0!important;stroke-dasharray:none!important}.hr-title-line>span{transform:none!important}.hr-moving-image,.magnetic-link{transform:none!important;will-change:auto}.brand-scroll-progress{display:none}}
+
+.brand-link{padding:0;flex-shrink:0}
+.brand-logo-shell{display:flex;align-items:center;justify-content:center;background:#eee8d9;border:1px solid #c6a15b55;border-radius:12px;width:100px;height:80px;padding:4px 10px;flex-shrink:0;overflow:hidden}
+.brand-logo-image{display:block;width:72px;height:72px;object-fit:contain;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.brand-link:hover .brand-logo-image{transform:scale(1.035)}
+.brand-logo-large{width:280px;height:280px;padding:24px;border-radius:24px;position:relative;z-index:1}
+.brand-logo-large .brand-logo-image{width:232px;height:232px}
+.footer-brand-stage{position:relative;display:flex;align-items:center;justify-content:center;gap:100px;padding:44px 35px;margin-top:55px;isolation:isolate}
+.hair-flow-footer{width:340px;height:400px;left:-80px;top:-65px;z-index:-1;opacity:.3;transform:rotate(-25deg)}
+.footer-brand-tagline{font-family:var(--font-sans);font-size:42px;line-height:1.18;letter-spacing:-.055em;color:var(--cream)}
+.footer-brand-tagline>span{color:var(--sage)}
+@media(max-width:950px){.footer-brand-stage{gap:55px}.footer-brand-tagline{font-size:34px}}
+@media(max-width:700px){.brand-logo-shell{width:77px;height:72px;padding:4px 7px;border-radius:10px}.brand-logo-image{width:61px;height:61px}.site-header{padding-left:12px;padding-right:20px}.header-book{font-size:9px;margin-right:16px;gap:10px}.brand-logo-large{width:205px;height:205px;border-radius:22px;padding:20px}.brand-logo-large .brand-logo-image{width:165px;height:165px}.footer-brand-stage{flex-direction:column;gap:25px;padding:32px 0; margin-top:35px}.footer-brand-tagline{font-size:30px;text-align:center;line-height:1.2}.hair-flow-footer{width:270px;height:315px;left:-145px;top:0;opacity:.3}}
+@media(prefers-reduced-motion:reduce){.brand-logo-image{transition:none!important;transform:none!important}}

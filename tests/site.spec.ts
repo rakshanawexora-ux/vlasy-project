@@ -25,3 +25,19 @@ test('consultation popup opens once and dismisses',async({browser})=>{const cont
 async function loadPageImages(page:Page){await page.evaluate(async()=>{const step=window.innerHeight;for(let top=0;top<document.documentElement.scrollHeight;top+=step){window.scrollTo(0,top);await new Promise(resolve=>setTimeout(resolve,90));}window.scrollTo(0,0);});await page.waitForTimeout(600);}
 
 test('hair replacement journey responds and consultation preselects the service',async({page})=>{await page.goto('/');await page.getByRole('button',{name:'02 Personalisation'}).click();await expect(page.getByRole('button',{name:'02 Personalisation'})).toHaveAttribute('aria-expanded','true');await expect(page.locator('.hr-journey-card h3')).toHaveText('Designed around you.');await page.locator('.hr-journey-card').getByRole('link',{name:'Start with a consultation'}).click();await expect(page.getByLabel('I’m interested in *')).toHaveValue('Hair Replacement');});
+
+test('supplied logo loads and decorative vectors respect reduced motion',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/');
+ const logo=page.locator('.site-header .brand-logo-image');
+ await expect(logo).toBeVisible();
+ await expect(logo).toHaveAttribute('alt','VLASY Unisex Salon');
+ await expect.poll(()=>logo.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
+ await expect(page.locator('.hair-flow-hero path')).toHaveCount(13);
+ await expect(page.locator('.hair-flow-consultation')).toHaveAttribute('aria-hidden','true');
+ await expect(page.locator('#hero-title')).toBeVisible();
+ await page.locator('.footer-brand-stage').scrollIntoViewIfNeeded();
+ const footerLogo=page.locator('.footer-brand-stage .brand-logo-image');
+ await expect.poll(()=>footerLogo.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
