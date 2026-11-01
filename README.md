@@ -1,11 +1,15 @@
 # VLASY Salon & Academy
 
-A responsive Next.js App Router website for VLASY in Chennai. The complete
-homepage follows the 13-section brief with cinematic local imagery, editorial
-Cormorant Garamond and Manrope typography, restrained gold accents, accessible
-navigation, gallery filtering, session-limited enquiry popup, FAQ accordions and
-mobile booking actions. Supporting services, academy, locations, journal, contact
-and information routes are included.
+A responsive Next.js App Router website for VLASY in Chennai. The redesigned
+homepage leads with non-surgical hair replacement, clean Manrope typography,
+forest-charcoal and cream surfaces, immersive local imagery, lifestyle guidance,
+an interactive consultation-to-aftercare journey, and hair-specific FAQs and CTAs.
+Other salon services and the academy remain available as supporting routes.
+
+The supplied reference image informed the composition and hierarchy; the two
+reference websites were blocked by this environment's network policy and could
+not be inspected. The original logo shown in chat still needs a file attachment
+for exact integration. The existing temporary text name remains until then.
 
 ## Develop
 

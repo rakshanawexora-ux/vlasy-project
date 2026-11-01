@@ -1,11 +1,12 @@
 import type { Page } from '@playwright/test';
 import { test,expect } from '@playwright/test';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>sessionStorage.setItem('vlasy-enquiry-shown','true'));});
-test('homepage delivers the complete editorial flow and working images',async({page})=>{
+test('homepage prioritises hair replacement and working editorial imagery',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/');
- await expect(page.getByRole('heading',{level:1})).toHaveText('Hair,redefined.');
- for(const title of [/Choose your\s*transformation\./,/Your transformation,\s*step by step\./,/Beauty for\s*every occasion\./,/Visit VLASY\s*near you\./,/Ready for your\s*transformation\?/]) await expect(page.getByRole('heading',{name:title,exact:true})).toBeAttached();
- await page.getByRole('heading',{name:/Ready for your\s*transformation\?/,exact:true}).scrollIntoViewIfNeeded();
+ await expect(page.getByRole('heading',{level:1})).toHaveText(/FEEL LIKE.*YOURSELF\..*AGAIN\./);
+ for(const section of ['.hr-intro','.hr-story','.hr-everyday','.hr-journey','.hr-results','.hr-more','.hr-locations','.hr-faq','.hr-consultation']) await expect(page.locator(section)).toBeAttached();
+ await expect(page.locator('.hr-hero-content').getByRole('link',{name:'Let’s talk hair'})).toHaveAttribute('href','/contact?service=Hair%20Replacement');
+ await page.locator('.hr-consultation').scrollIntoViewIfNeeded();
  await page.waitForTimeout(700);await page.evaluate(()=>window.scrollTo(0,0));
  await expect(page.locator('.hero-image')).toBeVisible();
  expect(await page.locator('.hero-image').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -22,3 +23,5 @@ test('desktop layout has no overflow and captures homepage',async({page})=>{awai
 test('consultation popup opens once and dismisses',async({browser})=>{const context=await browser.newContext({baseURL:'http://127.0.0.1:3000'});const page=await context.newPage();await page.goto('/');await page.waitForFunction(()=>!!document.querySelector('.enquiry-dialog'));await page.waitForTimeout(400);await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight*.55));await expect(page.locator('.enquiry-dialog')).toBeVisible();await page.getByRole('button',{name:'Close consultation popup'}).click();await page.reload();await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight*.7));await expect(page.locator('.enquiry-dialog')).not.toBeVisible();await context.close();});
 
 async function loadPageImages(page:Page){await page.evaluate(async()=>{const step=window.innerHeight;for(let top=0;top<document.documentElement.scrollHeight;top+=step){window.scrollTo(0,top);await new Promise(resolve=>setTimeout(resolve,90));}window.scrollTo(0,0);});await page.waitForTimeout(600);}
+
+test('hair replacement journey responds and consultation preselects the service',async({page})=>{await page.goto('/');await page.getByRole('button',{name:'02 Personalisation'}).click();await expect(page.getByRole('button',{name:'02 Personalisation'})).toHaveAttribute('aria-expanded','true');await expect(page.locator('.hr-journey-card h3')).toHaveText('Designed around you.');await page.locator('.hr-journey-card').getByRole('link',{name:'Start with a consultation'}).click();await expect(page.getByLabel('I’m interested in *')).toHaveValue('Hair Replacement');});

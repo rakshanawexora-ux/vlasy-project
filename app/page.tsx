@@ -1,6 +1,5 @@
 import { Hero } from '@/components/home/Hero';
-import { BrandIntro,ChooseTransformation,HairReplacementFeature,TransformationsPreview,HairExtensionsFeature,ProcessSection,BeautySection,Testimonials,AcademyPreview,LocationsPreview,FAQPreview,ServiceRibbon } from '@/components/home/HomeSections';
-import { FinalCTA } from '@/components/ui/FinalCTA';
+import { ConfidenceIntro,ReplacementStory,EverydaySection,JourneySection,HonestResults,MoreThanHair,NewLocations,NewFAQ,HairConsultationCTA } from '@/components/home/HairReplacementHome';
 import { metadata } from '@/lib/seo';
-export const generateMetadata=()=>metadata('VLASY Salon & Academy | Hair, redefined. Chennai','Personalised hair replacement, hair extensions, colour, bridal beauty and professional training at VLASY in Kolathur and Madhavaram, Chennai.','/');
-export default function Home(){return <><Hero/><ServiceRibbon/><BrandIntro/><ChooseTransformation/><HairReplacementFeature/><TransformationsPreview/><HairExtensionsFeature/><ProcessSection/><BeautySection/><Testimonials/><AcademyPreview/><LocationsPreview/><FAQPreview/><FinalCTA/></>;}
+export const generateMetadata=()=>metadata('Hair Replacement Chennai | VLASY Salon & Academy','Feel like yourself again. Explore personalised, non-surgical hair replacement and ongoing care at VLASY in Kolathur and Madhavaram, Chennai.','/');
+export default function Home(){return <div className="replacement-home"><Hero/><ConfidenceIntro/><ReplacementStory/><EverydaySection/><JourneySection/><HonestResults/><MoreThanHair/><NewLocations/><NewFAQ/><HairConsultationCTA/></div>;}

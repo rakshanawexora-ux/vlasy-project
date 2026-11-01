@@ -12,3 +12,6 @@ branch and training photography. Preserve meaningful alt text and consent record
 
 Real before/after pairs can use components/transformations/BeforeAfterSlider.tsx.
 Do not create an apparent client outcome from unrelated or generated photographs.
+
+The hair replacement redesign uses hair-confidence-hero.jpg as generated male
+editorial imagery. It is illustrative, not evidence of a treatment result.
