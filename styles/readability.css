@@ -1,0 +1,587 @@
+/* Final layout and reading scale shared by both themes. Keep component-specific art in brand.css. */
+body {
+  font-size: 16px;
+  line-height: 1.7;
+}
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+p {
+  line-height: 1.8;
+}
+.section,
+.hr-section {
+  padding: clamp(64px, 7vw, 104px) var(--gutter);
+}
+.page-hero {
+  padding-top: 170px;
+  padding-bottom: 56px;
+}
+.page-hero h1 {
+  font-size: clamp(44px, 6.2vw, 96px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+.page-hero > p {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 680px;
+}
+.page-split > *,
+.contact-layout > *,
+.section-heading > *,
+.hr-heading-row > * {
+  min-width: 0;
+}
+.section p,
+.article-body p,
+.simple-content p,
+.page-split p,
+.program p,
+.offering p,
+.journal-grid p,
+.guide-grid p,
+.consultation-checklist p,
+.service-story-heading > p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.offering p {
+  margin-top: 18px;
+  color: var(--muted);
+  max-width: 560px;
+}
+.offering h3 {
+  line-height: 1.2;
+}
+.article-body {
+  max-width: 850px;
+}
+.hr-intro-top > p,
+.hr-intro-heading > p,
+.hr-intro-aside > p,
+.hr-story-copy > p,
+.hr-story-copy ul,
+.hr-benefit-card > p,
+.hr-heading-row > p,
+.hr-step p,
+.hr-journey-card p,
+.hr-results-copy > p,
+.hr-more-tile > p,
+.hr-locations-copy > p,
+.hr-cta-bottom > p,
+.hr-faq-list p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.hr-story-copy ul {
+  gap: 16px;
+}
+.hr-step h3 button {
+  min-height: 56px;
+  font-size: 24px;
+}
+.hr-faq-list h3,
+.faq-list summary {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.hr-small-disclaimer,
+.hr-results-note,
+.hr-location-note,
+.image-note,
+.form-note,
+.service-photography-note,
+.comparison figcaption p,
+.comparison-control p,
+.service-editorial-frame figcaption {
+  font-size: 13px !important;
+  line-height: 1.75;
+}
+.hr-small-disclaimer,
+.hr-results-note {
+  max-width: 460px;
+}
+.hr-hero-description {
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 560px;
+}
+.button,
+.hr-pill,
+.hr-hero .hr-pill {
+  font-size: 15px;
+  line-height: 1.4;
+  min-height: 52px;
+  padding: 15px 24px;
+  gap: 20px;
+  white-space: normal;
+  text-align: left;
+}
+.text-link,
+.hr-inline-link,
+.hr-cta-whatsapp {
+  font-size: 15px;
+  min-height: 44px;
+  line-height: 1.5;
+  gap: 18px;
+}
+.button-row {
+  gap: 20px;
+}
+.site-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  column-gap: 24px;
+  align-items: center;
+  max-width: 1600px;
+  margin-inline: auto;
+}
+.desktop-nav {
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+}
+.desktop-nav a,
+.services-nav button {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.header-book {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  white-space: nowrap;
+}
+.theme-toggle,
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+}
+.services-nav {
+  gap: 0;
+}
+.services-nav > button {
+  width: 44px;
+  min-width: 44px;
+}
+.form-field {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-size: 16px;
+  min-height: 48px;
+  padding: 12px 0;
+  line-height: 1.5;
+}
+.form-grid {
+  gap: 24px;
+}
+.field-error,
+.form-error,
+.error-summary {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.consent {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.consent input {
+  width: 20px;
+  height: 20px;
+}
+.enquiry-dialog > p {
+  font-size: 15px;
+}
+.contact-info,
+.contact-info p {
+  font-size: 16px;
+}
+.footer-columns a {
+  font-size: 14px;
+  line-height: 1.7;
+  padding: 3px 0;
+}
+.footer-label,
+.footer-bottom,
+.footer-bottom > span:nth-child(2) {
+  font-size: 12px;
+}
+.footer-bottom {
+  flex-wrap: wrap;
+  line-height: 1.7;
+}
+.eyebrow,
+.small-label,
+.hr-overline {
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+}
+.illustration-label,
+.hero-illustration-label {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.gallery-filters button,
+.comparison-control {
+  font-size: 14px;
+}
+.comparison figcaption strong {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.gallery-detail p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.expertise-card p,
+.service-grid-full .service-tile > p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.expertise-card-action {
+  font-size: 14px;
+  min-height: 44px;
+}
+.home-expertise {
+  padding: clamp(48px, 6vw, 80px) var(--gutter);
+}
+.expertise-heading > div > p {
+  font-size: 16px;
+}
+.service-card-tag {
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 55%;
+}
+.hero-video-toggle {
+  top: 154px;
+  right: 44px;
+  bottom: auto;
+  left: auto;
+  font-size: 13px;
+  min-height: 44px;
+}
+.hr-hero-annotation {
+  font-size: 12px;
+}
+@media (max-width: 1199px) {
+  .site-header {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    gap: 12px;
+  }
+  .header-book {
+    justify-self: end;
+  }
+  .mobile-menu > a:not(.button) {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+  .mobile-services {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 700px) {
+  .site-header {
+    gap: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .header-book {
+    font-size: 14px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .menu-toggle {
+    padding: 10px;
+  }
+  .section,
+  .hr-section {
+    padding: 64px 24px;
+  }
+  .home-expertise {
+    padding: 48px 22px;
+  }
+  .page-hero {
+    padding: 140px 24px 44px;
+  }
+  .page-hero h1 {
+    font-size: 44px;
+  }
+  .page-hero > p {
+    font-size: 16px;
+  }
+  .hr-hero {
+    height: auto;
+    min-height: 900px;
+    max-height: none;
+    padding: 218px 22px 160px;
+  }
+  .hr-hero-content {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+  }
+  .hr-hero-description {
+    font-size: 16px;
+    max-width: 340px;
+  }
+  .hr-hero .hr-pill {
+    font-size: 15px;
+  }
+  .hero-illustration-label {
+    top: 110px;
+    left: 22px;
+    right: 22px;
+    width: fit-content;
+    max-width: calc(100% - 44px);
+  }
+  .hero-video-toggle {
+    top: 154px;
+    left: 22px;
+    right: auto;
+  }
+  .hr-hero-annotation {
+    display: none;
+  }
+  .hr-hero-promises > span {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .hr-hero-promises {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hr-intro-composition {
+    gap: 32px 20px;
+  }
+  .hr-intro-aside h3 {
+    font-size: 25px;
+  }
+  .hr-intro-aside > .hr-inline-link {
+    font-size: 14px;
+    gap: 8px;
+  }
+  .hr-benefit-card {
+    min-height: 0;
+    padding: 28px 24px;
+  }
+  .hr-everyday-grid {
+    grid-template-columns: 1fr;
+  }
+  .hr-benefit-dark {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .hr-benefit-photo {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 400px;
+  }
+  .hr-story-copy,
+  .hr-results-copy,
+  .hr-locations-copy {
+    padding: 40px 24px;
+  }
+  .hr-small-disclaimer {
+    font-size: 13px !important;
+  }
+  .hr-step p {
+    padding-left: 0;
+  }
+  .hr-faq-list p {
+    padding-left: 0;
+  }
+  .hr-faq-list summary > span {
+    min-width: 24px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-layout .enquiry-form {
+    padding: 28px 22px;
+  }
+  .footer-columns {
+    gap: 28px 20px;
+  }
+  .footer-columns a {
+    font-size: 14px;
+  }
+  .footer-label {
+    font-size: 12px;
+  }
+  .footer-top .text-link {
+    font-size: 14px;
+    white-space: normal;
+  }
+  .footer-bottom {
+    font-size: 12px;
+  }
+  .mobile-sticky > a {
+    font-size: 14px;
+    min-height: 54px;
+  }
+  .final-cta h2 {
+    font-size: clamp(34px, 8.8vw, 48px);
+    line-height: 1.12;
+  }
+  .final-cta p {
+    font-size: 16px;
+  }
+  .button-row {
+    align-items: stretch;
+  }
+  .button-row > .button {
+    justify-content: space-between;
+  }
+  .hr-cta-top > span {
+    font-size: 12px;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+  .hr-cta-bottom > div {
+    width: 100%;
+  }
+  .hr-consultation h2 {
+    font-size: clamp(36px, 9.2vw, 62px);
+    line-height: 1.1;
+  }
+  .service-lead-pair .illustration-label {
+    font-size: 12px;
+  }
+  .service-lead-pair {
+    grid-template-columns: 1fr;
+  }
+  .service-lead-pair > .photo {
+    height: 360px;
+  }
+  .service-lead-detail {
+    display: none;
+  }
+  .service-story-heading h2 {
+    font-size: 38px;
+  }
+  .expertise-card p {
+    font-size: 15px;
+  }
+  .expertise-card h3 {
+    font-size: 28px;
+  }
+  .expertise-index {
+    font-size: 12px;
+  }
+  .expertise-card-content {
+    padding: 24px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header {
+    gap: 5px;
+    padding-inline: 8px;
+  }
+  .header-book {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .brand-logo-shell {
+    width: 68px;
+  }
+}
+.hr-story-copy .hr-pill,
+.hr-results-copy .hr-pill,
+.hr-cta-bottom .hr-pill,
+.enquiry-form .button,
+.final-cta .button {
+  font-size: 15px;
+  min-height: 52px;
+}
+@media (max-width: 360px) {
+  .header-book {
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .hr-intro-composition {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .hr-intro-heading,
+  .hr-intro-portrait,
+  .hr-intro-aside {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .hr-intro-portrait {
+    width: calc(100% - 24px);
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .hr-portrait-frame {
+    height: 360px;
+  }
+  .hr-intro-aside {
+    padding-left: 0;
+  }
+  .hr-intro-aside > p {
+    max-width: 560px;
+  }
+}
+.hr-story-copy,
+.hr-results-copy,
+.hr-locations-copy,
+.hr-benefit-card,
+.hr-journey-card,
+.offering {
+  min-width: 0;
+}
+.hr-pill,
+.button {
+  max-width: 100%;
+}
+.offerings {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.footer-columns {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.footer-columns > div {
+  min-width: 0;
+}
+.footer-columns a {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+.footer-note {
+  font-size: 20px;
+  line-height: 1.4;
+}
+@media (max-width: 850px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  .offerings {
+    grid-template-columns: 1fr;
+  }
+  .hr-story-copy .hr-pill,
+  .hr-results-copy .hr-pill,
+  .hr-cta-bottom .hr-pill {
+    gap: 16px;
+    padding-inline: 20px;
+  }
+}

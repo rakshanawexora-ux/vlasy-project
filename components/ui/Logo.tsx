@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/constants';
 
-export function Logo({ variant = 'dark', large = false }: { variant?: 'light' | 'dark'; large?: boolean }) {
+export function Logo({
+  variant = 'dark',
+  large = false,
+}: {
+  variant?: 'light' | 'dark';
+  large?: boolean;
+}) {
   const src = SITE_CONFIG.logo[variant];
   return src ? (
     <span className={`brand-logo-shell ${large ? 'brand-logo-large' : ''}`}>
@@ -16,7 +22,10 @@ export function Logo({ variant = 'dark', large = false }: { variant?: 'light' | 
       />
     </span>
   ) : (
-    <span className={`wordmark ${large ? 'wordmark-large' : ''}`} aria-label="VLASY Salon & Academy">
+    <span
+      className={`wordmark ${large ? 'wordmark-large' : ''}`}
+      aria-label="VLASY Salon & Academy"
+    >
       VLASY{!large && <small>SALON & ACADEMY</small>}
     </span>
   );

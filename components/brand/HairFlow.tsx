@@ -24,7 +24,11 @@ export function HairFlow({ className = '' }: { className?: string }) {
           initial={reduced ? false : { pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: reduced ? 0 : 1.9, delay: reduced ? 0 : index * 0.045, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: reduced ? 0 : 1.9,
+            delay: reduced ? 0 : index * 0.045,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         />
       ))}
     </motion.svg>
