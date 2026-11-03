@@ -45,7 +45,7 @@ The header theme control switches dark/light palettes and remembers the choice i
 - Branch addresses, hours and map links: `SITE_CONFIG.locations`.
 - Services, locations, FAQs, academy programs and articles: `data/`.
 - Verified reviews: `data/testimonials.ts` (empty until supplied).
-- Current imagery: 19 AI-created editorial WebP assets in `public/images/editorial/`, with service-specific lead pairs and three-image galleries. These are not VLASY client or branch photographs. Source/replacement guidance: `public/images/README.md`.
+- Current imagery: 27 AI-created editorial WebP assets in `public/images/editorial/`, with service-specific lead pairs and three-image galleries. These are not VLASY client or branch photographs. Source/replacement guidance: `public/images/README.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
   `next/font/local` because direct Google Fonts access is blocked in this runtime.
 - Logo asset and replacement instructions: `public/logo/README.md`. Both themes

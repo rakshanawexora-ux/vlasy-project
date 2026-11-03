@@ -1,6 +1,6 @@
 # VLASY editorial image collection
 
-The current site uses 19 newly generated documentary-style editorial assets in
+The current site uses 27 AI-generated documentary-style editorial assets in
 `editorial/`, plus the existing two-image illustrative hair replacement comparison.
 They show fictional Indian models, salon interactions, interiors, training and
 preparation details. They are AI-generated, not actual VLASY clients, employees,
@@ -13,8 +13,8 @@ and a three-frame editorial story, with accurate descriptive alt text and captio
 
 The collection was generated in matched visual directions: natural window light,
 warm neutrals, realistic skin and individual hair texture, candid salon scenes,
-no excessive retouching or glossy showroom look. Paired source sheets were split
-at their midpoint and encoded as WebP; no fabricated actual-client identity or
+no excessive retouching or glossy showroom look. Source sheets were split
+into individual panels and encoded as WebP; no fabricated actual-client identity or
 outcome is asserted. Original generated PNG sheets remain in
 `/workspace/generated_images` on this development instance.
 
@@ -26,3 +26,5 @@ model. They are not a clinical result or guarantee. Preserve their explicit labe
 Replace these with licensed photography or consented original VLASY photographs
 when available. Keep permissions, model releases and any source credits with that
 replacement. Do not label generated or unrelated images as real client results.
+
+Eight additional service-detail illustrations cover a lace-base hair system, extension weft fitting, foils/colour application, short-hair trimming, jasmine bridal hair, facial massage, mehndi application and beauty tools. These are AI-generated editorial references. The seven service lead images now show the corresponding service rather than a generic portrait.

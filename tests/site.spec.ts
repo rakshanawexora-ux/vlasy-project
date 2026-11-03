@@ -12,7 +12,7 @@ test('homepage prioritises hair replacement and working editorial imagery',async
  expect(await page.locator('.hero-image').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBeTruthy();
  expect(errors).toEqual([]);
 });
-test('desktop services menu and keyboard dismissal',async({page})=>{await page.goto('/');await page.getByRole('button',{name:'Services',exact:true}).click();await expect(page.locator('#services-menu')).toBeVisible();await expect(page.locator('#services-menu').getByRole('link',{name:'Hair Replacement',exact:true})).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#services-menu')).toHaveCount(0);await expect(page.getByRole('button',{name:'Services',exact:true})).toBeFocused();});
+test('desktop services menu and keyboard dismissal',async({page})=>{await page.goto('/');await page.getByRole('button',{name:'Services menu',exact:true}).click();await expect(page.locator('#services-menu')).toBeVisible();await expect(page.locator('#services-menu').getByRole('link',{name:'Hair Replacement',exact:true})).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('#services-menu')).toHaveCount(0);await expect(page.getByRole('button',{name:'Services menu',exact:true})).toBeFocused();});
 test('gallery filters and modal work',async({page})=>{await page.goto('/transformations');await page.getByRole('button',{name:'Colour',exact:true}).click();await expect(page.locator('.transformation-tile')).toHaveCount(1);await page.locator('.transformation-tile').click();await expect(page.getByRole('dialog')).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();});
 test('FAQ expands accessibly',async({page})=>{await page.goto('/');const question=page.locator('summary').first();await question.scrollIntoViewIfNeeded();await question.click();await expect(page.locator('details').first()).toHaveAttribute('open','');});
 test('enquiry validates and submits to thank-you',async({page})=>{await page.goto('/contact');await page.getByRole('button',{name:'Send enquiry',exact:true}).click();await expect(page.locator('.field-error').filter({hasText:'Please enter your full name.'})).toBeVisible();await page.getByLabel('Full name *').fill('Test Visitor');await page.getByLabel('Mobile number *').fill('9876543210');await page.getByLabel('I’m interested in *').selectOption('Hair Extensions');await page.getByLabel('I agree to be contacted').check();await page.getByRole('button',{name:'Send enquiry',exact:true}).click();await expect(page).toHaveURL(/thank-you/);});
@@ -137,7 +137,7 @@ test('theme switch persists across navigation, reload and keyboard use',async({p
  expect(await page.evaluate(()=>localStorage.getItem('vlasy-theme'))).toBe('light');
  await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','light');
  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content','#f5f1e9');
- await page.getByRole('button',{name:'Services',exact:true}).click();await expect(page.locator('#services-menu')).toBeVisible();
+ await page.getByRole('button',{name:'Services menu',exact:true}).click();await expect(page.locator('#services-menu')).toBeVisible();
  await page.locator('#services-menu').getByRole('link',{name:'Hair Replacement',exact:true}).click();
  await expect(page).toHaveURL(/\/services\/hair-replacement$/);await expect(page.locator('html')).toHaveAttribute('data-theme','light');
  await page.getByRole('button',{name:'Switch to dark theme'}).click();await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
@@ -197,4 +197,19 @@ test('key reading surfaces retain readable text contrast in both themes',async({
   });
   expect(failures,`${theme}: ${path}`).toEqual([]);
  }
+});
+
+test('navbar provides Home and direct page links alongside individual service destinations',async({page})=>{
+ await page.goto('/about');const nav=page.getByRole('navigation',{name:'Main navigation'});
+ await expect(nav.getByRole('link',{name:'Home',exact:true})).toHaveAttribute('href','/');
+ await expect(nav.getByRole('link',{name:'About',exact:true})).toHaveAttribute('aria-current','page');
+ await expect(nav.getByRole('link',{name:'Home',exact:true})).not.toHaveAttribute('aria-current','page');
+ await nav.getByRole('link',{name:'Home',exact:true}).click();await expect(page).toHaveURL('http://127.0.0.1:3000/');
+ await nav.getByRole('link',{name:'Services',exact:true}).click();await expect(page).toHaveURL(/\/services$/);
+ await page.getByRole('button',{name:'Services menu',exact:true}).click();await expect(page.locator('.mega-links a')).toHaveCount(7);
+ await page.locator('.mega-links').getByRole('link',{name:'Mehndi',exact:true}).click();await expect(page).toHaveURL(/\/services\/mehndi$/);
+ await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('.service-motion-graphic')).toHaveAttribute('aria-hidden','true');
+ await page.setViewportSize({width:375,height:812});await page.getByRole('button',{name:'Open navigation'}).click();
+ await page.locator('#mobile-nav').getByRole('link',{name:'Home',exact:true}).click();await expect(page).toHaveURL('http://127.0.0.1:3000/');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
