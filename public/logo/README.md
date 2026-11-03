@@ -12,3 +12,5 @@ those paths directly. Keep an accessible text alternative and intrinsic dimensio
 
 Decorative hair-strand SVG artwork is authored separately in
 `components/brand/HairFlow.tsx`; it is not used as a replacement logo.
+
+`vlasy-hair-emblem.svg` is an editable, transparent, hand-drawn interpretation of the swept hair motif. It contains vector paths only, with no embedded raster or font dependencies. It is decorative artwork, not an exact conversion or replacement of the supplied master logo. The animated page motifs share these curves through `components/brand/hair-strands.ts`.

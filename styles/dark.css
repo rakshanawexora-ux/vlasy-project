@@ -1,67 +1,67 @@
 /* Shared palette for the homepage, interior routes and overlays. */
-:root{color-scheme:dark;--paper:#101714;--ink:#f1eee5;--soft:#19231e;--muted:#bac2b8;--line:#ffffff26;--forest:#19271f;--sage:#c0c9ab;--cream:#eee8d9;--gold:#d6b675}
+:root{color-scheme:dark;--paper:#0c0b09;--ink:#f5efe3;--soft:#191611;--muted:#c5bcae;--line:#ffffff26;--forest:#1b1710;--sage:#d8b874;--cream:#d8b874;--gold:#d6b675}
 body{background:var(--paper);color:var(--ink)}
-.site-header{background:#101714f2;border-color:var(--line);box-shadow:0 12px 40px #0002}
-.site-header.header-light{background:#10171480;border-color:#ffffff1f;backdrop-filter:blur(15px)}
-.mega-menu,.mobile-menu,dialog{background:#19231e;color:var(--ink)}
-.footer,.dark-section{color:var(--ink);background:#142019}
-.photo{background:#25312a}
-.hr-benefit-cream,.hr-journey-card,.hr-results,.hr-locations,.final-cta,.branch-map,.legal-note{background:#1c2922;color:var(--ink)}
-.hr-benefit-dark{background:#26362b}
-.hr-results-caption{background:#101714eb;border-color:var(--line);color:var(--ink)}
+.site-header{background:#0c0b09f2;border-color:var(--line);box-shadow:0 12px 40px #0002}
+.site-header.header-light{background:#0c0b0980;border-color:#ffffff1f;backdrop-filter:blur(15px)}
+.mega-menu,.mobile-menu,dialog{background:#191611;color:var(--ink)}
+.footer,.dark-section{color:var(--ink);background:#15110b}
+.photo{background:#282016}
+.hr-benefit-cream,.hr-journey-card,.hr-results,.hr-locations,.final-cta,.branch-map,.legal-note{background:#211c14;color:var(--ink)}
+.hr-benefit-dark{background:#2a2116}
+.hr-results-caption{background:#0c0b09eb;border-color:var(--line);color:var(--ink)}
 .hr-intro-heading h2>span,.hr-heading-row h2 span,.hr-results-copy h2>span,.hr-locations-copy h2>span,.hr-faq-heading h2>span{color:var(--sage)}
 .hr-benefit-cream>p,.hr-journey-card p{color:var(--muted)}
 .hr-step h3 button>span,.hr-step h3 button>svg,.hr-faq-list summary>svg,.faq-list summary svg,.offering span{color:var(--gold)}
 .hr-journey-number{color:var(--sage)}
 .hr-inline-link,.hr-outline-circle,.hr-round-link{border-color:#ffffff45}
-.hr-round-link:hover{background:#314035}
-.contact-layout .enquiry-form{background:#19231e;border-color:var(--line)}
-.form-field input,.form-field select,.form-field textarea{color:var(--ink);border-color:#a6b1a1;background:transparent}
-.form-field select option{background:#19231e;color:var(--ink)}
-.form-field input::placeholder,.form-field textarea::placeholder{color:#a6b1a1;opacity:1}
+.hr-round-link:hover{background:#3a2b18}
+.contact-layout .enquiry-form{background:#191611;border-color:var(--line)}
+.form-field input,.form-field select,.form-field textarea{color:var(--ink);border-color:#b9aa90;background:transparent}
+.form-field select option{background:#191611;color:var(--ink)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#b9aa90;opacity:1}
 .consent input{accent-color:var(--gold)}
 .field-error,.form-error,.error-summary a{color:#ffb5a6}
 .error-summary,.form-error{background:#582c263d;border-color:#ffb5a6}
 .form-field input[aria-invalid=true],.form-field select[aria-invalid=true]{border-color:#ffb5a6}
-.button,.button-light,.hr-pill,.hr-pill-cream,.hr-pill-dark{background:var(--cream);color:#142019;border:1px solid #eee8d9;min-height:52px;border-radius:999px;font-weight:500;gap:24px;box-shadow:0 3px 12px #0002;transition:background .2s,border-color .2s,box-shadow .2s}
+.button,.button-light,.hr-pill,.hr-pill-cream,.hr-pill-dark{background:var(--cream);color:#15110b;border:1px solid #d8b874;min-height:52px;border-radius:999px;font-weight:500;gap:24px;box-shadow:0 3px 12px #0002;transition:background .2s,border-color .2s,box-shadow .2s}
 .button:hover,.button-light:hover,.hr-pill-cream:hover,.hr-pill-dark:hover{background:#fff7e5;border-color:#fff7e5;box-shadow:0 5px 20px #0003}
 .button:active,.hr-pill:active{background:#d6b675}
 .button:disabled{opacity:.65;cursor:wait}
-.header-book{border:1px solid #ffffff55;border-radius:999px;padding:12px 18px;min-height:44px;background:#10171466}
-.header-book:hover{background:#2c3a30;border-color:var(--gold)}
+.header-book{border:1px solid #ffffff55;border-radius:999px;padding:12px 18px;min-height:44px;background:#0c0b0966}
+.header-book:hover{background:#362818;border-color:var(--gold)}
 .text-link,.hr-inline-link,.hr-cta-whatsapp{min-height:44px}
 .gallery-filters button{min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-.gallery-filters button[aria-pressed=true]{background:var(--cream);color:#142019;border-color:var(--cream)}
+.gallery-filters button[aria-pressed=true]{background:var(--cream);color:#15110b;border-color:var(--cream)}
 .gallery-filters button:hover{border-color:var(--gold)}
-.dialog-close{background:#26362b;color:var(--ink);border-radius:50%}
-.floating-whatsapp{background:var(--cream);color:#142019;border-color:var(--gold)}
-.floating-whatsapp svg{color:#142019}
-.mobile-sticky{background:#19231e;color:var(--ink);border-color:#ffffff45}
-.mobile-sticky>a:last-child{background:var(--cream);color:#142019}
+.dialog-close{background:#2a2116;color:var(--ink);border-radius:50%}
+.floating-whatsapp{background:var(--cream);color:#15110b;border-color:var(--gold)}
+.floating-whatsapp svg{color:#15110b}
+.mobile-sticky{background:#191611;color:var(--ink);border-color:#ffffff45}
+.mobile-sticky>a:last-child{background:var(--cream);color:#15110b}
 :where(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #e7c888;outline-offset:5px}
 /* The original black/gold logo keeps its cream backing and original artwork. */
-.illustration-label,.hero-illustration-label{position:absolute;z-index:2;padding:6px 10px;border:1px solid #ffffff40;border-radius:5px;background:#101714eb;color:#f1eee5;font-size:10px;line-height:1.5;letter-spacing:.02em;pointer-events:none}
+.illustration-label,.hero-illustration-label{position:absolute;z-index:2;padding:6px 10px;border:1px solid #ffffff40;border-radius:5px;background:#0c0b09eb;color:#f5efe3;font-size:10px;line-height:1.5;letter-spacing:.02em;pointer-events:none}
 .illustration-label{top:12px;left:12px;max-width:calc(100% - 24px)}
 .hero-illustration-label{right:28px;top:115px}
 .hr-portrait-caption{font-size:9px;line-height:1.6}
 .guide-intro{max-width:640px;color:var(--muted);margin-top:24px}
 .guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:40px}
-.guide-grid article{padding:32px;border:1px solid var(--line);border-radius:22px;background:#19231e}
+.guide-grid article{padding:32px;border:1px solid var(--line);border-radius:22px;background:#191611}
 .guide-grid h3{font-size:29px;letter-spacing:-.04em}
 .guide-grid p,.consultation-checklist p{color:var(--muted);margin-top:20px}
 .consultation-checklist{border-left:2px solid var(--gold);padding:16px 28px;margin-top:32px;max-width:850px}
 .comparison-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:6vw;border-top:1px solid var(--line)}
 .comparison-section h2{font-size:clamp(36px,4vw,60px)}
 .comparison-section>div>p{color:var(--muted);margin-top:24px;max-width:540px}
-.comparison{margin:0;min-width:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#19231e}
+.comparison{margin:0;min-width:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#191611}
 .comparison figcaption{padding:22px 24px}
 .comparison figcaption strong{font-size:13px;font-weight:500;color:var(--gold)}
 .comparison figcaption p{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.7}
 .comparison .before-after{height:clamp(280px,36vw,480px)}
 .comparison .before-after img{object-position:center 25%}
 .comparison .slider-line{width:2px;background:var(--cream);transform:translateX(-50%)}
-.slider-line>span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;border:2px solid var(--cream);border-radius:50%;width:44px;height:44px;background:#142019;color:var(--cream)}
-.before-label,.after-label{font-size:11px;background:#101714e6;border:1px solid #ffffff40;border-radius:5px;padding:7px 10px}
+.slider-line>span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;border:2px solid var(--cream);border-radius:50%;width:44px;height:44px;background:#15110b;color:var(--cream)}
+.before-label,.after-label{font-size:11px;background:#0c0b09e6;border:1px solid #ffffff40;border-radius:5px;padding:7px 10px}
 .before-label{left:12px;top:12px}.after-label{right:12px;top:12px}
 .comparison-control{padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;font-size:12px}
 .comparison-control output{color:var(--gold);font-variant-numeric:tabular-nums}
@@ -70,3 +70,26 @@ body{background:var(--paper);color:var(--ink)}
 @media(max-width:850px){.comparison-section{grid-template-columns:1fr;gap:32px}}
 @media(max-width:600px){.header-book{font-size:9px;padding:10px 12px;gap:8px;margin-right:4px}.hero-illustration-label{top:100px;right:18px;left:18px;width:fit-content;font-size:9px}.guide-grid{grid-template-columns:1fr}.guide-grid article{padding:24px}.comparison-control{grid-template-columns:1fr}.comparison-control input[type=range],.comparison-control p{grid-column:1}.comparison figcaption,.comparison-control{padding:20px}.comparison .before-after{height:340px}.hr-portrait-caption{font-size:8px}.illustration-label{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.button,.hr-pill,.header-book{transition:none}}
+
+/* Warm black and champagne gold, drawn from the original VLASY emblem. */
+.hr-hero-overlay{background:linear-gradient(90deg,#0c0b09e8 0%,#0c0b0970 43%,transparent 70%),linear-gradient(0deg,#0c0b09e8,transparent 45%)}
+.hr-hero-note{background:#211a10d9;border-color:#d8b87455}
+.hr-hero-description,.hr-story-copy>p,.hr-story-copy ul,.hr-small-disclaimer,.hr-benefit-dark>p,.hr-cta-bottom>p,.hr-cta-whatsapp{color:#d5c9b6}
+.hr-hero h1>span:nth-child(2),.hr-hero h1 .hr-hero-last{color:var(--gold)}
+.hr-hero-promises>span{color:#e5dac8}
+.hr-benefit-dark,.hr-story,.hr-consultation,.footer{border:1px solid #d8b87424}
+.hr-benefit-photo:after,.hr-story-photo:after{background:linear-gradient(0deg,#0c0b09e6,transparent)}
+.hr-story-photo>.photo{background:#211c14}
+.hr-results,.hr-locations,.hr-journey-card,.comparison,.guide-grid article{border:1px solid #d8b87433}
+.hr-pill,.button{background:linear-gradient(115deg,#edd6a2,#c89e50);border-color:#e1c181;color:#15110b;box-shadow:inset 0 1px #fff5,0 5px 18px #0003}
+.hr-pill:hover,.button:hover,.button-light:hover,.hr-pill-cream:hover,.hr-pill-dark:hover{background:#f3dca8;border-color:#f3dca8;color:#15110b}
+.header-book{color:#f0d8a3;border-color:#d8b87470;background:#15110b99}
+.comparison figcaption{background:linear-gradient(120deg,#2a2116,#191611)}
+.comparison .slider-line{background:#e8c984;box-shadow:0 0 12px #0008}
+.slider-line>span{background:#d8b874;border-color:#f7e6be;color:#15110b;box-shadow:0 3px 18px #0006}
+.before-label,.after-label{border-color:#d8b87480;color:#f3dca8;background:#0c0b09e6}
+.comparison-control{border-top:1px solid #d8b87433;background:#14110d}
+.hair-flow{color:#d6b675}
+.brand-scroll-progress{background:linear-gradient(90deg,#ae8134,#f4dfaa,#ae8134)}
+.hr-outline-circle,.hr-round-link,.hr-inline-link{border-color:#d8b87466}
+@media(max-width:700px){.hr-hero-overlay{background:linear-gradient(0deg,#0c0b09fa 0%,#0c0b09cf 32%,#0c0b0933 75%),linear-gradient(90deg,#0c0b0966,transparent 95%)}}

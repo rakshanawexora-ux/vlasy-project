@@ -73,7 +73,7 @@ test('illustrative comparison is labelled and works with keyboard and touch',asy
 test('dark surfaces and illustrative labels are consistent across routes',async({page})=>{
  for(const route of ['/','/contact','/services/hair-replacement','/transformations']){
   await page.goto(route);
-  await expect(page.locator('body')).toHaveCSS('background-color','rgb(16, 23, 20)');
+  await expect(page.locator('body')).toHaveCSS('background-color','rgb(12, 11, 9)');
   await expect(page.locator('html')).toHaveCSS('color-scheme','dark');
   if(route==='/')await expect(page.getByText('Illustrative portrait · not a client result')).toBeVisible();
   else if(route!=='/contact')await expect(page.locator('.illustration-label').first()).toBeVisible();
