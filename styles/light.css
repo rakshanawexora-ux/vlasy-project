@@ -1,0 +1,46 @@
+/* Theme controls and shared media behavior. Brand artwork is never recoloured. */
+.theme-toggle{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #d8b87470;border-radius:50%;background:#24232199;color:#efd69e}
+.theme-toggle:hover{background:#443b2a}
+.header-book-short{display:none}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% center;z-index:-3;opacity:0;transition:opacity .6s;pointer-events:none}
+.hero-video.is-playing{opacity:1}
+.hero-video-toggle{position:absolute;left:calc(var(--gutter) - 18px);bottom:108px;z-index:3;display:flex;align-items:center;gap:9px;min-height:44px;padding:11px 15px;border:1px solid #e8cf945f;border-radius:999px;background:#191611db;color:#f5efe3;font-size:10px;backdrop-filter:blur(10px)}
+.hero-video-toggle:hover{background:#3b3020}
+html[data-theme=light]{color-scheme:light;--paper:#f5f1e9;--ink:#292620;--soft:#ede7dc;--muted:#625b51;--line:#2b251d26;--forest:#ede5d6;--sage:#7b5b29;--cream:#d8b874;--gold:#80602b}
+html[data-theme=light] body{background:var(--paper);color:var(--ink)}
+html[data-theme=light] .site-header{background:#f8f4ecf5;color:#292620;border-color:#8a755236;box-shadow:0 8px 30px #4e381410}
+html[data-theme=light] .site-header.header-light{background:#242321b8;color:#f5efe3;border-color:#ffffff30}
+html[data-theme=light] .theme-toggle{background:#eee5d5;color:#684d22;border-color:#8a6a3870}
+html[data-theme=light] .theme-toggle:hover{background:#e5d7bd}
+html[data-theme=light] .header-book{background:#efe6d6;color:#624719;border-color:#8b6c3b80}
+html[data-theme=light] .header-book:hover{background:#e3d4b7}
+html[data-theme=light] .mega-menu,html[data-theme=light] .mobile-menu,html[data-theme=light] dialog{background:#faf7f0;color:#292620}
+html[data-theme=light] .hr-benefit-cream,html[data-theme=light] .hr-journey-card,html[data-theme=light] .hr-results,html[data-theme=light] .hr-locations,html[data-theme=light] .final-cta,html[data-theme=light] .branch-map,html[data-theme=light] .legal-note,html[data-theme=light] .guide-grid article{background:#ede5d6;color:#292620;border-color:#846e473d}
+html[data-theme=light] .hr-benefit-dark{background:#e2d4b9;color:#292620}
+html[data-theme=light] .hr-story,html[data-theme=light] .hr-consultation{background:#eae1d2;color:#292620;border-color:#846e473d}
+html[data-theme=light] .hr-story-copy>p,html[data-theme=light] .hr-story-copy ul,html[data-theme=light] .hr-small-disclaimer,html[data-theme=light] .hr-benefit-dark>p,html[data-theme=light] .hr-cta-bottom>p,html[data-theme=light] .hr-cta-whatsapp{color:#625b51}
+html[data-theme=light] .hr-story-copy li svg{color:#76572a}
+html[data-theme=light] .hr-results-caption{background:#faf6eeed;color:#292620;border-color:#8a75524d}
+html[data-theme=light] .hr-round-link:hover{background:#e3d4b7}
+html[data-theme=light] .hr-inline-link,html[data-theme=light] .hr-outline-circle,html[data-theme=light] .hr-round-link,html[data-theme=light] .hr-cta-whatsapp{border-color:#846e4777}
+html[data-theme=light] .hr-hero{--sage:#d8b874;--gold:#d6b675;--forest:#191611;color:#eee8d9}
+html[data-theme=light] .footer,html[data-theme=light] .dark-section{background:#242321;color:#f5efe3;--paper:#f5efe3;--muted:#c5bcae;--sage:#d8b874;--gold:#d6b675}
+html[data-theme=light] .footer .text-link{color:#f5efe3}
+html[data-theme=light] .contact-layout .enquiry-form{background:#faf7f0;border-color:#846e473d}
+html[data-theme=light] .form-field input,html[data-theme=light] .form-field select,html[data-theme=light] .form-field textarea{color:#292620;border-color:#897d69}
+html[data-theme=light] .form-field select option{background:#faf7f0;color:#292620}
+html[data-theme=light] .form-field input::placeholder,html[data-theme=light] .form-field textarea::placeholder{color:#6f665a}
+html[data-theme=light] .field-error,html[data-theme=light] .form-error,html[data-theme=light] .error-summary a{color:#9a3326}
+html[data-theme=light] .form-error,html[data-theme=light] .error-summary{background:#f9ebe7;border-color:#9a3326}
+html[data-theme=light] .form-field input[aria-invalid=true],html[data-theme=light] .form-field select[aria-invalid=true]{border-color:#9a3326}
+html[data-theme=light] .dialog-close{background:#e8ddc9;color:#292620}
+html[data-theme=light] .comparison{background:#faf7f0;color:#292620;border-color:#846e4755}
+html[data-theme=light] .comparison figcaption{background:#eee5d5}
+html[data-theme=light] .comparison-control{background:#faf7f0;border-color:#846e4755}
+html[data-theme=light] .mobile-sticky{background:#f8f4ec;color:#292620;border-color:#8a755250}
+html[data-theme=light] :where(button,a,input,select,textarea,summary):focus-visible{outline-color:#7b5b29}
+html[data-theme=light] .hr-hero a:focus-visible,html[data-theme=light] .hr-hero button:focus-visible,html[data-theme=light] .footer a:focus-visible{outline-color:#efd69e}
+@media(max-width:700px){.site-header{gap:10px;padding-left:12px;padding-right:12px}.theme-toggle{width:40px;height:40px}.header-book-label{display:none}.header-book-short{display:inline}.header-book{min-height:44px;padding:10px 12px;gap:8px;margin-right:0}.menu-toggle{padding:10px 0 10px 4px}.hero-video{object-position:80% center}.hero-video-toggle{top:142px;left:22px;bottom:auto}}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none;transition:none}}
+@media(max-width:1050px){.desktop-nav{display:none}.menu-toggle{display:grid}.header-book{margin-left:auto}.mobile-menu{display:flex;position:fixed;top:87px;left:-1px;right:-1px;height:calc(100dvh - 124px);overflow:auto;background:var(--paper);color:var(--ink);padding:20px 28px 80px;flex-direction:column;border-radius:0 0 22px 22px}.mobile-menu>a:not(.button){font-family:var(--font-sans);font-size:30px;padding:15px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.mobile-services{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:28px 0;font-size:11px}.mobile-menu>.button{margin-top:15px;flex-shrink:0;align-self:flex-start}}
+@media(max-width:700px){.mobile-menu{top:79px;height:calc(100dvh - 110px)}}

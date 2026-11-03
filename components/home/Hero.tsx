@@ -1,10 +1,11 @@
+import { HeroVideo } from './HeroVideo';
 import Link from 'next/link';
 import { ArrowDown,ArrowUpRight,ShieldCheck,ScanFace,HeartHandshake } from 'lucide-react';
 import { HairFlow } from '@/components/brand/HairFlow';
 import { HeroPortrait, KineticHeadline, MagneticLink, ScrollProgress } from '@/components/brand/BrandMotion';
 import { hairConsultationUrl } from '@/data/hair-replacement';
 export function Hero(){return <section className="hr-hero" aria-labelledby="hero-title">
- <ScrollProgress/><HeroPortrait/><span className="hero-illustration-label">AI editorial portrait · not a client result</span>
+ <ScrollProgress/><HeroPortrait/><HeroVideo/><span className="hero-illustration-label">AI editorial portrait · not a client result</span>
  <div className="hr-hero-overlay"/><HairFlow className="hair-flow-hero"/>
  <div className="hr-hero-content"><p className="hr-overline"><span/>HAIR REPLACEMENT / CHENNAI</p>
  <KineticHeadline/>

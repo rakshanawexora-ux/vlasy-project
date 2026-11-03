@@ -32,6 +32,10 @@ another installed Chromium executable if needed. In this managed environment,
 Next.js build subprocesses, server binding and browser execution require the
 executor's supported escalated execution mode.
 
+## Theme and hero media
+
+The header theme control switches dark/light palettes and remembers the choice in local storage. The initial theme is applied before hydration to prevent a palette flash. The hero includes a 10-second silent motion loop made from the AI editorial artwork, not recorded salon footage, with pause/play, static fallback, reduced-motion and data-saver handling. See `public/videos/README.md` for replacement guidance.
+
 ## Content & integrations
 
 - Central contact values and original logo paths: `lib/constants.ts`.
