@@ -44,14 +44,14 @@ test('supplied logo loads and decorative vectors respect reduced motion',async({
 
 test('illustrative comparison is labelled and works with keyboard and touch',async({page,browser})=>{
  await page.goto('/services/hair-replacement');
- const slider=page.getByRole('slider',{name:'Compare illustrative portraits'});
- await expect(page.getByText('Illustrative comparison · not a client result')).toBeVisible();
- await expect(page.getByText('They are not a matched before-and-after pair or evidence of a treatment outcome.',{exact:false})).toBeVisible();
+ const slider=page.getByRole('slider',{name:'Compare before and after illustrations'});
+ await expect(page.getByText('AI-generated illustration · not a client result')).toBeVisible();
+ await expect(page.getByText('These AI-generated images are not a real treatment result or a guarantee.',{exact:false})).toBeVisible();
  await slider.scrollIntoViewIfNeeded();
  for(const portrait of await page.locator('.comparison img').all())await expect.poll(()=>portrait.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
  await slider.focus();
  await page.keyboard.press('Home');await expect(slider).toHaveValue('0');
- await expect(slider).toHaveAttribute('aria-valuetext','0% of illustration A visible');
+ await expect(slider).toHaveAttribute('aria-valuetext','0% of before illustration visible');
  await page.keyboard.press('ArrowRight');await expect(slider).toHaveValue('1');
  await page.keyboard.press('End');await expect(slider).toHaveValue('100');
  await expect(page.locator('.before-image')).toHaveCSS('clip-path','inset(0px 0% 0px 0px)');
@@ -59,8 +59,8 @@ test('illustrative comparison is labelled and works with keyboard and touch',asy
  await page.mouse.click(control!.x+control!.width/2,control!.y+control!.height/2);
  expect(Number(await slider.inputValue())).toBeGreaterThan(40);
  expect(Number(await slider.inputValue())).toBeLessThan(60);
- const id=await slider.getAttribute('id');await expect(page.locator(`label[for="${id}"]`)).toHaveText('Compare illustrative portraits');
- await page.goto('/transformations');await expect(page.getByRole('slider')).toHaveAccessibleName('Compare illustrative portraits');
+ const id=await slider.getAttribute('id');await expect(page.locator(`label[for="${id}"]`)).toHaveText('Compare before and after illustrations');
+ await page.goto('/transformations');await expect(page.getByRole('slider')).toHaveAccessibleName('Compare before and after illustrations');
  const mobile=await browser.newContext({viewport:{width:375,height:812},hasTouch:true,isMobile:true,baseURL:'http://127.0.0.1:3000'});
  const touchPage=await mobile.newPage();await touchPage.addInitScript(()=>sessionStorage.setItem('vlasy-enquiry-shown','true'));
  await touchPage.goto('/transformations');const touchSlider=touchPage.getByRole('slider');await touchSlider.scrollIntoViewIfNeeded();

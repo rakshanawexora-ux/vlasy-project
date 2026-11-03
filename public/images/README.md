@@ -15,3 +15,5 @@ Do not create an apparent client outcome from unrelated or generated photographs
 
 The hair replacement redesign uses hair-confidence-hero.jpg as generated male
 editorial imagery. It is illustrative, not evidence of a treatment result.
+
+The paired `hair-replacement-before-illustration.webp` and `hair-replacement-after-illustration.webp` assets were generated together with AI to illustrate advanced thinning and a possible hair-system appearance on one fictional Indian model. They are not client photographs or verified results. Keep the visible AI-generated disclosure with any display of this pair.
