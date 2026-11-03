@@ -1,1 +1,1 @@
-export const navigation = [{label:'Hair Replacement',href:'/services/hair-replacement'},{label:'Services',href:'/services'},{label:'Our Approach',href:'/#approach'},{label:'Academy',href:'/academy'},{label:'Locations',href:'/locations'}];
+export const navigation = [{label:'Hair Replacement',href:'/services/hair-replacement'},{label:'Services',href:'/services'},{label:'Our Approach',href:'/approach'},{label:'Academy',href:'/academy'},{label:'Locations',href:'/locations'}];

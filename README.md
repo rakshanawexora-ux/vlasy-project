@@ -4,7 +4,7 @@ A responsive Next.js App Router website for VLASY in Chennai. The redesigned
 homepage leads with non-surgical hair replacement, clean Manrope typography,
 forest-charcoal and cream surfaces, documentary-style AI editorial imagery, lifestyle guidance,
 an interactive consultation-to-aftercare journey, and hair-specific FAQs and CTAs.
-Other salon services and the academy remain available as supporting routes.
+The homepage includes a clear “What we do at VLASY” service index. All seven services have individual pages; the academy has four individual program-area pages, and the consultation process has a dedicated /approach page. A lighter charcoal palette and cream service section balance the black-and-gold brand.
 
 The supplied reference image informed the composition and hierarchy; the two
 reference websites were blocked by this environment's network policy and could

@@ -1,0 +1,11 @@
+import { PageHero } from '@/components/ui/PageHero';
+import { Photo,SectionLabel,ActionLink } from '@/components/ui/Primitives';
+import { Process } from '@/components/services/Process';
+import { ServiceGrid } from '@/components/services/ServiceGrid';
+import { metadata } from '@/lib/seo';
+export const generateMetadata=()=>metadata('Our approach','Learn how VLASY approaches consultation, personal recommendations, salon care and aftercare in Chennai.','/approach');
+export default function Approach(){return <><PageHero label="THE VLASY APPROACH" title="Personal care. From the first conversation." description="Your preferences, your comfort and your everyday routine guide the conversation. We explain the options before agreeing on a direction." cta="Talk to our team"/>
+ <div className="service-lead-pair"><Photo src="/images/editorial/salon-process.webp" alt="AI editorial illustration of a stylist and man discussing his hairstyle" priority/><Photo src="/images/editorial/replacement-process.webp" alt="AI editorial illustration of a stylist carefully combing a short hairstyle"/></div>
+ <section className="section"><SectionLabel>WHAT TO EXPECT</SectionLabel><h2>A clear process.<br/><em>A personal experience.</em></h2><Process/></section>
+ <section className="section page-split"><div><SectionLabel>BEFORE YOU DECIDE</SectionLabel><h2>Good questions.<br/><em>Honest conversations.</em></h2></div><div><p>Share your references, previous treatments, sensitivities and preferred maintenance routine. Ask which options are suitable and what each appointment involves.</p><p>For hair systems, discuss fitting, attachment, cleaning and ongoing refits. For colour, beauty or occasion services, ask about preparation, suitability checks and aftercare.</p><p>Confirm pricing, inclusions, your branch and specialist availability with the team before your appointment is agreed.</p></div></section>
+ <section className="section"><div className="section-heading"><div><SectionLabel>FIND YOUR DIRECTION</SectionLabel><h2>Explore our services.</h2></div><ActionLink href="/services">View all services</ActionLink></div><ServiceGrid slugs={['hair-replacement','hair-extensions','hair-colour']}/></section></>;}
