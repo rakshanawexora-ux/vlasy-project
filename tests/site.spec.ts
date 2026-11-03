@@ -41,3 +41,45 @@ test('supplied logo loads and decorative vectors respect reduced motion',async({
  await expect.poll(()=>footerLogo.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+
+test('illustrative comparison is labelled and works with keyboard and touch',async({page,browser})=>{
+ await page.goto('/services/hair-replacement');
+ const slider=page.getByRole('slider',{name:'Compare illustrative portraits'});
+ await expect(page.getByText('Illustrative comparison · not a client result')).toBeVisible();
+ await expect(page.getByText('They are not a matched before-and-after pair or evidence of a treatment outcome.',{exact:false})).toBeVisible();
+ await slider.scrollIntoViewIfNeeded();
+ for(const portrait of await page.locator('.comparison img').all())await expect.poll(()=>portrait.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+ await slider.focus();
+ await page.keyboard.press('Home');await expect(slider).toHaveValue('0');
+ await expect(slider).toHaveAttribute('aria-valuetext','0% of illustration A visible');
+ await page.keyboard.press('ArrowRight');await expect(slider).toHaveValue('1');
+ await page.keyboard.press('End');await expect(slider).toHaveValue('100');
+ await expect(page.locator('.before-image')).toHaveCSS('clip-path','inset(0px 0% 0px 0px)');
+ const control=await slider.boundingBox();expect(control).toBeTruthy();
+ await page.mouse.click(control!.x+control!.width/2,control!.y+control!.height/2);
+ expect(Number(await slider.inputValue())).toBeGreaterThan(40);
+ expect(Number(await slider.inputValue())).toBeLessThan(60);
+ const id=await slider.getAttribute('id');await expect(page.locator(`label[for="${id}"]`)).toHaveText('Compare illustrative portraits');
+ await page.goto('/transformations');await expect(page.getByRole('slider')).toHaveAccessibleName('Compare illustrative portraits');
+ const mobile=await browser.newContext({viewport:{width:375,height:812},hasTouch:true,isMobile:true,baseURL:'http://127.0.0.1:3000'});
+ const touchPage=await mobile.newPage();await touchPage.addInitScript(()=>sessionStorage.setItem('vlasy-enquiry-shown','true'));
+ await touchPage.goto('/transformations');const touchSlider=touchPage.getByRole('slider');await touchSlider.scrollIntoViewIfNeeded();
+ const touchBox=await touchSlider.boundingBox();expect(touchBox).toBeTruthy();
+ await touchPage.touchscreen.tap(touchBox!.x+touchBox!.width*.75,touchBox!.y+touchBox!.height/2);
+ expect(Number(await touchSlider.inputValue())).toBeGreaterThan(60);expect(Number(await touchSlider.inputValue())).toBeLessThan(90);
+ await expect(touchPage.locator('.comparison')).toBeVisible();await mobile.close();
+});
+
+test('dark surfaces and illustrative labels are consistent across routes',async({page})=>{
+ for(const route of ['/','/contact','/services/hair-replacement','/transformations']){
+  await page.goto(route);
+  await expect(page.locator('body')).toHaveCSS('background-color','rgb(16, 23, 20)');
+  await expect(page.locator('html')).toHaveCSS('color-scheme','dark');
+  if(route==='/')await expect(page.getByText('Illustrative portrait · not a client result')).toBeVisible();
+  else if(route!=='/contact')await expect(page.locator('.illustration-label').first()).toBeVisible();
+ }
+ await page.goto('/services/hair-replacement');
+ await expect(page.getByRole('heading',{name:'The full cost of care'})).toBeVisible();
+ await page.setViewportSize({width:375,height:812});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
