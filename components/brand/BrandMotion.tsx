@@ -20,7 +20,7 @@ export function HeroPortrait() {
   const reduced = useReducedMotion();
   return (
     <motion.div className="hr-moving-image" style={reduced ? undefined : { y }}>
-      <Image src="/images/hair-confidence-hero.jpg" alt="Editorial portrait illustrating a natural short hairstyle; not a documented hair replacement result" fill priority sizes="(max-width: 700px) 1100px, 100vw" className="hero-image hr-hero-photo" />
+      <Image src="/images/editorial/hero.webp" alt="Editorial portrait illustrating a natural short hairstyle; not a documented hair replacement result" fill priority sizes="(max-width: 700px) 1100px, 100vw" className="hero-image hr-hero-photo" />
     </motion.div>
   );
 }

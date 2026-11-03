@@ -1,19 +1,28 @@
-# Placeholder photography
+# VLASY editorial image collection
 
-All images are generated editorial concepts, not photographs of VLASY clients,
-team members, academy students, or branches. Never label these as verified results.
-The original generated PNGs are retained in /workspace/generated_images.
+The current site uses 19 newly generated documentary-style editorial assets in
+`editorial/`, plus the existing two-image illustrative hair replacement comparison.
+They show fictional Indian models, salon interactions, interiors, training and
+preparation details. They are AI-generated, not actual VLASY clients, employees,
+branches, classes or documented treatment outcomes. Keep the visible disclosures.
+The original logo is separate and remains unchanged.
 
-Replace hero.jpg with a licensed campaign image; replacement.jpg with approved hair
-replacement work; extensions.jpg with extensions work; colour.jpg with colour work;
-styling.jpg with styling work; bridal.jpg and mehndi.jpg with consented occasion
-work; beauty.jpg with treatment photography; salon.jpg and academy.jpg with real
-branch and training photography. Preserve meaningful alt text and consent records.
+Each service has its own main photograph-style illustration and process/detail
+image. The overview uses paired cards; individual routes use paired lead images
+and a three-frame editorial story, with accurate descriptive alt text and captions.
 
-Real before/after pairs can use components/transformations/BeforeAfterSlider.tsx.
-Do not create an apparent client outcome from unrelated or generated photographs.
+The collection was generated in matched visual directions: natural window light,
+warm neutrals, realistic skin and individual hair texture, candid salon scenes,
+no excessive retouching or glossy showroom look. Paired source sheets were split
+at their midpoint and encoded as WebP; no fabricated actual-client identity or
+outcome is asserted. Original generated PNG sheets remain in
+`/workspace/generated_images` on this development instance.
 
-The hair replacement redesign uses hair-confidence-hero.jpg as generated male
-editorial imagery. It is illustrative, not evidence of a treatment result.
+`hair-replacement-before-illustration.webp` and
+`hair-replacement-after-illustration.webp` are an AI-generated matched concept of
+advanced thinning and a possible hair-system appearance on a fictional Indian
+model. They are not a clinical result or guarantee. Preserve their explicit label.
 
-The paired `hair-replacement-before-illustration.webp` and `hair-replacement-after-illustration.webp` assets were generated together with AI to illustrate advanced thinning and a possible hair-system appearance on one fictional Indian model. They are not client photographs or verified results. Keep the visible AI-generated disclosure with any display of this pair.
+Replace these with licensed photography or consented original VLASY photographs
+when available. Keep permissions, model releases and any source credits with that
+replacement. Do not label generated or unrelated images as real client results.

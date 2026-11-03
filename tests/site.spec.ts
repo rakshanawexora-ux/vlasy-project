@@ -75,11 +75,36 @@ test('dark surfaces and illustrative labels are consistent across routes',async(
   await page.goto(route);
   await expect(page.locator('body')).toHaveCSS('background-color','rgb(12, 11, 9)');
   await expect(page.locator('html')).toHaveCSS('color-scheme','dark');
-  if(route==='/')await expect(page.getByText('Illustrative portrait · not a client result')).toBeVisible();
+  if(route==='/')await expect(page.getByText('AI editorial portrait · not a client result')).toBeVisible();
   else if(route!=='/contact')await expect(page.locator('.illustration-label').first()).toBeVisible();
  }
  await page.goto('/services/hair-replacement');
  await expect(page.getByRole('heading',{name:'The full cost of care'})).toBeVisible();
  await page.setViewportSize({width:375,height:812});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('service stories provide responsive photo galleries with loaded images',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ const slugs=['hair-replacement','hair-extensions','hair-colour','hair-cut-styling','bridal','beauty-treatments','mehndi'];
+ for(const slug of slugs){
+  await page.goto(`/services/${slug}`);
+  const lead=page.locator('.service-lead-pair');await expect(lead.locator('img')).toHaveCount(2);
+  for(const photo of await lead.locator('img').all()){
+   await photo.scrollIntoViewIfNeeded();await expect.poll(()=>photo.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
+  }
+  const story=page.locator('.service-photo-story');await expect(story).toBeAttached();
+  await expect(story.locator('figure')).toHaveCount(3);
+  for(const photo of await story.locator('figure img').all()){
+   await photo.scrollIntoViewIfNeeded();
+   await expect.poll(()=>photo.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
+  }
+  await expect(story.getByText('These images do not document VLASY clients, results or branch interiors.',{exact:false})).toBeVisible();
+ }
+ await page.setViewportSize({width:375,height:812});await page.goto('/services');
+ await expect(page.locator('.service-card-visual')).toHaveCount(7);
+ await expect(page.locator('.service-card-detail')).toHaveCount(7);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.goto('/services/hair-replacement');await page.locator('.service-photo-story').scrollIntoViewIfNeeded();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

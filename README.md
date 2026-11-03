@@ -2,7 +2,7 @@
 
 A responsive Next.js App Router website for VLASY in Chennai. The redesigned
 homepage leads with non-surgical hair replacement, clean Manrope typography,
-forest-charcoal and cream surfaces, immersive local imagery, lifestyle guidance,
+forest-charcoal and cream surfaces, documentary-style AI editorial imagery, lifestyle guidance,
 an interactive consultation-to-aftercare journey, and hair-specific FAQs and CTAs.
 Other salon services and the academy remain available as supporting routes.
 
@@ -41,7 +41,7 @@ executor's supported escalated execution mode.
 - Branch addresses, hours and map links: `SITE_CONFIG.locations`.
 - Services, locations, FAQs, academy programs and articles: `data/`.
 - Verified reviews: `data/testimonials.ts` (empty until supplied).
-- Placeholder imagery and replacement guidance: `public/images/README.md`.
+- Current imagery: 19 AI-created editorial WebP assets in `public/images/editorial/`, with service-specific lead pairs and three-image galleries. These are not VLASY client or branch photographs. Source/replacement guidance: `public/images/README.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
   `next/font/local` because direct Google Fonts access is blocked in this runtime.
 - Logo asset and replacement instructions: `public/logo/README.md`. Both themes
