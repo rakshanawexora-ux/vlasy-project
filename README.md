@@ -1,7 +1,7 @@
 # VLASY Unisex Salon & Academy
 
 A responsive Next.js website for the VLASY unisex salon in Kolathur, Chennai.
-The confirmed menu has nine main service categories and 85 sub-services. Each
+The confirmed menu has nine main service categories and 85 illustrated sub-services. The homepage highlights five categories in a scroll-led sequence with a complete-menu CTA. Each
 category has its own named page; sub-services are listed within that page.
 
 The current design uses bright ivory and champagne-gold surfaces by default,

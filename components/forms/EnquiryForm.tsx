@@ -10,10 +10,12 @@ import { enquirySchema, type EnquiryValues } from '@/lib/validations';
 export function EnquiryForm({
   compact = false,
   service = '',
+  initialMessage = '',
   branch = 'Not Sure',
 }: {
   compact?: boolean;
   service?: string;
+  initialMessage?: string;
   branch?: EnquiryValues['branch'];
 }) {
   const router = useRouter();
@@ -33,7 +35,7 @@ export function EnquiryForm({
       service: normalizeServiceName(service),
       branch,
       consent: false,
-      message: '',
+      message: initialMessage,
       preferredDate: '',
     },
   });

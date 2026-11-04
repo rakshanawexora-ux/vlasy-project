@@ -96,3 +96,9 @@ when cleaning up a development session.
 ## Confirmed salon catalogue
 
 The current menu has nine main categories and 85 sub-services. Each category has a descriptively named `app/services/<category>/page.tsx` file. Shared page layout lives in `components/services/ServiceDetailPage.tsx`; approved names and sub-service lists live in `data/services.ts`. Sub-services are listed within their category, with no separate sub-service pages. Earlier service URLs redirect through `data/service-routes.ts`. Kolathur is the only published branch; the removed branch is rejected by form validation. New visits use light mode, while a saved explicit dark preference remains respected.
+
+## Service discovery
+
+Homepage feature selection is in `data/featured-services.ts` (five highlights, not the whole catalogue). `FeaturedServiceStory` handles one-time entry reveals and desktop image parallax; reduced motion and mobile use a static image layout. The full menu is always available via the Explore all services links.
+
+`data/sub-services.ts` maps every confirmed sub-service to an editorial image. Related services may reuse a relevant reference. `SubServiceGallery` provides search and individual enquiry links. Contact validates the requested sub-service against the selected category before prefilling the editable enquiry message. No separate sub-service pages are created.

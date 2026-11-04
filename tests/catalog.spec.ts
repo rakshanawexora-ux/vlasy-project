@@ -10,7 +10,11 @@ const catalogue = [
   ['bridal-special-occasion', 'Bridal & Special Occasion Services', 9],
   ['nail-beauty', 'Nail & Additional Beauty Services', 7],
 ] as const;
-test('confirmed catalogue has nine named pages and all 85 sub-services', async ({ page }) => {
+test('confirmed catalogue has nine named pages and all 85 sub-services', async ({
+  page,
+  request,
+}) => {
+  const images = new Set<string>();
   await page.setViewportSize({ width: 375, height: 812 });
   let total = 0;
   for (const [slug, name, count] of catalogue) {
@@ -21,19 +25,33 @@ test('confirmed catalogue has nine named pages and all 85 sub-services', async (
       await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
       slug,
     ).toBe(true);
+    await expect(page.locator('.subservice-card img')).toHaveCount(count);
+    for (const image of await page.locator('.subservice-card img').all()) {
+      const src = await image.getAttribute('src');
+      expect(src).toBeTruthy();
+      images.add(new URL(src!, 'http://127.0.0.1:3000').searchParams.get('url') || src!);
+      expect(await image.getAttribute('alt')).not.toContain('undefined');
+    }
     total += count;
   }
   expect(total).toBe(85);
+  for (const src of images) {
+    const response = await request.get(src);
+    expect(response.status(), src).toBe(200);
+    expect(response.headers()['content-type']).toContain('image/');
+  }
   await page.goto('/services');
   await expect(page.locator('.service-card-visual')).toHaveCount(9);
 });
-test('new visits are light and homepage client-focused placements follow the 80/20 direction', async ({
+test('new visits are light and homepage imagery remains predominantly women-focused', async ({
   page,
 }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  await expect(page.locator('[data-image-audience="women"]')).toHaveCount(12);
-  await expect(page.locator('[data-image-audience="men"]')).toHaveCount(3);
+  const women = await page.locator('[data-image-audience="women"]').count();
+  const men = await page.locator('[data-image-audience="men"]').count();
+  expect(men).toBeGreaterThan(0);
+  expect(women / (women + men)).toBeCloseTo(0.8, 1);
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');

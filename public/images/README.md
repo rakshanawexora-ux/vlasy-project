@@ -1,6 +1,6 @@
 # VLASY editorial image collection
 
-The editorial library contains 34 AI-generated documentary-style editorial assets in
+The editorial library contains 50 AI-generated documentary-style editorial assets in
 `editorial/`, plus the existing two-image illustrative hair replacement comparison.
 They show fictional Indian models, salon interactions, interiors, training and
 preparation details. They are AI-generated, not actual VLASY clients, employees,
@@ -29,4 +29,6 @@ replacement. Do not label generated or unrelated images as real client results.
 
 Eight additional service-detail illustrations cover a lace-base hair system, extension weft fitting, foils/colour application, short-hair trimming, jasmine bridal hair, facial massage, mehndi application and beauty tools. These are AI-generated editorial references. The seven service lead images now show the corresponding service rather than a generic portrait.
 
-The current catalogue contains nine user-confirmed main categories and 85 sub-services. New female-led imagery covers the salon hero, wig fitting, a bob haircut, hair spa, blow-dry, manicure and pedicure. Homepage subject-led image placements are intentionally balanced as 12 women-focused and 3 men-focused placements (80/20), excluding logos, interiors and decorative artwork. These are declared creative subjects from the AI prompts, not inferred personal attributes of real people.
+The current catalogue contains nine user-confirmed main categories and 85 sub-services. New female-led imagery covers the salon hero, wig fitting, a bob haircut, hair spa, blow-dry, manicure and pedicure. Homepage subject-led placements remain approximately 80% women-focused as the featured selection changes, excluding logos, interiors and decorative artwork. These are declared creative subjects from the AI prompts, not inferred personal attributes of real people.
+
+Sub-service cards use an explicit image mapping for all 85 entries. Sixteen additional AI editorial details cover extension attachments, grooming, threading, waxing, airbrush makeup, draping, a family haircut, pixie styling and nail finishes. Related methods may share a reference image; these assets are not technical instructions or documented client outcomes.

@@ -1,3 +1,5 @@
+import { getSubServices } from '@/data/sub-services';
+import { SubServiceGallery } from './SubServiceGallery';
 import { notFound } from 'next/navigation';
 import { getService } from '@/data/services';
 import { metadata, absoluteUrl } from '@/lib/seo';
@@ -44,15 +46,12 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
       </section>
       <section className="section">
         <SectionLabel>YOUR SERVICE OPTIONS</SectionLabel>
-        <h2>What you can discuss with us</h2>
-        <ul className="service-options-grid" aria-label={`${s.shortName} services`}>
-          {s.offerings.map((offering) => (
-            <li key={offering}>
-              <span aria-hidden="true">✦</span>
-              {offering}
-            </li>
-          ))}
-        </ul>
+        <h2>Find your service.</h2>
+        <p className="service-options-intro">
+          Browse the options below. Select Enquire to tell us exactly which service you would like
+          to discuss.
+        </p>
+        <SubServiceGallery category={s.shortName} serviceName={s.name} items={getSubServices(s)} />
       </section>
       <ServicePhotoStory slug={s.slug} />
       <section className="section">

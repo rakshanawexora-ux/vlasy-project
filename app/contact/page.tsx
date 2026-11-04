@@ -1,3 +1,5 @@
+import { services } from '@/data/services';
+import { normalizeServiceName } from '@/data/service-selection';
 import { SectionLabel, TextLink } from '@/components/ui/Primitives';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { SITE_CONFIG, whatsappUrl, phoneUrl } from '@/lib/constants';
@@ -14,6 +16,10 @@ export default async function Contact({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const q = await searchParams;
+  const selectedService = services.find(
+    (service) => service.name === normalizeServiceName(q.service || ''),
+  );
+  const subService = selectedService?.offerings.includes(q.subservice || '') ? q.subservice : '';
   const branch = q.branch === 'Kolathur' ? q.branch : 'Not Sure';
   return (
     <section className="section page-top contact-layout">
@@ -28,6 +34,11 @@ export default async function Contact({
           Tell us which service or training program you are interested in. Share your preferred
           branch, date and any questions so the team can discuss the next step.
         </p>
+        {subService && (
+          <p className="booking-context">
+            Your selected service: <strong>{subService}</strong>
+          </p>
+        )}
         <div className="contact-info">
           {SITE_CONFIG.phone ? (
             <TextLink href={phoneUrl}>{SITE_CONFIG.phone}</TextLink>
@@ -41,7 +52,11 @@ export default async function Contact({
           <TextLink href="/locations/kolathur">Kolathur, Chennai</TextLink>
         </div>
       </div>
-      <EnquiryForm service={q.service || ''} branch={branch} />
+      <EnquiryForm
+        service={q.service || ''}
+        branch={branch}
+        initialMessage={subService ? `I would like to enquire about ${subService}.` : ''}
+      />
     </section>
   );
 }

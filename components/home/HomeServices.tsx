@@ -3,59 +3,60 @@ import { ArrowUpRight } from 'lucide-react';
 import { ServiceGraphic } from '@/components/brand/ServiceGraphic';
 import { Photo, SectionLabel } from '@/components/ui/Primitives';
 import { services } from '@/data/services';
-import { serviceImageAudience } from '@/data/service-photography';
+import { featuredServiceSlugs } from '@/data/featured-services';
+import { FeaturedServiceStory } from './FeaturedServiceStory';
 export function HomeServices() {
+  const featured = featuredServiceSlugs.map(
+    (slug) => services.find((service) => service.slug === slug)!,
+  );
   return (
     <section
-      className="hr-section hr-more home-expertise"
+      className="hr-section hr-more home-expertise featured-expertise"
       id="services"
       aria-labelledby="home-services-heading"
     >
-      <div className="expertise-heading">
-        <ServiceGraphic />
-        <div>
-          <SectionLabel>VLASY UNISEX SALON · KOLATHUR</SectionLabel>
-          <h2 id="home-services-heading">
-            What we do
-            <br />
-            <span>at VLASY.</span>
-          </h2>
+      <div className="featured-service-layout">
+        <div className="expertise-heading featured-service-intro">
+          <ServiceGraphic />
+          <div>
+            <SectionLabel>SELECTED SERVICES · VLASY KOLATHUR</SectionLabel>
+            <h2 id="home-services-heading">
+              What we do
+              <br />
+              <span>at VLASY.</span>
+            </h2>
+            <p className="featured-intro-copy">
+              A few places to begin. Explore signature hair, beauty and occasion services as you
+              scroll, then open the complete menu to see all nine categories.
+            </p>
+            <Link className="button featured-all-link" href="/services">
+              Explore all services
+              <ArrowUpRight size={18} />
+            </Link>
+            <p className="featured-service-hint">5 featured categories · full menu available</p>
+          </div>
         </div>
-        <div>
-          <p>
-            Nine service categories for your hair, beauty and grooming routine. Explore the complete
-            menu for women and men, from hair systems and colouring to bridal looks and nail care.
-          </p>
-          <Link className="hr-inline-link" href="/services">
-            View the complete services menu
-            <ArrowUpRight size={18} />
-          </Link>
-        </div>
-      </div>
-      <div className="expertise-grid">
-        {services.map((service, index) => (
-          <Link
-            href={`/services/${service.slug}`}
-            className="expertise-card"
-            key={service.slug}
-            aria-label={`Explore ${service.shortName}`}
-          >
-            <Photo
-              src={service.image}
-              alt={`${service.shortName} — AI editorial inspiration`}
-              imageAudience={serviceImageAudience(service)}
+        <div className="expertise-grid featured-story-list">
+          {featured.map((service, index) => (
+            <FeaturedServiceStory
+              key={service.slug}
+              service={service}
+              index={index}
+              total={featured.length}
             />
-            <div className="expertise-card-content">
-              <span className="expertise-index">0{index + 1}</span>
-              <h3>{service.shortName}</h3>
-              <p>{service.description}</p>
-              <span className="expertise-card-action">
-                View services
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </span>
-            </div>
-          </Link>
-        ))}
+          ))}
+          <div className="featured-services-footer">
+            <h3>There is more to explore.</h3>
+            <p>
+              Hair extensions, treatments, men’s grooming, nail care and more are in the complete
+              service menu.
+            </p>
+            <Link href="/services" className="button">
+              Explore all services
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
       </div>
       <Link href="/academy" className="home-academy-feature" aria-label="Explore VLASY Academy">
         <Photo
@@ -73,6 +74,9 @@ export function HomeServices() {
           </span>
         </div>
       </Link>
+      <noscript>
+        <style>{'.featured-service-card{opacity:1!important;transform:none!important}'}</style>
+      </noscript>
     </section>
   );
 }

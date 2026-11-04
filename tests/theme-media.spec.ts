@@ -141,8 +141,22 @@ test('key reading surfaces retain readable text contrast in both themes', async 
       '/academy/beauty-makeup',
     ]) {
       await page.goto(path);
-      const button = page.getByRole('button', { name: `Switch to ${theme} theme` });
-      if (await button.count()) await button.click();
+      // Wait for the client toggle label to reflect the pre-applied saved theme.
+      await expect
+        .poll(() =>
+          page.evaluate(() => {
+            const current = document.documentElement.dataset.theme;
+            return (
+              document.querySelector('.theme-toggle')?.getAttribute('aria-label') ===
+              `Switch to ${current === 'dark' ? 'light' : 'dark'} theme`
+            );
+          }),
+        )
+        .toBe(true);
+      if ((await page.locator('html').getAttribute('data-theme')) !== theme) {
+        await page.getByRole('button', { name: `Switch to ${theme} theme` }).click();
+      }
+      await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
       const failures = await page.evaluate(() => {
         const rgb = (value: string) => {
           const c = value.match(/[\d.]+/g)?.map(Number) || [0, 0, 0];

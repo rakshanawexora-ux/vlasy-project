@@ -52,25 +52,23 @@ test('service stories provide responsive photo galleries with loaded images', as
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('homepage clearly connects every offering to its own page', async ({ page }) => {
+test('homepage features selected services and links to the complete catalogue', async ({
+  page,
+}) => {
   await page.goto('/');
   const section = page.getByRole('region', { name: /What we do.*at VLASY/ });
   await expect(section.getByRole('heading', { level: 2 })).toHaveText(/What we do\s*at VLASY\./);
-  await expect(section.locator('.expertise-card')).toHaveCount(9);
+  await expect(section.locator('.featured-service-card')).toHaveCount(5);
   const destinations = [
     'hair-wig-hair-replacement',
-    'hair-extensions',
     'haircut-styling',
     'hair-colouring',
-    'hair-treatments',
-    'mens-grooming',
     'womens-beauty',
     'bridal-special-occasion',
-    'nail-beauty',
   ].map((slug) => `/services/${slug}`);
   expect(
     await section
-      .locator('.expertise-card')
+      .locator('.featured-service-card .expertise-card-action')
       .evaluateAll((cards) => cards.map((card) => card.getAttribute('href'))),
   ).toEqual(destinations);
   await section.getByRole('link', { name: "Explore Women's Beauty", exact: true }).click();
