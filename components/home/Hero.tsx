@@ -1,6 +1,5 @@
-import { HeroVideo } from './HeroVideo';
 import Link from 'next/link';
-import { ArrowDown, ArrowUpRight, ShieldCheck, ScanFace, HeartHandshake } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Scissors, Sparkles, HeartHandshake } from 'lucide-react';
 import { HairFlow } from '@/components/brand/HairFlow';
 import {
   HeroPortrait,
@@ -8,7 +7,7 @@ import {
   MagneticLink,
   ScrollProgress,
 } from '@/components/brand/BrandMotion';
-import { hairConsultationUrl } from '@/data/hair-replacement';
+import { HeroVideo } from './HeroVideo';
 export function Hero() {
   return (
     <section className="hr-hero" aria-labelledby="hero-title">
@@ -21,32 +20,37 @@ export function Hero() {
       <div className="hr-hero-content">
         <p className="hr-overline">
           <span />
-          HAIR REPLACEMENT / CHENNAI
+          HAIR · BEAUTY · GROOMING
         </p>
         <KineticHeadline />
         <p className="hr-hero-description">
-          Personalised, non-surgical hair replacement.
+          Premium hair, beauty and grooming in Kolathur, Chennai.
           <br />
-          Designed around you. Made for your life.
+          Services for women and men.
         </p>
-        <MagneticLink href={hairConsultationUrl} className="hr-pill hr-pill-cream">
-          Book a hair consultation
-          <ArrowUpRight size={19} aria-hidden="true" />
-        </MagneticLink>
+        <div className="hero-service-actions">
+          <MagneticLink href="/contact" className="hr-pill hr-pill-cream">
+            Book an appointment
+            <ArrowUpRight size={19} aria-hidden="true" />
+          </MagneticLink>
+          <Link href="/services" className="hero-services-link">
+            Explore all services
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
+        </div>
       </div>
-      <Link href="/services/hair-replacement" className="hr-hero-note">
+      <Link href="/services/hair-wig-hair-replacement" className="hr-hero-note">
         <span className="hr-note-icon">
-          <ScanFace size={28} strokeWidth={1} />
+          <Sparkles size={28} strokeWidth={1} />
         </span>
         <span>
           <small>A PERSONAL APPROACH</small>
           <strong>
-            Your hair.
-            <br />
-            Your kind of confidence.
+            Hair wigs.
+            <br />A fit that feels like you.
           </strong>
           <span className="hr-note-link">
-            Explore hair replacement
+            Explore wigs & replacement
             <ArrowUpRight size={16} />
           </span>
         </span>
@@ -54,30 +58,27 @@ export function Hero() {
       <div className="hr-hero-base">
         <div className="hr-hero-promises">
           <span>
-            <ShieldCheck size={19} strokeWidth={1.2} />
-            Non-surgical
-            <br />
-            hair solutions
+            <Scissors size={19} strokeWidth={1.2} />
+            Hair, beauty
+            <br />& grooming
           </span>
           <span>
-            <ScanFace size={19} strokeWidth={1.2} />
-            Personalised
-            <br />
-            to you
+            <Sparkles size={19} strokeWidth={1.2} />
+            Women
+            <br />& men
           </span>
           <span>
             <HeartHandshake size={19} strokeWidth={1.2} />
-            Care beyond
+            Personal care
             <br />
-            the chair
+            in Kolathur
           </span>
         </div>
-        <a href="#approach" className="hr-scroll">
-          SCROLL TO EXPLORE
+        <a href="#services" className="hr-scroll">
+          EXPLORE OUR SERVICES
           <ArrowDown size={15} />
         </a>
       </div>
-      <span className="hr-hero-annotation">KOLATHUR & MADHAVARAM · CHENNAI</span>
     </section>
   );
 }

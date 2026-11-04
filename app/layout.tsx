@@ -13,6 +13,7 @@ import '@/styles/brand.css';
 import '@/styles/themes/dark.css';
 import '@/styles/themes/light.css';
 import '@/styles/readability.css';
+import '@/styles/salon.css';
 const serif = localFont({
   src: [
     { path: '../public/fonts/serif.woff2', weight: '400', style: 'normal' },
@@ -40,15 +41,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
       className={`${serif.variable} ${sans.variable}`}
     >
       <head>
-        <meta name="theme-color" content="#242321" suppressHydrationWarning />
+        <meta name="theme-color" content="#f5f1e9" suppressHydrationWarning />
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('vlasy-theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch{document.documentElement.dataset.theme='dark';}`,
+            __html: `try{var t=localStorage.getItem('vlasy-theme');document.documentElement.dataset.theme=t==='dark'?'dark':'light';}catch{document.documentElement.dataset.theme='light';}`,
           }}
         />
       </head>

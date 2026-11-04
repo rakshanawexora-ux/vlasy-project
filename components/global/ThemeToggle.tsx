@@ -7,9 +7,9 @@ let selectedTheme: 'light' | 'dark' | undefined;
 function snapshot() {
   if (selectedTheme) return selectedTheme;
   try {
-    return localStorage.getItem('vlasy-theme') === 'light' ? 'light' : 'dark';
+    return localStorage.getItem('vlasy-theme') === 'dark' ? 'dark' : 'light';
   } catch {
-    return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
   }
 }
 function subscribe(notify: () => void) {
@@ -35,7 +35,7 @@ function updateThemeColor(theme: string) {
 }
 export function ThemeToggle() {
   const path = usePathname();
-  const theme = useSyncExternalStore(subscribe, snapshot, () => 'dark');
+  const theme = useSyncExternalStore(subscribe, snapshot, () => 'light');
   useEffect(() => {
     const selected = snapshot();
     document.documentElement.dataset.theme = selected;

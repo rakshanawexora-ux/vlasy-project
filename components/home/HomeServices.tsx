@@ -1,33 +1,10 @@
-import { ServiceGraphic } from '@/components/brand/ServiceGraphic';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { ServiceGraphic } from '@/components/brand/ServiceGraphic';
 import { Photo, SectionLabel } from '@/components/ui/Primitives';
 import { services } from '@/data/services';
-
-const summaries: Record<string, string> = {
-  'hair-replacement': 'Non-surgical hair systems, personal fitting and ongoing care.',
-  'hair-extensions': 'Explore length, volume, colour matching and blending.',
-  'hair-colour': 'Colour consultations, balayage, highlights and grey coverage.',
-  'hair-cut-styling': 'Personalised cuts, shaping and styling for your everyday routine.',
-  bridal: 'Bridal hair and makeup, with a look planned around your occasion.',
-  'beauty-treatments': 'Personalised beauty care, preparation and facial consultations.',
-  mehndi: 'Bridal and occasion designs, considered with your artist.',
-};
+import { serviceImageAudience } from '@/data/service-photography';
 export function HomeServices() {
-  const offerings = [
-    ...services.map((s) => ({
-      name: s.name,
-      href: `/services/${s.slug}`,
-      image: s.image,
-      summary: summaries[s.slug],
-    })),
-    {
-      name: 'VLASY Academy',
-      href: '/academy',
-      image: '/images/editorial/academy-portrait.webp',
-      summary: 'Explore professional hair, colour, beauty and bridal training.',
-    },
-  ];
   return (
     <section
       className="hr-section hr-more home-expertise"
@@ -37,7 +14,7 @@ export function HomeServices() {
       <div className="expertise-heading">
         <ServiceGraphic />
         <div>
-          <SectionLabel>SALON & ACADEMY · CHENNAI</SectionLabel>
+          <SectionLabel>VLASY UNISEX SALON · KOLATHUR</SectionLabel>
           <h2 id="home-services-heading">
             What we do
             <br />
@@ -46,37 +23,56 @@ export function HomeServices() {
         </div>
         <div>
           <p>
-            From hair replacement and everyday haircuts to bridal makeup and beauty care, explore
-            what VLASY offers in Chennai. Each service has its own guide to help you decide what to
-            ask before booking.
+            Nine service categories for your hair, beauty and grooming routine. Explore the complete
+            menu for women and men, from hair systems and colouring to bridal looks and nail care.
           </p>
           <Link className="hr-inline-link" href="/services">
-            Explore all services
+            View the complete services menu
             <ArrowUpRight size={18} />
           </Link>
         </div>
       </div>
       <div className="expertise-grid">
-        {offerings.map((item, index) => (
+        {services.map((service, index) => (
           <Link
-            href={item.href}
+            href={`/services/${service.slug}`}
             className="expertise-card"
-            key={item.href}
-            aria-label={`Explore ${item.name}`}
+            key={service.slug}
+            aria-label={`Explore ${service.shortName}`}
           >
-            <Photo src={item.image} alt={`${item.name} — AI editorial inspiration`} />
+            <Photo
+              src={service.image}
+              alt={`${service.shortName} — AI editorial inspiration`}
+              imageAudience={serviceImageAudience(service)}
+            />
             <div className="expertise-card-content">
               <span className="expertise-index">0{index + 1}</span>
-              <h3>{item.name}</h3>
-              <p>{item.summary}</p>
+              <h3>{service.shortName}</h3>
+              <p>{service.description}</p>
               <span className="expertise-card-action">
-                Explore {index === 7 ? 'training' : 'service'}
+                View services
                 <ArrowUpRight size={18} aria-hidden="true" />
               </span>
             </div>
           </Link>
         ))}
       </div>
+      <Link href="/academy" className="home-academy-feature" aria-label="Explore VLASY Academy">
+        <Photo
+          src="/images/editorial/academy-portrait.webp"
+          alt="AI editorial illustration of female students learning hairstyling"
+          imageAudience="women"
+        />
+        <div>
+          <SectionLabel>VLASY ACADEMY</SectionLabel>
+          <h3>Turn your interest into a learning path.</h3>
+          <p>Explore professional hair, colour, beauty and bridal training.</p>
+          <span className="expertise-card-action">
+            Explore training
+            <ArrowUpRight size={18} />
+          </span>
+        </div>
+      </Link>
     </section>
   );
 }

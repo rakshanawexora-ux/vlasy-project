@@ -3,7 +3,7 @@ export const articles = [
     slug: 'finding-your-hair-solution',
     category: 'Hair Replacement',
     title: 'Finding a hair solution that fits your life',
-    image: '/images/editorial/replacement-portrait.webp',
+    image: '/images/editorial/women-wig-fitting.webp',
     intro: 'A good consultation begins with your everyday life, not a catalogue of systems.',
     sections: [
       [

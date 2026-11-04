@@ -28,10 +28,14 @@ export function HeroPortrait() {
   const y = useTransform(scrollY, [0, 1000], [0, 70]);
   const reduced = useReducedMotion();
   return (
-    <motion.div className="hr-moving-image" style={reduced ? undefined : { y }}>
+    <motion.div
+      className="hr-moving-image"
+      data-image-audience="women"
+      style={reduced ? undefined : { y }}
+    >
       <Image
-        src="/images/editorial/hero.webp"
-        alt="Editorial portrait illustrating a natural short hairstyle; not a documented hair replacement result"
+        src="/images/editorial/unisex-hero.webp"
+        alt="AI editorial portrait of an Indian woman with naturally styled hair; not a client result"
         fill
         priority
         sizes="(max-width: 700px) 1100px, 100vw"
@@ -45,7 +49,7 @@ export function KineticHeadline() {
   const reduced = useReducedMotion();
   return (
     <h1 id="hero-title" className="hr-kinetic-title">
-      {['FEEL LIKE', 'YOURSELF.', 'AGAIN.'].map((line, index) => (
+      {['YOUR STYLE.', 'YOUR WAY.', 'VLASY.'].map((line, index) => (
         <span className={`hr-title-line ${index === 2 ? 'hr-hero-last' : ''}`} key={line}>
           <motion.span
             initial={reduced ? false : { y: '105%' }}

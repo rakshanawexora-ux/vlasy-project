@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/academy',
     '/locations',
     '/locations/kolathur',
-    '/locations/madhavaram',
     '/journal',
     '/faq',
     '/contact',

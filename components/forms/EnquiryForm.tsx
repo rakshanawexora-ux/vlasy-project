@@ -1,4 +1,5 @@
 'use client';
+import { normalizeServiceName } from '@/data/service-selection';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -29,7 +30,7 @@ export function EnquiryForm({
       name: '',
       phone: '',
       email: '',
-      service,
+      service: normalizeServiceName(service),
       branch,
       consent: false,
       message: '',
@@ -134,7 +135,6 @@ export function EnquiryForm({
           <select {...register('branch')}>
             <option>Not Sure</option>
             <option>Kolathur</option>
-            <option>Madhavaram</option>
           </select>
         </label>
         {!compact && (

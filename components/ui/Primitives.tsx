@@ -40,14 +40,16 @@ export function Photo({
   alt,
   priority = false,
   className = '',
+  imageAudience,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
+  imageAudience?: 'women' | 'men';
 }) {
   return (
-    <div className={`photo ${className}`}>
+    <div className={`photo ${className}`} data-image-audience={imageAudience}>
       <Image
         src={src}
         alt={alt}

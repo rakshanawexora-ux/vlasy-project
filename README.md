@@ -1,18 +1,15 @@
-# VLASY Salon & Academy
+# VLASY Unisex Salon & Academy
 
-A responsive Next.js App Router website for VLASY in Chennai. The redesigned
-homepage leads with non-surgical hair replacement, clean Manrope typography,
-forest-charcoal and cream surfaces, documentary-style AI editorial imagery, lifestyle guidance,
-an interactive consultation-to-aftercare journey, and hair-specific FAQs and CTAs.
-The homepage includes a clear “What we do at VLASY” service index. All seven services have individual pages; the academy has four individual program-area pages. The consultation process is explained within the service pages. A lighter charcoal palette and cream service section balance the black-and-gold brand.
+A responsive Next.js website for the VLASY unisex salon in Kolathur, Chennai.
+The confirmed menu has nine main service categories and 85 sub-services. Each
+category has its own named page; sub-services are listed within that page.
 
-The supplied reference image informed the composition and hierarchy; the two
-reference websites were blocked by this environment's network policy and could
-not be inspected. A transparent web asset prepared from the supplied logo is installed in the
-header and footer. Original decorative SVG hair strands complement the brand
-without replacing its emblem. Motion includes masked headline reveals, a
-desktop-only hero parallax, scroll-drawn strands and restrained magnetic CTAs;
-reduced-motion preferences disable these effects.
+The current design uses bright ivory and champagne-gold surfaces by default,
+with an optional saved dark theme. Homepage client-focused image placements
+follow an 80% women / 20% men creative direction. All generated editorial images
+are visibly labelled and are not represented as real VLASY client results.
+The supplied logo is preserved. Motion respects reduced-motion and data-saver
+preferences, and the female-led hero loop includes a pause/play control.
 
 ## Develop
 
@@ -34,7 +31,7 @@ executor's supported escalated execution mode.
 
 ## Theme and hero media
 
-The header theme control switches dark/light palettes and remembers the choice in local storage. The initial theme is applied before hydration to prevent a palette flash. The hero includes a 10-second silent motion loop made from the AI editorial artwork, not recorded salon footage, with pause/play, static fallback, reduced-motion and data-saver handling. See `public/videos/README.md` for replacement guidance.
+The header theme control switches dark/light palettes and remembers the choice in local storage. The default light theme is applied before hydration to prevent a palette flash. The hero includes a 10-second silent motion loop made from the AI editorial artwork, not recorded salon footage, with pause/play, static fallback, reduced-motion and data-saver handling. See `public/videos/README.md` for replacement guidance.
 
 ## Content & integrations
 

@@ -4,8 +4,8 @@ import { FinalCTA } from '@/components/ui/FinalCTA';
 import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
   metadata(
-    'Our Chennai salons',
-    'Find VLASY Salon & Academy in Kolathur and Madhavaram, Chennai. Enquire about branch details and appointments.',
+    'VLASY salon in Kolathur, Chennai',
+    'Find VLASY Salon & Academy in Kolathur, Chennai. Enquire about branch details and appointments.',
     '/locations',
   );
 export default function Locations() {
@@ -13,8 +13,8 @@ export default function Locations() {
     <>
       <PageHero
         label="FIND YOUR SPACE"
-        title="Find VLASY in Chennai."
-        description="Choose Kolathur or Madhavaram when you enquire. Ask the team to confirm directions, opening hours and specialist availability before your visit."
+        title="Visit VLASY in Kolathur."
+        description="Visit our Kolathur salon. Ask the team to confirm directions, opening hours and specialist availability before your visit."
       />
       <section className="section">
         <LocationCards />

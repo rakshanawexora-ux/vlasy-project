@@ -3,13 +3,15 @@ import { test, expect } from './fixtures';
 test('service stories provide responsive photo galleries with loaded images', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const slugs = [
-    'hair-replacement',
+    'hair-wig-hair-replacement',
     'hair-extensions',
-    'hair-colour',
-    'hair-cut-styling',
-    'bridal',
-    'beauty-treatments',
-    'mehndi',
+    'hair-colouring',
+    'hair-treatments',
+    'mens-grooming',
+    'haircut-styling',
+    'bridal-special-occasion',
+    'womens-beauty',
+    'nail-beauty',
   ];
   for (const slug of slugs) {
     await page.goto(`/services/${slug}`);
@@ -42,10 +44,10 @@ test('service stories provide responsive photo galleries with loaded images', as
   }
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/services');
-  await expect(page.locator('.service-card-visual')).toHaveCount(7);
-  await expect(page.locator('.service-card-detail')).toHaveCount(7);
+  await expect(page.locator('.service-card-visual')).toHaveCount(9);
+  await expect(page.locator('.service-card-detail')).toHaveCount(9);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.goto('/services/hair-replacement');
+  await page.goto('/services/hair-wig-hair-replacement');
   await page.locator('.service-photo-story').scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
@@ -54,25 +56,25 @@ test('homepage clearly connects every offering to its own page', async ({ page }
   await page.goto('/');
   const section = page.getByRole('region', { name: /What we do.*at VLASY/ });
   await expect(section.getByRole('heading', { level: 2 })).toHaveText(/What we do\s*at VLASY\./);
-  await expect(section.locator('.expertise-card')).toHaveCount(8);
+  await expect(section.locator('.expertise-card')).toHaveCount(9);
   const destinations = [
-    'hair-replacement',
+    'hair-wig-hair-replacement',
     'hair-extensions',
-    'hair-colour',
-    'hair-cut-styling',
-    'bridal',
-    'beauty-treatments',
-    'mehndi',
-  ]
-    .map((slug) => `/services/${slug}`)
-    .concat('/academy');
+    'haircut-styling',
+    'hair-colouring',
+    'hair-treatments',
+    'mens-grooming',
+    'womens-beauty',
+    'bridal-special-occasion',
+    'nail-beauty',
+  ].map((slug) => `/services/${slug}`);
   expect(
     await section
       .locator('.expertise-card')
       .evaluateAll((cards) => cards.map((card) => card.getAttribute('href'))),
   ).toEqual(destinations);
-  await section.getByRole('link', { name: 'Explore Beauty Treatments', exact: true }).click();
-  await expect(page).toHaveURL(/\/services\/beauty-treatments$/);
+  await section.getByRole('link', { name: "Explore Women's Beauty", exact: true }).click();
+  await expect(page).toHaveURL(/\/services\/womens-beauty$/);
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -103,9 +105,12 @@ test('navbar provides Home and direct page links alongside individual service de
   await nav.getByRole('link', { name: 'Services', exact: true }).click();
   await expect(page).toHaveURL(/\/services$/);
   await page.getByRole('button', { name: 'Services menu', exact: true }).click();
-  await expect(page.locator('.mega-links a')).toHaveCount(7);
-  await page.locator('.mega-links').getByRole('link', { name: 'Mehndi', exact: true }).click();
-  await expect(page).toHaveURL(/\/services\/mehndi$/);
+  await expect(page.locator('.mega-links a')).toHaveCount(9);
+  await page
+    .locator('.mega-links')
+    .getByRole('link', { name: 'Nails & Additional Beauty', exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/services\/nail-beauty$/);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(page.locator('.service-motion-graphic')).toHaveAttribute('aria-hidden', 'true');
   await page.setViewportSize({ width: 375, height: 812 });
@@ -118,7 +123,12 @@ test('navbar provides Home and direct page links alongside individual service de
 test('removed page stays out of navigation and service FAQs stay relevant', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Our Approach', exact: true })).toHaveCount(0);
-  for (const slug of ['bridal', 'beauty-treatments', 'mehndi', 'hair-cut-styling']) {
+  for (const slug of [
+    'bridal-special-occasion',
+    'womens-beauty',
+    'nail-beauty',
+    'haircut-styling',
+  ]) {
     await page.goto(`/services/${slug}`);
     expect(await page.locator('.faq-list details').count()).toBeGreaterThan(0);
   }
@@ -130,7 +140,7 @@ test('navigation and primary CTAs remain readable without overflow across screen
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [320, 375, 768, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const path of ['/', '/services', '/services/hair-replacement', '/contact']) {
+    for (const path of ['/', '/services', '/services/hair-wig-hair-replacement', '/contact']) {
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
       expect(

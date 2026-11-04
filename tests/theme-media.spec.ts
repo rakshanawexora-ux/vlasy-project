@@ -2,6 +2,7 @@ import { test, expect } from './fixtures';
 
 test('theme switch persists across navigation, reload and keyboard use', async ({ page }) => {
   await page.goto('/contact');
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   const light = page.getByRole('button', { name: 'Switch to light theme' });
   await light.focus();
   await page.keyboard.press('Enter');
@@ -15,9 +16,9 @@ test('theme switch persists across navigation, reload and keyboard use', async (
   await expect(page.locator('#services-menu')).toBeVisible();
   await page
     .locator('#services-menu')
-    .getByRole('link', { name: 'Hair Replacement', exact: true })
+    .getByRole('link', { name: 'Hair Wigs & Replacement', exact: true })
     .click();
-  await expect(page).toHaveURL(/\/services\/hair-replacement$/);
+  await expect(page).toHaveURL(/\/services\/hair-wig-hair-replacement$/);
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -29,7 +30,7 @@ test('light theme supports mobile pages, forms and navigation at common widths',
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Switch to light theme' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [375, 768, 1024]) {
     await page.setViewportSize({ width, height: 900 });
@@ -47,7 +48,7 @@ test('light theme supports mobile pages, forms and navigation at common widths',
   for (const route of [
     '/',
     '/services',
-    '/services/hair-replacement',
+    '/services/hair-wig-hair-replacement',
     '/academy',
     '/academy/beauty-makeup',
 
@@ -103,7 +104,8 @@ test('hero retains static fallback for reduced motion, data saver and media fail
       await page.addInitScript(() =>
         Object.defineProperty(navigator, 'connection', { value: { saveData: true } }),
       );
-    if (mode === 'failure') await page.route('**/videos/hero-loop.mp4', (route) => route.abort());
+    if (mode === 'failure')
+      await page.route('**/videos/unisex-hero-loop.mp4', (route) => route.abort());
     const requests: string[] = [];
     page.on('request', (request) => {
       if (request.url().includes('/videos/')) requests.push(request.url());
@@ -132,7 +134,12 @@ test('hero retains static fallback for reduced motion, data saver and media fail
 
 test('key reading surfaces retain readable text contrast in both themes', async ({ page }) => {
   for (const theme of ['dark', 'light'])
-    for (const path of ['/', '/contact', '/services/hair-replacement', '/academy/beauty-makeup']) {
+    for (const path of [
+      '/',
+      '/contact',
+      '/services/hair-wig-hair-replacement',
+      '/academy/beauty-makeup',
+    ]) {
       await page.goto(path);
       const button = page.getByRole('button', { name: `Switch to ${theme} theme` });
       if (await button.count()) await button.click();

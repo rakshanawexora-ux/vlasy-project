@@ -1,3 +1,4 @@
+import { services } from '@/data/services';
 import { PageHero } from '@/components/ui/PageHero';
 import { FAQ } from '@/components/ui/FAQ';
 import { FinalCTA } from '@/components/ui/FinalCTA';
@@ -16,17 +17,7 @@ export default function FAQPage() {
         title="Good questions. Thoughtful answers."
         description="The details matter. Explore a few answers before your first conversation with us."
       />
-      {[
-        'Hair Replacement',
-        'Hair Extensions',
-        'Hair Colour',
-        'Haircuts & Styling',
-        'Beauty Treatments',
-        'Mehndi',
-        'Bridal',
-        'Appointments',
-        'Academy',
-      ].map((c) => (
+      {[...services.map((service) => service.shortName), 'Appointments', 'Academy'].map((c) => (
         <section className="section faq-preview" key={c}>
           <h2>{c}</h2>
           <FAQ category={c} />

@@ -31,6 +31,7 @@ export function HonestResults() {
       <div className="hr-results-visual">
         <Photo
           src="/images/editorial/styling-portrait.webp"
+          imageAudience="men"
           alt="Natural short hairstyle, editorial inspiration rather than a verified client result"
         />
         <div className="hr-results-caption">

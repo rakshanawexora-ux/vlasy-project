@@ -17,7 +17,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 export const generateMetadata = () =>
   metadata(
     'VLASY Salon & Academy | Hair & Beauty in Chennai',
-    'Explore hair replacement, extensions, colour, haircuts, bridal, beauty and mehndi at VLASY in Chennai. Find your service and request a consultation.',
+    'Explore VLASY Unisex Salon in Kolathur: wigs, extensions, haircuts, colouring, treatments, grooming, beauty, bridal and nail services for women and men.',
     '/',
   );
 export default function Home() {

@@ -1,12 +1,12 @@
 import { test, expect } from './fixtures';
 import { loadPageImages } from './helpers';
 
-test('homepage prioritises hair replacement and working editorial imagery', async ({ page }) => {
+test('homepage presents unisex salon services and working editorial imagery', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    /FEEL LIKE.*YOURSELF\..*AGAIN\./,
+    /YOUR STYLE\..*YOUR WAY\..*VLASY\./,
   );
   for (const section of [
     '.hr-intro',
@@ -21,8 +21,8 @@ test('homepage prioritises hair replacement and working editorial imagery', asyn
   ])
     await expect(page.locator(section)).toBeAttached();
   await expect(
-    page.locator('.hr-hero-content').getByRole('link', { name: 'Book a hair consultation' }),
-  ).toHaveAttribute('href', '/contact?service=Hair%20Replacement');
+    page.locator('.hr-hero-content').getByRole('link', { name: 'Book an appointment' }),
+  ).toHaveAttribute('href', '/contact');
   await page.locator('.hr-consultation').scrollIntoViewIfNeeded();
   await page.waitForTimeout(700);
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -40,7 +40,9 @@ test('desktop services menu and keyboard dismissal', async ({ page }) => {
   await page.getByRole('button', { name: 'Services menu', exact: true }).click();
   await expect(page.locator('#services-menu')).toBeVisible();
   await expect(
-    page.locator('#services-menu').getByRole('link', { name: 'Hair Replacement', exact: true }),
+    page
+      .locator('#services-menu')
+      .getByRole('link', { name: 'Hair Wigs & Replacement', exact: true }),
   ).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.locator('#services-menu')).toHaveCount(0);
@@ -69,13 +71,15 @@ test('all core routes resolve with unique metadata', async ({ request }) => {
   const routes = [
     '/',
     '/services',
-    '/services/hair-replacement',
+    '/services/hair-wig-hair-replacement',
     '/services/hair-extensions',
-    '/services/hair-colour',
-    '/services/hair-cut-styling',
-    '/services/bridal',
-    '/services/beauty-treatments',
-    '/services/mehndi',
+    '/services/hair-colouring',
+    '/services/hair-treatments',
+    '/services/mens-grooming',
+    '/services/haircut-styling',
+    '/services/bridal-special-occasion',
+    '/services/womens-beauty',
+    '/services/nail-beauty',
     '/transformations',
     '/academy',
     '/academy/professional-hairdressing',
@@ -86,7 +90,6 @@ test('all core routes resolve with unique metadata', async ({ request }) => {
     '/about',
     '/locations',
     '/locations/kolathur',
-    '/locations/madhavaram',
     '/journal',
     '/journal/finding-your-hair-solution',
     '/journal/your-first-extensions-consultation',
@@ -171,7 +174,9 @@ test('hair replacement journey responds and consultation preselects the service'
     .locator('.hr-journey-card')
     .getByRole('link', { name: 'Start with a consultation' })
     .click();
-  await expect(page.getByLabel('I’m interested in *')).toHaveValue('Hair Replacement');
+  await expect(page.getByLabel('I’m interested in *')).toHaveValue(
+    'Hair Wig & Hair Replacement Services',
+  );
 });
 
 test('supplied logo loads and decorative vectors respect reduced motion', async ({ page }) => {
@@ -202,7 +207,7 @@ test('illustrative comparison is labelled and works with keyboard and touch', as
   page,
   browser,
 }) => {
-  await page.goto('/services/hair-replacement');
+  await page.goto('/services/hair-wig-hair-replacement');
   const slider = page.getByRole('slider', { name: 'Compare before and after illustrations' });
   await expect(page.getByText('AI-generated illustration · not a client result')).toBeVisible();
   await expect(
@@ -263,7 +268,13 @@ test('illustrative comparison is labelled and works with keyboard and touch', as
 });
 
 test('dark surfaces and illustrative labels are consistent across routes', async ({ page }) => {
-  for (const route of ['/', '/contact', '/services/hair-replacement', '/transformations']) {
+  await page.addInitScript(() => localStorage.setItem('vlasy-theme', 'dark'));
+  for (const route of [
+    '/',
+    '/contact',
+    '/services/hair-wig-hair-replacement',
+    '/transformations',
+  ]) {
     await page.goto(route);
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(36, 35, 33)');
     await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark');
@@ -272,7 +283,7 @@ test('dark surfaces and illustrative labels are consistent across routes', async
     else if (route !== '/contact')
       await expect(page.locator('.illustration-label').first()).toBeVisible();
   }
-  await page.goto('/services/hair-replacement');
+  await page.goto('/services/hair-wig-hair-replacement');
   await expect(page.getByRole('heading', { name: 'The full cost of care' })).toBeVisible();
   await page.setViewportSize({ width: 375, height: 812 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -301,7 +312,7 @@ test('SEO metadata uses a working share image and describes real service pages',
   const html = await home.text();
   const share = html.match(/property="og:image" content="([^"]+)"/)?.[1];
   expect(share).toBeTruthy();
-  expect(share).toContain('/images/editorial/hero.webp');
+  expect(share).toContain('/images/editorial/unisex-hero.webp');
   expect((await request.get(new URL(share!).pathname)).status()).toBe(200);
   expect(html).toContain('Chennai');
   const schemas = [
@@ -309,14 +320,14 @@ test('SEO metadata uses a working share image and describes real service pages',
   ].map((match) => JSON.parse(match[1]));
   expect(
     schemas.some(
-      (schema) => schema['@type'] === 'OfferCatalog' && schema.itemListElement.length === 7,
+      (schema) => schema['@type'] === 'OfferCatalog' && schema.itemListElement.length === 9,
     ),
   ).toBe(true);
   for (const path of [
-    '/services/hair-replacement',
-    '/services/bridal',
-    '/services/beauty-treatments',
-    '/services/mehndi',
+    '/services/hair-wig-hair-replacement',
+    '/services/bridal-special-occasion',
+    '/services/womens-beauty',
+    '/services/nail-beauty',
   ]) {
     const result = await request.get(path);
     expect(result.status()).toBe(200);

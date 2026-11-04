@@ -1,45 +1,35 @@
 import Link from 'next/link';
-import { ArrowUpRight, MapPin } from 'lucide-react';
-import { SectionLabel, Photo } from '@/components/ui/Primitives';
+import { MapPin, ArrowUpRight } from 'lucide-react';
+import { Photo, SectionLabel } from '@/components/ui/Primitives';
 import { Reveal } from '@/components/ui/Reveal';
-
 export function LocationsSection() {
   return (
     <section className="hr-locations">
       <div className="hr-locations-image">
         <Photo
           src="/images/editorial/salon-portrait.webp"
-          alt="Editorial salon interior; actual VLASY branch imagery to be supplied"
+          alt="AI editorial salon interior; not a photograph of the VLASY branch"
         />
-        <span>YOUR SPACE TO RESET.</span>
+        <span>YOUR SPACE FOR PERSONAL CARE.</span>
       </div>
       <Reveal className="hr-locations-copy">
-        <SectionLabel>FIND YOUR SPACE</SectionLabel>
+        <SectionLabel>VISIT VLASY</SectionLabel>
         <h2>
-          Good hair.
+          Your salon.
           <br />
-          <span>Closer to home.</span>
+          <span>Here in Kolathur.</span>
         </h2>
-        <p>
-          Two Chennai neighbourhoods.
-          <br />
-          One personal approach.
-        </p>
-        {[
-          { name: 'Kolathur', slug: 'kolathur' },
-          { name: 'Madhavaram', slug: 'madhavaram' },
-        ].map((l) => (
-          <Link className="hr-location-row" key={l.slug} href={`/locations/${l.slug}`}>
-            <MapPin size={20} strokeWidth={1} />
-            <span>
-              <strong>{l.name}</strong>
-              <small>CHENNAI, TAMIL NADU</small>
-            </span>
-            <ArrowUpRight size={22} />
-          </Link>
-        ))}
+        <p>Premium hair, beauty and grooming services for women and men in Chennai.</p>
+        <Link className="hr-location-row" href="/locations/kolathur">
+          <MapPin size={20} strokeWidth={1} />
+          <span>
+            <strong>Kolathur</strong>
+            <small>CHENNAI, TAMIL NADU</small>
+          </span>
+          <ArrowUpRight size={22} />
+        </Link>
         <span className="hr-location-note">
-          Enquire for confirmed branch details and specialist availability.
+          Contact the team for confirmed directions, opening hours and appointment availability.
         </span>
       </Reveal>
     </section>

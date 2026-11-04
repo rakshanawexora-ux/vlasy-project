@@ -32,10 +32,10 @@ export function ConfidenceIntro() {
           </p>
         </Reveal>
         <Reveal className="hr-intro-portrait">
-          <div className="hr-portrait-frame">
+          <div className="hr-portrait-frame" data-image-audience="women">
             <Image
-              src="/images/editorial/replacement-portrait.webp"
-              alt="Short-hair editorial portrait — inspiration, not a client before-and-after"
+              src="/images/editorial/women-bob-cut.webp"
+              alt="AI editorial portrait of a woman with a shoulder-length bob; not a client result"
               fill
               sizes="(max-width:700px) 78vw, 32vw"
             />
@@ -59,7 +59,7 @@ export function ConfidenceIntro() {
             Non-surgical hair systems considered around your hairline, your routine and the way you
             want to feel.
           </p>
-          <Link href="/services/hair-replacement" className="hr-inline-link">
+          <Link href="/services/hair-wig-hair-replacement" className="hr-inline-link">
             Explore hair replacement
             <ArrowUpRight size={19} />
           </Link>

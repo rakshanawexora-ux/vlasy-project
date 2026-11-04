@@ -108,11 +108,11 @@ export function Header() {
       </nav>
       <Link
         className="header-book"
-        href="/contact?service=Hair%20Replacement"
+        href="/contact"
         onClick={close}
-        aria-label="Hair consultation"
+        aria-label="Book an appointment"
       >
-        <span className="header-book-label">Hair consultation</span>
+        <span className="header-book-label">Book an appointment</span>
         <span className="header-book-short" aria-hidden="true">
           Book
         </span>
@@ -148,7 +148,7 @@ export function Header() {
             <div className="mega-links">
               {services.map((s) => (
                 <Link key={s.slug} href={`/services/${s.slug}`} onClick={close}>
-                  {s.name}
+                  {s.shortName}
                   <ArrowUpRight size={16} />
                 </Link>
               ))}
@@ -174,7 +174,7 @@ export function Header() {
           <div className="mobile-services">
             {services.map((s) => (
               <Link key={s.slug} href={`/services/${s.slug}`} onClick={close}>
-                {s.name}
+                {s.shortName}
               </Link>
             ))}
           </div>

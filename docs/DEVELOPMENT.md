@@ -48,6 +48,7 @@ styles/
   themes/dark.css            Dark palette and editorial components
   themes/light.css           Light palette, theme control and hero media
   readability.css            Shared text scale, alignment and CTA sizing
+  salon.css                  Current cream–gold unisex design and service catalogue
 public/                      Images, logo, fonts and hero video
 tests/                       Browser/API regression tests
 ```
@@ -91,3 +92,7 @@ navigation, the sitemap or page content without a new product requirement.
 Next.js development mode can generate `AGENTS.md` and update `next-env.d.ts`.
 Preserve existing user changes and restore only generated changes you caused
 when cleaning up a development session.
+
+## Confirmed salon catalogue
+
+The current menu has nine main categories and 85 sub-services. Each category has a descriptively named `app/services/<category>/page.tsx` file. Shared page layout lives in `components/services/ServiceDetailPage.tsx`; approved names and sub-service lists live in `data/services.ts`. Sub-services are listed within their category, with no separate sub-service pages. Earlier service URLs redirect through `data/service-routes.ts`. Kolathur is the only published branch; the removed branch is rejected by form validation. New visits use light mode, while a saved explicit dark preference remains respected.

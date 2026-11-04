@@ -62,7 +62,7 @@ export default async function Branch({ params }: { params: Promise<{ slug: strin
         <div className="section-heading">
           <h2>Find your next look.</h2>
         </div>
-        <ServiceGrid slugs={['hair-replacement', 'hair-extensions', 'hair-colour']} />
+        <ServiceGrid slugs={['hair-wig-hair-replacement', 'hair-extensions', 'hair-colouring']} />
       </section>
       <section className="section page-split" id="branch-enquiry">
         <div>
@@ -80,7 +80,7 @@ export default async function Branch({ params }: { params: Promise<{ slug: strin
             Verified branch reviews and original salon photographs will be added when available.
           </p>
         </div>
-        <EnquiryForm branch={l.name as 'Kolathur' | 'Madhavaram'} />
+        <EnquiryForm branch={l.name as 'Kolathur'} />
       </section>
       <Schema
         data={{

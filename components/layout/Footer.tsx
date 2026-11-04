@@ -33,14 +33,13 @@ export function Footer() {
           <span className="footer-label">OUR EXPERTISE</span>
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`}>
-              {s.name}
+              {s.shortName}
             </Link>
           ))}
         </div>
         <div>
           <span className="footer-label">FIND YOUR SPACE</span>
           <Link href="/locations/kolathur">Kolathur, Chennai</Link>
-          <Link href="/locations/madhavaram">Madhavaram, Chennai</Link>
           <Link href="/contact">Contact & enquiries</Link>
         </div>
         <div>

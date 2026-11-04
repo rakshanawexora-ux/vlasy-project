@@ -8,7 +8,7 @@ test('enquiry validates and submits to thank-you', async ({ page }) => {
   ).toBeVisible();
   await page.getByLabel('Full name *').fill('Test Visitor');
   await page.getByLabel('Mobile number *').fill('9876543210');
-  await page.getByLabel('I’m interested in *').selectOption('Hair Extensions');
+  await page.getByLabel('I’m interested in *').selectOption('Hair Extensions Services');
   await page.getByLabel('I agree to be contacted').check();
   await page.getByRole('button', { name: 'Send enquiry', exact: true }).click();
   await expect(page).toHaveURL(/thank-you/);

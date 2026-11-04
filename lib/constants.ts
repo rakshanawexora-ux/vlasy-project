@@ -8,7 +8,7 @@ const siteUrl = new URL(
 ).origin;
 
 export const SITE_CONFIG = {
-  name: 'VLASY Salon & Academy',
+  name: 'VLASY Unisex Salon & Academy',
   url: siteUrl,
   phone: process.env.NEXT_PUBLIC_PHONE || '',
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '',
@@ -18,7 +18,6 @@ export const SITE_CONFIG = {
   logo: { light: '/logo/vlasy-transparent.png', dark: '/logo/vlasy-transparent.png' },
   locations: {
     kolathur: { address: '', hours: '', map: '' },
-    madhavaram: { address: '', hours: '', map: '' },
   },
 };
 export function whatsappUrl(

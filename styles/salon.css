@@ -1,0 +1,244 @@
+/* Current unisex salon art direction: bright ivory, champagne gold and clear service menus. */
+html[data-theme='light'] body {
+  background: #f5f1e9;
+}
+html[data-theme='light'] .site-header.header-light {
+  background: #fffaf1ef;
+  color: #30251a;
+  border-color: #bd914950;
+  box-shadow: 0 8px 32px #9a702517;
+}
+html[data-theme='light'] .hr-hero {
+  background: #f3e7d2;
+  color: #392a18;
+  --sage: #7c551b;
+  --gold: #80602b;
+  --forest: #f3e7d2;
+}
+html[data-theme='light'] .hr-hero-overlay {
+  background:
+    linear-gradient(90deg, #f7eedee8 0%, #f7eede99 37%, #f7eede00 66%),
+    linear-gradient(0deg, #f5ecdadb 0%, transparent 32%);
+}
+html[data-theme='light'] .hr-hero h1,
+html[data-theme='light'] .hr-hero h1 > span:nth-child(2) {
+  color: #392a18;
+}
+html[data-theme='light'] .hr-hero h1 .hr-hero-last {
+  color: #815b20;
+}
+html[data-theme='light'] .hr-hero-description,
+html[data-theme='light'] .hr-hero-promises > span {
+  color: #53432d;
+}
+html[data-theme='light'] .hr-hero-note {
+  background: #fff8e9ec;
+  border-color: #c29a55a0;
+  box-shadow: 0 12px 40px #8b652322;
+  color: #392a18;
+}
+html[data-theme='light'] .hr-hero-note small {
+  color: #72552c;
+}
+html[data-theme='light'] .hr-note-icon {
+  color: #8c6429;
+}
+html[data-theme='light'] .hr-scroll {
+  color: #674b23;
+}
+html[data-theme='light'] .home-expertise {
+  background: linear-gradient(135deg, #fffdf8, #f1e5ca);
+  border: 1px solid #d4b57966;
+}
+html[data-theme='light'] .hr-story,
+html[data-theme='light'] .hr-locations,
+html[data-theme='light'] .hr-results,
+html[data-theme='light'] .hr-consultation {
+  background: linear-gradient(135deg, #fffaf0, #f0e2c5);
+  border-color: #cfad6a77;
+}
+html[data-theme='light'] .hr-benefit-cream,
+html[data-theme='light'] .hr-journey-card {
+  background: linear-gradient(135deg, #fffdf9, #efe2c6);
+}
+.button,
+.hr-pill {
+  background: linear-gradient(110deg, #d9af58 0%, #f6dfa2 35%, #c4933c 72%, #e9c87a 100%);
+  background-size: 160% 100%;
+  border-color: #c69942;
+  box-shadow:
+    inset 0 1px 0 #fff6,
+    0 7px 22px #a77a2a26;
+  color: #251b0c;
+  transition:
+    background-position 0.35s,
+    box-shadow 0.35s;
+}
+.button:hover,
+.hr-pill:hover {
+  background-position: 100% 0;
+  box-shadow:
+    inset 0 1px 0 #fff9,
+    0 9px 26px #a77a2a38;
+}
+.hero-service-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.hero-services-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 15px;
+  border-bottom: 1px solid currentColor;
+}
+.expertise-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.home-academy-feature {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  border: 1px solid #b28b4b55;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #faf7ef;
+}
+.home-academy-feature > .photo {
+  height: 280px;
+}
+.home-academy-feature > div:not(.photo) {
+  padding: 28px 32px 28px 0;
+  color: #33291b;
+}
+.home-academy-feature h3 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+.home-academy-feature p {
+  font-size: 16px;
+  color: #625540;
+  margin-top: 16px;
+}
+.home-academy-feature .expertise-card-action {
+  margin-top: 22px;
+}
+.service-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 24px;
+  margin: 32px 0 0;
+}
+.service-options-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--soft);
+  font-size: 16px;
+  line-height: 1.6;
+  min-width: 0;
+}
+.service-options-grid li > span {
+  color: var(--gold);
+  font-size: 14px;
+  line-height: 1.8;
+  flex-shrink: 0;
+}
+.location-grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+.hr-hero h1 {
+  font-size: clamp(70px, 8vw, 128px);
+}
+@media (max-width: 1100px) and (min-width: 701px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .expertise-card:last-child {
+    grid-column: 1/-1;
+    max-width: calc(50% - 12px);
+    width: 100%;
+    justify-self: center;
+  }
+}
+@media (max-width: 700px) {
+  .expertise-grid,
+  .service-options-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-academy-feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .home-academy-feature > div:not(.photo) {
+    padding: 26px;
+  }
+  .home-academy-feature > .photo {
+    height: 300px;
+  }
+  .home-academy-feature h3 {
+    font-size: 28px;
+  }
+  .hero-service-actions {
+    gap: 14px;
+  }
+  .hr-hero h1 {
+    font-size: clamp(42px, 11.8vw, 76px);
+  }
+  .hr-hero {
+    padding-top: 218px;
+    min-height: 900px;
+  }
+  html[data-theme='light'] .hr-hero-overlay {
+    background: linear-gradient(0deg, #f7efdf 0%, #f7efdfe8 30%, #f7efdf33 76%);
+  }
+  .service-options-grid li {
+    padding: 16px;
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .hr-pill {
+    transition: none;
+  }
+}
+.transformation-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.transformation-tile:nth-child(n) {
+  margin-top: 0;
+}
+.transformation-tile:nth-child(n) .photo {
+  aspect-ratio: 4/5;
+}
+@media (max-width: 700px) {
+  .transformation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .transformation-tile:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+  }
+  .transformation-tile h3 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+}
+/* Keep mobile hero copy readable over the portrait without returning to a dark overlay. */
+@media (max-width: 700px) {
+  html[data-theme='light'] .hr-hero-overlay {
+    background: linear-gradient(0deg, #f7efdf 0%, #f7efdff5 35%, #f7efdfc9 73%, #f7efdf33 100%);
+  }
+}

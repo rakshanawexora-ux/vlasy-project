@@ -3,7 +3,7 @@ import { SITE_CONFIG } from './constants';
 
 /** Shared metadata for public pages. Use a real production URL in environment settings. */
 export function metadata(title: string, description: string, path: string): Metadata {
-  const image = '/images/editorial/hero.webp';
+  const image = '/images/editorial/unisex-hero.webp';
   return {
     title: path === '/' ? { absolute: title } : title,
     description,

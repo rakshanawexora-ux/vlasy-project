@@ -8,7 +8,7 @@ export const enquirySchema = z.object({
     .refine((v) => v.replace(/\D/g, '').length >= 10, 'Please include at least 10 digits.'),
   email: z.union([z.literal(''), z.email('Please enter a valid email address.')]).optional(),
   service: z.string().min(1, 'Please choose a service.').max(100),
-  branch: z.enum(['Kolathur', 'Madhavaram', 'Not Sure']),
+  branch: z.enum(['Kolathur', 'Not Sure']),
   preferredDate: z
     .union([z.literal(''), z.iso.date('Please choose a valid date.')])
     .optional()

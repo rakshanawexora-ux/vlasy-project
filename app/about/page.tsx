@@ -7,7 +7,7 @@ import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
   metadata(
     'About VLASY Salon & Academy in Chennai',
-    'Get to know VLASY in Kolathur and Madhavaram, Chennai. Explore our hair and beauty services, personal consultations and professional training.',
+    'Get to know VLASY in Kolathur, Chennai. Explore our hair and beauty services, personal consultations and professional training.',
     '/about',
   );
 export default function About() {
@@ -16,7 +16,7 @@ export default function About() {
       <PageHero
         label="THE VLASY STORY"
         title="Get to know VLASY."
-        description="Hair, beauty and professional training in Chennai, with a conversation before every recommendation. Find us in Kolathur and Madhavaram."
+        description="Hair, beauty and professional training in Chennai, with a conversation before every recommendation. Find us in Kolathur."
       />
       <Photo
         className="page-image"
@@ -72,7 +72,7 @@ export default function About() {
       </section>
       <section className="section">
         <div className="section-heading">
-          <h2>Two spaces. One philosophy.</h2>
+          <h2>Visit our Kolathur salon.</h2>
         </div>
         <LocationCards />
       </section>

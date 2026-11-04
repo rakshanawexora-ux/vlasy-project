@@ -1,4 +1,5 @@
-export const hairConsultationUrl = '/contact?service=Hair%20Replacement';
+export const hairConsultationUrl =
+  '/contact?service=Hair%20Wig%20%26%20Hair%20Replacement%20Services';
 export const replacementFaqs = [
   {
     q: 'Is hair replacement the same as a transplant?',
@@ -21,8 +22,8 @@ export const replacementFaqs = [
     a: 'Pricing depends on the recommended system, fitting and ongoing care. Request a personal consultation for a clear quote and an explanation of what is included.',
   },
   {
-    q: 'Can I visit either Chennai branch?',
-    a: 'Select Kolathur or Madhavaram in your enquiry. The team will confirm specialist availability, the branch and appointment details before your visit.',
+    q: 'Where can I book a consultation?',
+    a: 'Select Kolathur in your enquiry. The team will confirm specialist availability, the branch and appointment details before your visit.',
   },
 ];
 export const replacementSteps = [

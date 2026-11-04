@@ -1,141 +1,171 @@
-/** Fictional AI editorial imagery, not documented VLASY clients, staff or results. */
+import type { Service } from './services';
 export type ServiceFrame = { src: string; alt: string; caption: string };
 export type ServicePhotography = { heading: string; introduction: string; frames: ServiceFrame[] };
-const workspace: ServiceFrame = {
-  src: '/images/editorial/academy-process.webp',
-  alt: 'AI editorial still life of scissors, comb, sectioning clips and a clean towel',
-  caption: 'Thoughtful preparation, down to the details',
-};
-const preparation: ServiceFrame = {
-  src: '/images/editorial/beauty-process.webp',
-  alt: 'AI editorial still life of a therapist preparing a clean towel and skincare bowls',
-  caption: 'A little preparation. A personal approach.',
-};
+const frame = (file: string, alt: string, caption: string): ServiceFrame => ({
+  src: `/images/editorial/${file}.webp`,
+  alt: `AI editorial illustration: ${alt}`,
+  caption,
+});
 export const servicePhotography: Record<string, ServicePhotography> = {
-  'hair-replacement': {
-    heading: 'A closer look at your next chapter.',
+  'hair-wig-hair-replacement': {
+    heading: 'A fit, finish and care plan for you.',
     introduction:
-      'Talk through the hairline, density and daily care together. Every choice should make sense for the way you live.',
+      'Explore wig options for women and men, with a clear discussion of comfort, styling and servicing.',
     frames: [
-      {
-        src: '/images/editorial/replacement-process.webp',
-        alt: 'AI illustration of an Indian stylist combing a man’s short dark hairstyle; not a hair replacement result',
-        caption: 'Discuss the shape, texture and daily routine',
-      },
-      {
-        src: '/images/editorial/replacement-portrait.webp',
-        alt: 'AI editorial portrait of an Indian man with a natural short hairstyle',
-        caption: 'Discuss the appearance you feel comfortable with',
-      },
-      workspace,
+      frame(
+        'women-wig-fitting',
+        'stylist fitting a wig for an Indian woman',
+        'A personal fitting consultation',
+      ),
+      frame(
+        'replacement-portrait',
+        'man with a short natural hairstyle; not a treatment result',
+        'Style options for men',
+      ),
+      frame(
+        'replacement-detail',
+        'lace-base hair system on a mannequin head',
+        'Understand the base and maintenance',
+      ),
     ],
   },
   'hair-extensions': {
-    heading: 'Movement. Texture. The finer details.',
+    heading: 'Length and volume, thoughtfully blended.',
     introduction:
-      'Explore the direction you love, then discuss the method, colour match and upkeep that suit your existing hair.',
+      'Compare the method, colour match and care requirements before choosing your extensions.',
     frames: [
-      {
-        src: '/images/editorial/extensions-process.webp',
-        alt: 'AI editorial illustration of a stylist sectioning long hair with a comb',
-        caption: 'Every section, carefully considered',
-      },
-      {
-        src: '/images/editorial/extensions-portrait.webp',
-        alt: 'AI editorial portrait showing long textured dark hair',
-        caption: 'Length, texture and movement in conversation',
-      },
-      workspace,
+      frame(
+        'extensions-process',
+        'stylist sectioning long hair',
+        'Careful sectioning and blending',
+      ),
+      frame(
+        'extensions-detail',
+        'stylist matching an extension weft',
+        'Explore the right extension method',
+      ),
+      frame(
+        'extensions-portrait',
+        'woman with long textured hair',
+        'Your preferred length and movement',
+      ),
     ],
   },
-  'hair-colour': {
-    heading: 'Dimension you can make your own.',
+  'haircut-styling': {
+    heading: 'The shape you want. A routine that works.',
     introduction:
-      'Bring your colour references. Your stylist will consider your starting shade, colour history and the condition of your hair.',
+      'Haircuts for women, men and children, with styling for everyday wear or a special occasion.',
     frames: [
-      {
-        src: '/images/editorial/colour-process.webp',
-        alt: 'AI illustration of an Indian colourist applying hair colour with a tint brush',
-        caption: 'A thoughtful approach to colour',
-      },
-      {
-        src: '/images/editorial/colour-portrait.webp',
-        alt: 'AI editorial view of wavy hair with subtle caramel tones',
-        caption: 'Explore the tone and texture you love',
-      },
-      workspace,
+      frame('women-blow-dry', 'woman receiving a blow-dry', 'A finish for your occasion'),
+      frame('women-bob-cut', 'woman with a shoulder-length bob', 'Explore shape and length'),
+      frame('styling-process', 'stylist cutting a man’s hair', 'Haircuts and styling for men'),
     ],
   },
-  'hair-cut-styling': {
-    heading: 'Shape that works beyond the chair.',
+  'hair-colouring': {
+    heading: 'Explore your next colour direction.',
     introduction:
-      'A reference is a starting point. Your texture, styling routine and preferred silhouette help shape the final direction.',
+      'Share your inspiration, previous colour and preferred upkeep so the team can discuss a realistic plan.',
     frames: [
-      {
-        src: '/images/editorial/styling-process.webp',
-        alt: 'AI editorial illustration of a stylist trimming a seated man’s short hair',
-        caption: 'Shape, section by section',
-      },
-      {
-        src: '/images/editorial/styling-portrait.webp',
-        alt: 'AI editorial portrait of a man with a short textured haircut',
-        caption: 'An individual shape and finish',
-      },
-      workspace,
+      frame(
+        'colour-process',
+        'colourist applying colour with a brush',
+        'Colour planned around your hair',
+      ),
+      frame(
+        'colour-detail',
+        'hair colour application with foils',
+        'Highlights, placement and technique',
+      ),
+      frame(
+        'colour-portrait',
+        'hair with subtle warm colour',
+        'A finish to discuss with your stylist',
+      ),
     ],
   },
-  bridal: {
-    heading: 'Every detail, thoughtfully connected.',
+  'hair-treatments': {
+    heading: 'Care for the hair you have.',
     introduction:
-      'Share your outfit, event schedule and the look you feel most yourself in. Hair and makeup should feel like part of the same story.',
+      'Talk through frizz, dryness, damage or scalp concerns before agreeing on a suitable cosmetic service.',
     frames: [
-      {
-        src: '/images/editorial/bridal-process.webp',
-        alt: 'AI editorial illustration of a makeup artist preparing a South Indian bride wearing jasmine',
-        caption: 'Time for the finishing details',
-      },
-      {
-        src: '/images/editorial/bridal-portrait.webp',
-        alt: 'AI editorial portrait of a South Indian bride with jasmine and gold jewellery',
-        caption: 'Occasion details, brought together',
-      },
-      preparation,
+      frame(
+        'hair-spa',
+        'woman receiving a conditioning hair treatment',
+        'Hair spa and conditioning care',
+      ),
+      frame(
+        'women-blow-dry',
+        'stylist drying and smoothing a woman’s hair',
+        'Discuss treatment and finishing options',
+      ),
+      frame(
+        'beauty-process',
+        'clean towels and preparation bowls',
+        'Preparation and personalised aftercare',
+      ),
     ],
   },
-  'beauty-treatments': {
-    heading: 'A little time, entirely for you.',
+  'mens-grooming': {
+    heading: 'Grooming that fits your everyday life.',
     introduction:
-      'Discuss skin sensitivities, current products and what you want from your appointment before choosing a treatment.',
+      'From a beard tidy-up to a complete grooming appointment, agree on the details before you begin.',
     frames: [
-      {
-        src: '/images/editorial/beauty-portrait.webp',
-        alt: 'AI editorial illustration of a beauty therapist applying a facial mask',
-        caption: 'Personal care, thoughtfully considered',
-      },
-      preparation,
-      {
-        src: '/images/editorial/beauty-tools-detail.webp',
-        alt: 'AI editorial still life of clean makeup brushes and beauty tools',
-        caption: 'Care in the preparation and finishing details',
-      },
+      frame('styling-process', 'stylist cutting a man’s hair', 'A haircut shaped around you'),
+      frame('styling-detail', 'close-up of a short men’s haircut', 'Detail in the cut and finish'),
+      frame('styling-portrait', 'man with a short textured hairstyle', 'A look you can maintain'),
     ],
   },
-  mehndi: {
-    heading: 'An occasion, in the details.',
+  'womens-beauty': {
+    heading: 'A little time for personal care.',
     introduction:
-      'Explore coverage, pattern and timing with your artist. Bring references for the balance of tradition and simplicity you prefer.',
+      'Explore your beauty routine with attention to skin comfort, preparation and the occasion ahead.',
     frames: [
-      {
-        src: '/images/editorial/mehndi-process.webp',
-        alt: 'AI editorial illustration of an Indian artist applying mehndi using a henna cone',
-        caption: 'A personal design, one detail at a time',
-      },
-      {
-        src: '/images/editorial/mehndi-portrait.webp',
-        alt: 'AI editorial close-up of traditional mehndi patterns on palms',
-        caption: 'Explore a design direction with your artist',
-      },
-      preparation,
+      frame(
+        'beauty-portrait',
+        'woman receiving a facial mask',
+        'Facial and skin-care consultations',
+      ),
+      frame('beauty-detail', 'woman receiving a gentle facial massage', 'Time to pause and reset'),
+      frame('beauty-process', 'towel and skincare preparation', 'Care in every step'),
+    ],
+  },
+  'bridal-special-occasion': {
+    heading: 'Your occasion, planned in the details.',
+    introduction:
+      'Coordinate hair, makeup, draping and styling with your outfit, preferences and event schedule.',
+    frames: [
+      frame(
+        'bridal-process',
+        'makeup artist preparing an Indian bride',
+        'Makeup planned around your preferences',
+      ),
+      frame(
+        'bridal-detail',
+        'jasmine-adorned bridal hairstyle',
+        'Hair and accessories, brought together',
+      ),
+      frame('bridal-portrait', 'bride in a champagne and maroon saree', 'A personal occasion look'),
+    ],
+  },
+  'nail-beauty': {
+    heading: 'A polished finish, down to the details.',
+    introduction:
+      'Choose a shape, colour and care routine for your hands and feet, with suitability discussed first.',
+    frames: [
+      frame(
+        'manicure',
+        'nail technician applying polish to a woman’s hands',
+        'Manicure, polish and nail art',
+      ),
+      frame('pedicure', 'professional pedicure in a salon', 'Pedicure and foot-care options'),
+      frame(
+        'beauty-tools-detail',
+        'clean beauty tools on a workstation',
+        'Preparation and careful finishing',
+      ),
     ],
   },
 };
+/** Intended editorial client focus for the current service lead images. */
+export const serviceImageAudience = (service: Service): 'women' | 'men' =>
+  service.slug === 'mens-grooming' ? 'men' : 'women';

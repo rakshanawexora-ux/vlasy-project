@@ -14,7 +14,7 @@ export default async function Contact({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const q = await searchParams;
-  const branch = q.branch === 'Kolathur' || q.branch === 'Madhavaram' ? q.branch : 'Not Sure';
+  const branch = q.branch === 'Kolathur' ? q.branch : 'Not Sure';
   return (
     <section className="section page-top contact-layout">
       <div>
@@ -39,7 +39,6 @@ export default async function Contact({
           )}
           {SITE_CONFIG.whatsapp && <TextLink href={whatsappUrl()}>Chat on WhatsApp</TextLink>}
           <TextLink href="/locations/kolathur">Kolathur, Chennai</TextLink>
-          <TextLink href="/locations/madhavaram">Madhavaram, Chennai</TextLink>
         </div>
       </div>
       <EnquiryForm service={q.service || ''} branch={branch} />
