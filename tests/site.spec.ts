@@ -312,7 +312,7 @@ test('SEO metadata uses a working share image and describes real service pages',
   const html = await home.text();
   const share = html.match(/property="og:image" content="([^"]+)"/)?.[1];
   expect(share).toBeTruthy();
-  expect(share).toContain('/images/editorial/unisex-hero.webp');
+  expect(share).toContain('/images/editorial/2026-11/unisex-hero.webp');
   expect((await request.get(new URL(share!).pathname)).status()).toBe(200);
   expect(html).toContain('Chennai');
   const schemas = [

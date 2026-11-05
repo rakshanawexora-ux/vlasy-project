@@ -20,7 +20,7 @@ export default function About() {
       />
       <Photo
         className="page-image"
-        src="/images/editorial/salon-portrait.webp"
+        src="/images/editorial/2026-11/salon-portrait.webp"
         alt="AI-generated editorial interior with styling chairs, mirrors and natural daylight; not a VLASY branch"
       />
       <section className="section page-split">
@@ -53,7 +53,7 @@ export default function About() {
       </section>
       <section className="section page-split">
         <Photo
-          src="/images/editorial/academy-portrait.webp"
+          src="/images/editorial/2026-11/academy-portrait.webp"
           alt="AI-generated scene of an instructor and adult students practising hair sectioning"
         />
         <div>

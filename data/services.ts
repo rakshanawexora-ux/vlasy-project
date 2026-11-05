@@ -25,7 +25,7 @@ export const services: Service[] = [
     tagline: 'Hair Wigs & Replacement in Kolathur, Chennai',
     description:
       'Hair wigs and non-surgical systems for women and men. Explore fitting, customisation and ongoing maintenance at VLASY in Kolathur, Chennai.',
-    image: '/images/editorial/women-wig-fitting.webp',
+    image: '/images/editorial/2026-11/women-wig-fitting.webp',
     offerings: [
       "Men's Hair Wigs",
       "Women's Hair Wigs",
@@ -56,7 +56,7 @@ export const services: Service[] = [
     tagline: 'Hair Extensions in Kolathur, Chennai',
     description:
       'Explore hair extensions for length and volume in Chennai, including clip-in, tape-in, keratin bond and micro ring options at VLASY.',
-    image: '/images/editorial/extensions-portrait.webp',
+    image: '/images/editorial/2026-11/extensions-portrait.webp',
     offerings: [
       'Permanent Hair Extensions',
       'Temporary Hair Extensions',
@@ -85,7 +85,7 @@ export const services: Service[] = [
     tagline: 'Haircuts & Styling in Kolathur, Chennai',
     description:
       'Haircuts and styling for women, men and children in Kolathur, Chennai. Explore cuts, blow-dries and occasion hairstyles at VLASY.',
-    image: '/images/editorial/women-bob-cut.webp',
+    image: '/images/editorial/2026-11/women-bob-cut.webp',
     offerings: [
       "Men's Haircut & Styling",
       "Women's Haircut & Styling",
@@ -116,7 +116,7 @@ export const services: Service[] = [
     tagline: 'Hair Colouring in Kolathur, Chennai',
     description:
       'From root touch-ups and grey coverage to balayage and fashion shades, explore hair colouring at VLASY in Kolathur, Chennai.',
-    image: '/images/editorial/colour-portrait.webp',
+    image: '/images/editorial/2026-11/colour-portrait.webp',
     offerings: [
       'Global Hair Colouring',
       'Root Touch-Up',
@@ -145,7 +145,7 @@ export const services: Service[] = [
     tagline: 'Hair Treatments in Kolathur, Chennai',
     description:
       'Explore hair spa, conditioning, keratin, smoothening and scalp-care services at VLASY in Chennai. Discuss suitability and aftercare before treatment.',
-    image: '/images/editorial/hair-spa.webp',
+    image: '/images/editorial/2026-11/hair-spa.webp',
     offerings: [
       'Hair Spa',
       'Keratin Treatment',
@@ -175,7 +175,7 @@ export const services: Service[] = [
     tagline: "Men's Grooming in Kolathur, Chennai",
     description:
       'Haircuts, beard care, shaves and grooming services for men at VLASY in Kolathur, Chennai. Ask about individual services and grooming packages.',
-    image: '/images/editorial/styling-portrait.webp',
+    image: '/images/editorial/2026-11/styling-portrait.webp',
     offerings: [
       'Beard Trimming',
       'Beard Styling',
@@ -204,7 +204,7 @@ export const services: Service[] = [
     tagline: "Women's Beauty in Kolathur, Chennai",
     description:
       'Facials, threading, waxing, cleanup and beauty care for women at VLASY in Chennai. Discuss your skin, preparation and aftercare with the team.',
-    image: '/images/editorial/beauty-portrait.webp',
+    image: '/images/editorial/2026-11/beauty-portrait.webp',
     offerings: [
       'Facial & Skin Care',
       'Cleanup',
@@ -234,7 +234,7 @@ export const services: Service[] = [
     tagline: 'Bridal & Occasions in Kolathur, Chennai',
     description:
       'Plan bridal, engagement, reception and party looks with VLASY in Chennai. Explore hair, makeup, saree draping and grooming for your occasion.',
-    image: '/images/editorial/bridal-portrait.webp',
+    image: '/images/editorial/2026-11/bridal-portrait.webp',
     offerings: [
       'Bridal Makeup',
       'Engagement Makeup',
@@ -263,7 +263,7 @@ export const services: Service[] = [
     tagline: 'Nails & Additional Beauty in Kolathur, Chennai',
     description:
       'Explore manicures, pedicures, gel polish, nail art, extensions and hand or foot spa care at VLASY in Kolathur, Chennai.',
-    image: '/images/editorial/manicure.webp',
+    image: '/images/editorial/2026-11/manicure.webp',
     offerings: [
       'Manicure',
       'Pedicure',

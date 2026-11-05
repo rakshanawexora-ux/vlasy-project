@@ -33,7 +33,7 @@ export function HeroVideo() {
       if (visible && !document.hidden && !manuallyPaused.current) void media.play().catch(() => {});
       else media.pause();
     };
-    media.src = '/videos/unisex-hero-loop.mp4';
+    media.src = '/videos/unisex-hero-2026-11.mp4';
     media.load();
     const observer = new IntersectionObserver(
       ([entry]) => {

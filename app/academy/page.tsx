@@ -22,7 +22,7 @@ export default function Academy() {
       />
       <Photo
         className="page-image"
-        src="/images/editorial/academy-portrait.webp"
+        src="/images/editorial/2026-11/academy-portrait.webp"
         alt="AI-generated illustration of an instructor demonstrating hair sectioning to adult students"
       />
       <section className="section">
@@ -71,7 +71,7 @@ export default function Academy() {
       </section>
       <section className="section academy-photo-detail">
         <Photo
-          src="/images/editorial/academy-process.webp"
+          src="/images/editorial/2026-11/academy-process.webp"
           alt="AI editorial still life of hairdressing scissors, a comb, sectioning clips and towel"
         />
         <div>

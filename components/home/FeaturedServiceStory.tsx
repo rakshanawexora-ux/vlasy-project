@@ -34,6 +34,7 @@ export function FeaturedServiceStory({
             src={service.image}
             alt={`${service.shortName} — AI editorial inspiration`}
             imageAudience={serviceImageAudience(service)}
+            sizes="(max-width: 700px) 80vw, 52vw"
           />
         </motion.div>
         <span className="featured-service-number" aria-hidden="true">

@@ -2,7 +2,7 @@ import type { Service } from './services';
 export type ServiceFrame = { src: string; alt: string; caption: string };
 export type ServicePhotography = { heading: string; introduction: string; frames: ServiceFrame[] };
 const frame = (file: string, alt: string, caption: string): ServiceFrame => ({
-  src: `/images/editorial/${file}.webp`,
+  src: `/images/editorial/2026-11/${file}.webp`,
   alt: `AI editorial illustration: ${alt}`,
   caption,
 });

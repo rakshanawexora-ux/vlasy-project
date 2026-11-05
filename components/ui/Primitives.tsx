@@ -41,23 +41,18 @@ export function Photo({
   priority = false,
   className = '',
   imageAudience,
+  sizes = '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 55vw',
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
   imageAudience?: 'women' | 'men';
+  sizes?: string;
 }) {
   return (
     <div className={`photo ${className}`} data-image-audience={imageAudience}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 55vw"
-        priority={priority}
-        className="photo-img"
-      />
+      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="photo-img" />
       <span className="illustration-label">AI editorial image</span>
     </div>
   );

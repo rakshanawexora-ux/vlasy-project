@@ -30,7 +30,7 @@ export function HonestResults() {
       </Reveal>
       <div className="hr-results-visual">
         <Photo
-          src="/images/editorial/styling-portrait.webp"
+          src="/images/editorial/2026-11/styling-portrait.webp"
           imageAudience="men"
           alt="Natural short hairstyle, editorial inspiration rather than a verified client result"
         />

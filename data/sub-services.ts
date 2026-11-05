@@ -154,7 +154,7 @@ export function getSubServices(service: Service): SubService[] {
   return service.offerings.map((name, index) => ({
     id: `${service.slug}-${index + 1}`,
     name,
-    image: `/images/editorial/${sources[index]}.webp`,
+    image: `/images/editorial/2026-11/${sources[index]}.webp`,
     alt: `${descriptions[sources[index]]}. AI editorial reference for ${name}.`,
   }));
 }

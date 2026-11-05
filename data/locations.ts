@@ -4,7 +4,7 @@ export const locations = [
     slug: 'kolathur',
     name: 'Kolathur',
     city: 'Chennai',
-    image: '/images/editorial/salon-portrait.webp',
+    image: '/images/editorial/2026-11/salon-portrait.webp',
     ...SITE_CONFIG.locations.kolathur,
   },
 ];

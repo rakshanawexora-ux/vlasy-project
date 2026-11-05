@@ -50,7 +50,11 @@ export function SubServiceGallery({
       >
         {matches.map((item) => (
           <li key={item.id} className="subservice-card">
-            <Photo src={item.image} alt={item.alt} />
+            <Photo
+              src={item.image}
+              alt={item.alt}
+              sizes="(max-width: 700px) 92vw, (max-width: 1000px) 45vw, 30vw"
+            />
             <div className="subservice-card-content">
               <h3>{item.name}</h3>
               <Link

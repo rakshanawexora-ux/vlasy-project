@@ -3,7 +3,7 @@ export const articles = [
     slug: 'finding-your-hair-solution',
     category: 'Hair Replacement',
     title: 'Finding a hair solution that fits your life',
-    image: '/images/editorial/women-wig-fitting.webp',
+    image: '/images/editorial/2026-11/women-wig-fitting.webp',
     intro: 'A good consultation begins with your everyday life, not a catalogue of systems.',
     sections: [
       [
@@ -24,7 +24,7 @@ export const articles = [
     slug: 'your-first-extensions-consultation',
     category: 'Extensions',
     title: 'Before your first extensions consultation',
-    image: '/images/editorial/extensions-portrait.webp',
+    image: '/images/editorial/2026-11/extensions-portrait.webp',
     intro:
       'Length is only part of the conversation. The right approach begins with your natural hair.',
     sections: [
@@ -46,7 +46,7 @@ export const articles = [
     slug: 'making-your-colour-last',
     category: 'Hair Care',
     title: 'Small rituals for beautifully considered colour',
-    image: '/images/editorial/colour-portrait.webp',
+    image: '/images/editorial/2026-11/colour-portrait.webp',
     intro: 'A colour appointment is the beginning. Everyday habits help care for your finish.',
     sections: [
       [

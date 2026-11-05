@@ -68,3 +68,66 @@ test('unrecognised sub-service values do not prefill an unrelated request', asyn
   await expect(page.locator('.booking-context')).toHaveCount(0);
   await expect(page.getByLabel('Anything you’d like us to know?')).toHaveValue('');
 });
+
+for (const width of [320, 375, 430]) {
+  test(`mobile service rail stays compact and supports all five choices at ${width}px`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      viewport: { width, height: 844 },
+      hasTouch: true,
+      isMobile: true,
+      reducedMotion: 'reduce',
+    });
+    const page = await context.newPage();
+    await page.addInitScript(() => sessionStorage.setItem('vlasy-enquiry-shown', 'true'));
+    await page.goto('/');
+    const section = page.getByRole('region', { name: /What we do.*at VLASY/ });
+    const rail = section.getByRole('region', { name: 'Featured services', exact: true });
+    await rail.scrollIntoViewIfNeeded();
+    const bounds = await rail.boundingBox();
+    expect(bounds?.height).toBeLessThan(520);
+    const cards = rail.locator('.featured-service-card');
+    await expect(cards).toHaveCount(5);
+    const previous = section.getByRole('button', { name: 'Previous featured service' });
+    const next = section.getByRole('button', { name: 'Next featured service' });
+    await expect(previous).toBeDisabled();
+    await next.click();
+    await expect(section.locator('.featured-rail-controls p')).toContainText('2 / 5');
+    await rail.focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(section.locator('.featured-rail-controls p')).toContainText('3 / 5');
+    // A real touch gesture should move the native rail as well as the controls.
+    const box = await rail.boundingBox();
+    const session = await context.newCDPSession(page);
+    const startX = box!.x + box!.width * 0.8;
+    const y = box!.y + 80;
+    await session.send('Input.dispatchTouchEvent', {
+      type: 'touchStart',
+      touchPoints: [{ x: startX, y }],
+    });
+    for (let step = 1; step <= 8; step++)
+      await session.send('Input.dispatchTouchEvent', {
+        type: 'touchMove',
+        touchPoints: [{ x: startX - (box!.width * 0.75 * step) / 8, y }],
+      });
+    await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await expect
+      .poll(() => rail.evaluate((element) => element.scrollLeft))
+      .toBeGreaterThan((width - 48) * 1.8);
+    await rail.focus();
+    // Settle at the final card, with no automatic playback or page-wide overflow.
+    await rail.evaluate((element) => {
+      element.scrollLeft = element.scrollWidth;
+    });
+    await expect(next).toBeDisabled();
+    await expect(section.locator('.featured-rail-controls p')).toContainText('5 / 5');
+    await expect(previous).toBeEnabled();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await cards.last().getByRole('link').click();
+    await expect(page).toHaveURL(/\/services\/bridal-special-occasion$/);
+    await context.close();
+  });
+}

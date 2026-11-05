@@ -7,7 +7,7 @@ export function LocationsSection() {
     <section className="hr-locations">
       <div className="hr-locations-image">
         <Photo
-          src="/images/editorial/salon-portrait.webp"
+          src="/images/editorial/2026-11/salon-portrait.webp"
           alt="AI editorial salon interior; not a photograph of the VLASY branch"
         />
         <span>YOUR SPACE FOR PERSONAL CARE.</span>

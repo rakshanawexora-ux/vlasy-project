@@ -6,7 +6,7 @@ export const programs = [
     description:
       'Build a foundation in consultation, sectioning, cutting, finishing and everyday salon practice.',
     topics: 'Cutting · Styling · Consultation',
-    image: '/images/editorial/styling-process.webp',
+    image: '/images/editorial/2026-11/styling-process.webp',
     focus: [
       {
         title: 'Consultation & preparation',
@@ -29,7 +29,7 @@ export const programs = [
     description:
       'Explore colour theory, thoughtful placement and the technical decisions behind a considered result.',
     topics: 'Colour theory · Application · Aftercare',
-    image: '/images/editorial/colour-process.webp',
+    image: '/images/editorial/2026-11/colour-process.webp',
     focus: [
       {
         title: 'Understanding colour',
@@ -52,7 +52,7 @@ export const programs = [
     description:
       'Explore skin preparation, makeup application and personalised looks for different occasions.',
     topics: 'Skin preparation · Makeup · Hygiene',
-    image: '/images/editorial/beauty-portrait.webp',
+    image: '/images/editorial/2026-11/beauty-portrait.webp',
     focus: [
       {
         title: 'Preparation & hygiene',
@@ -75,7 +75,7 @@ export const programs = [
     description:
       'Develop an approach to bridal hair and makeup, from inspiration to a coordinated final look.',
     topics: 'Bridal hair · Makeup · Client experience',
-    image: '/images/editorial/bridal-process.webp',
+    image: '/images/editorial/2026-11/bridal-process.webp',
     focus: [
       {
         title: 'Planning the occasion',

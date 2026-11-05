@@ -5,6 +5,7 @@ import { Photo, SectionLabel } from '@/components/ui/Primitives';
 import { services } from '@/data/services';
 import { featuredServiceSlugs } from '@/data/featured-services';
 import { FeaturedServiceStory } from './FeaturedServiceStory';
+import { FeaturedServiceRail } from './FeaturedServiceRail';
 export function HomeServices() {
   const featured = featuredServiceSlugs.map(
     (slug) => services.find((service) => service.slug === slug)!,
@@ -26,8 +27,8 @@ export function HomeServices() {
               <span>at VLASY.</span>
             </h2>
             <p className="featured-intro-copy">
-              A few places to begin. Explore signature hair, beauty and occasion services as you
-              scroll, then open the complete menu to see all nine categories.
+              Start with our signature hair, beauty and occasion services. Explore the complete menu
+              for all nine categories.
             </p>
             <Link className="button featured-all-link" href="/services">
               Explore all services
@@ -36,15 +37,17 @@ export function HomeServices() {
             <p className="featured-service-hint">5 featured categories · full menu available</p>
           </div>
         </div>
-        <div className="expertise-grid featured-story-list">
-          {featured.map((service, index) => (
-            <FeaturedServiceStory
-              key={service.slug}
-              service={service}
-              index={index}
-              total={featured.length}
-            />
-          ))}
+        <div className="featured-service-collection">
+          <FeaturedServiceRail total={featured.length}>
+            {featured.map((service, index) => (
+              <FeaturedServiceStory
+                key={service.slug}
+                service={service}
+                index={index}
+                total={featured.length}
+              />
+            ))}
+          </FeaturedServiceRail>
           <div className="featured-services-footer">
             <h3>There is more to explore.</h3>
             <p>
@@ -60,7 +63,7 @@ export function HomeServices() {
       </div>
       <Link href="/academy" className="home-academy-feature" aria-label="Explore VLASY Academy">
         <Photo
-          src="/images/editorial/academy-portrait.webp"
+          src="/images/editorial/2026-11/academy-portrait.webp"
           alt="AI editorial illustration of female students learning hairstyling"
           imageAudience="women"
         />

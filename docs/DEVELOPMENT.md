@@ -69,7 +69,7 @@ useful; do not repeat keywords unnaturally or invent reviews, qualifications,
 prices, addresses, guarantees or treatment results.
 
 The shared `metadata` helper in `lib/seo.ts` supplies canonical, Open Graph and
-Twitter metadata. Its share image is a real asset in `public/images/editorial/`.
+Twitter metadata. Its share image is an existing campaign asset in `public/images/editorial/2026-11/`.
 Set `NEXT_PUBLIC_SITE_URL` to the confirmed public domain. On Vercel,
 `VERCEL_PROJECT_PRODUCTION_URL` is used when no explicit domain is supplied.
 Local development intentionally falls back to `https://vlasy.example`.
@@ -99,6 +99,8 @@ The current menu has nine main categories and 85 sub-services. Each category has
 
 ## Service discovery
 
-Homepage feature selection is in `data/featured-services.ts` (five highlights, not the whole catalogue). `FeaturedServiceStory` handles one-time entry reveals and desktop image parallax; reduced motion and mobile use a static image layout. The full menu is always available via the Explore all services links.
+Homepage feature selection is in `data/featured-services.ts` (five highlights, not the whole catalogue). `FeaturedServiceStory` handles one-time entry reveals and desktop image parallax; reduced motion uses static images. `FeaturedServiceRail` keeps the five cards in a compact native swipe rail on screens up to 700px, with previous/next buttons, keyboard arrows, position feedback and no autoplay. Desktop keeps the vertical parallax narrative. The full menu is always available via the Explore all services links.
 
 `data/sub-services.ts` maps every confirmed sub-service to an editorial image. Related services may reuse a relevant reference. `SubServiceGallery` provides search and individual enquiry links. Contact validates the requested sub-service against the selected category before prefilling the editable enquiry message. No separate sub-service pages are created.
+
+The campaign has 52 individual AI images with a 3840-pixel long edge. These are upscaled exports from 1536 × 1024 generated originals, not native 4K. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.

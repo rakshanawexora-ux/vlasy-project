@@ -34,7 +34,7 @@ export function HeroPortrait() {
       style={reduced ? undefined : { y }}
     >
       <Image
-        src="/images/editorial/unisex-hero.webp"
+        src="/images/editorial/2026-11/unisex-hero.webp"
         alt="AI editorial portrait of an Indian woman with naturally styled hair; not a client result"
         fill
         priority

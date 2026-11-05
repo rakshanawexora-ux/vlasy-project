@@ -35,7 +35,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
           priority
         />
         <Photo
-          src="/images/editorial/academy-portrait.webp"
+          src="/images/editorial/2026-11/academy-portrait.webp"
           alt="AI editorial illustration of an instructor demonstrating hair sectioning to adult students"
         />
       </div>

@@ -105,7 +105,7 @@ test('hero retains static fallback for reduced motion, data saver and media fail
         Object.defineProperty(navigator, 'connection', { value: { saveData: true } }),
       );
     if (mode === 'failure')
-      await page.route('**/videos/unisex-hero-loop.mp4', (route) => route.abort());
+      await page.route('**/videos/unisex-hero-2026-11.mp4', (route) => route.abort());
     const requests: string[] = [];
     page.on('request', (request) => {
       if (request.url().includes('/videos/')) requests.push(request.url());

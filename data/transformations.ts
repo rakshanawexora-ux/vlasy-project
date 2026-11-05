@@ -16,7 +16,7 @@ export const transformations = [
     id: 'volume',
     title: 'Length with natural movement',
     category: 'Extensions',
-    image: '/images/editorial/extensions-portrait.webp',
+    image: '/images/editorial/2026-11/extensions-portrait.webp',
     detail:
       'Explore length and volume options with your stylist. AI editorial inspiration, not a documented client result.',
   },
@@ -24,7 +24,7 @@ export const transformations = [
     id: 'dimension',
     title: 'A softer colour direction',
     category: 'Colour',
-    image: '/images/editorial/colour-portrait.webp',
+    image: '/images/editorial/2026-11/colour-portrait.webp',
     detail:
       'Bring this tonal direction to your consultation. AI editorial inspiration, not a documented client result.',
   },
@@ -32,7 +32,7 @@ export const transformations = [
     id: 'wig-fitting',
     title: 'A personal wig fitting',
     category: 'Hair Replacement',
-    image: '/images/editorial/women-wig-fitting.webp',
+    image: '/images/editorial/2026-11/women-wig-fitting.webp',
     detail:
       'Discuss comfort, hair type, attachment and maintenance. AI editorial inspiration, not a documented client result.',
   },
@@ -40,7 +40,7 @@ export const transformations = [
     id: 'shape',
     title: 'A shape to make your own',
     category: 'Cuts',
-    image: '/images/editorial/women-bob-cut.webp',
+    image: '/images/editorial/2026-11/women-bob-cut.webp',
     detail:
       'Talk through a haircut that suits your texture and routine. AI editorial inspiration, not a documented client result.',
   },
@@ -48,7 +48,7 @@ export const transformations = [
     id: 'occasion',
     title: 'Your occasion, thoughtfully styled',
     category: 'Bridal',
-    image: '/images/editorial/bridal-portrait.webp',
+    image: '/images/editorial/2026-11/bridal-portrait.webp',
     detail:
       'Discuss the outfit, hair and makeup together. AI editorial inspiration, not a documented client result.',
   },
@@ -56,7 +56,7 @@ export const transformations = [
     id: 'beauty',
     title: 'Time for personal care',
     category: 'Beauty',
-    image: '/images/editorial/beauty-portrait.webp',
+    image: '/images/editorial/2026-11/beauty-portrait.webp',
     detail:
       'Explore beauty care with your skin and sensitivities in mind. AI editorial inspiration, not a documented client result.',
   },
@@ -64,7 +64,7 @@ export const transformations = [
     id: 'hair-spa',
     title: 'Care for your hair routine',
     category: 'Treatments',
-    image: '/images/editorial/hair-spa.webp',
+    image: '/images/editorial/2026-11/hair-spa.webp',
     detail:
       'Discuss conditioning and suitable salon care. AI editorial inspiration, not a documented client result.',
   },
@@ -72,7 +72,7 @@ export const transformations = [
     id: 'nails',
     title: 'A polished finishing detail',
     category: 'Nails',
-    image: '/images/editorial/manicure.webp',
+    image: '/images/editorial/2026-11/manicure.webp',
     detail:
       'Explore your preferred nail shape, shade and maintenance. AI editorial inspiration, not a documented client result.',
   },
@@ -80,7 +80,7 @@ export const transformations = [
     id: 'mens-hair',
     title: 'Your preferred hair-system look',
     category: 'Hair Replacement',
-    image: '/images/editorial/replacement-portrait.webp',
+    image: '/images/editorial/2026-11/replacement-portrait.webp',
     detail:
       'A hairstyle reference for a hair-system consultation. AI editorial inspiration, not a documented client result.',
   },
@@ -88,7 +88,7 @@ export const transformations = [
     id: 'grooming',
     title: 'Grooming for everyday confidence',
     category: 'Grooming',
-    image: '/images/editorial/styling-portrait.webp',
+    image: '/images/editorial/2026-11/styling-portrait.webp',
     detail:
       'Explore a cut and grooming routine that suits you. AI editorial inspiration, not a documented client result.',
   },
