@@ -25,5 +25,6 @@ small files-ai "4K" nu resize panna vendam.
 
 New filename use panna `data/services.ts` (main photos), `data/sub-services.ts`
 (individual service cards), `data/service-photography.ts` (photo stories) update
-pannanum. Accurate alt text-um update pannunga. AI images-ku visible label retain
-pannunga; competitor site photos copy panna koodadhu.
+pannanum. Accurate alt text-um update pannunga. Photo overlay badges owner request-la remove panniyachu. Provenance notes accurate-ah
+vechukonga; before/after preview-ai real client result-nu solla koodadhu.
+Competitor site photos copy panna koodadhu.

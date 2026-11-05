@@ -30,8 +30,8 @@ export function ServicePhotoStory({ slug }: { slug: string }) {
         ))}
       </div>
       <p className="service-photography-note">
-        AI-created editorial references for your consultation. These images do not document VLASY
-        clients, results or branch interiors.
+        Style references for your consultation. These images do not document VLASY clients, results
+        or branch interiors.
       </p>
     </section>
   );

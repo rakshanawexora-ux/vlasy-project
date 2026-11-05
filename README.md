@@ -42,7 +42,7 @@ The header theme control switches dark/light palettes and remembers the choice i
 - Branch addresses, hours and map links: `SITE_CONFIG.locations`.
 - Services, FAQs and articles: `data/`.
 - Verified reviews: `data/testimonials.ts` (empty until supplied).
-- Current imagery: 47 native-resolution AI editorial images in `public/images/studio-v2/`, including a separate mobile hero. No artificial 4K upscaling; visible AI labels remain. See `public/images/README.md` and `docs/IMAGES.md`.
+- Current imagery: 47 native-resolution AI editorial images in `public/images/studio-v2/`, including a separate mobile hero. No artificial 4K upscaling; photo overlay badges are removed; provenance and illustrative comparison notes remain. See `public/images/README.md` and `docs/IMAGES.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
   `next/font/local` because direct Google Fonts access is blocked in this runtime.
 - Logo asset and replacement instructions: `public/logo/README.md`. Both themes

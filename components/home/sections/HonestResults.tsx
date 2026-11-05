@@ -24,7 +24,7 @@ export function HonestResults() {
           <ArrowUpRight size={18} />
         </Link>
         <span className="hr-results-note">
-          AI-created editorial imagery, not client results. Real VLASY stories will be added with
+          Style inspiration, not documented client results. Real VLASY stories will be added with
           permission.
         </span>
       </Reveal>

@@ -118,10 +118,29 @@ for (const width of [320, 375, 430]) {
       .poll(() => rail.evaluate((element) => element.scrollLeft))
       .toBeGreaterThan((width - 48) * 1.8);
     await rail.focus();
-    // Settle at the final card, with no automatic playback or page-wide overflow.
-    await rail.evaluate((element) => {
-      element.scrollLeft = element.scrollWidth;
-    });
+    // Wait for the actual touch fling/snap to settle before making another input.
+    let lastPosition = -1;
+    let stableSamples = 0;
+    await expect
+      .poll(
+        async () => {
+          const position = await rail.evaluate((element) => element.scrollLeft);
+          stableSamples = Math.abs(position - lastPosition) < 0.5 ? stableSamples + 1 : 0;
+          lastPosition = position;
+          return stableSamples;
+        },
+        { intervals: [50, 100, 100] },
+      )
+      .toBeGreaterThanOrEqual(3);
+    // Use the visible control after touch, so browser fling momentum cannot undo
+    // a forced scrollLeft assignment while the gesture is still settling.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      if (await next.isDisabled()) break;
+      const counter = section.locator('.featured-rail-controls p');
+      const current = await counter.innerText();
+      await next.click();
+      await expect(counter).not.toHaveText(current);
+    }
     await expect(next).toBeDisabled();
     await expect(section.locator('.featured-rail-controls p')).toContainText('5 / 5');
     await expect(previous).toBeEnabled();

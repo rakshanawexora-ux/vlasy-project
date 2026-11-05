@@ -1,0 +1,81 @@
+/* Bright polished gold for actionable controls in dark mode. */
+html[data-theme='dark']
+  :is(
+    .button,
+    .button-light,
+    .hr-pill,
+    .theme-toggle,
+    .hero-video-toggle,
+    .hr-outline-circle,
+    .hr-round-link
+  ),
+html[data-theme='dark'] .site-header .header-book,
+html[data-theme='dark'] .featured-rail-controls button,
+html[data-theme='dark'] .gallery-filters button[aria-pressed='true'],
+html[data-theme='dark'] .mobile-sticky > :is(a, button) {
+  background: linear-gradient(
+    115deg,
+    #efbd36 0%,
+    #ffe797 25%,
+    #fff5c4 43%,
+    #efbd36 63%,
+    #ffd862 100%
+  );
+  background-size: 180% 100%;
+  background-position: 0% 50%;
+  color: #201704;
+  border-color: #ffe394;
+  box-shadow:
+    inset 0 1px 0 #fff9,
+    inset 0 -1px 0 #d5a321,
+    0 4px 20px #f5c94335;
+  transition:
+    background-position 0.3s ease,
+    box-shadow 0.3s ease;
+}
+html[data-theme='dark']
+  :is(
+    .button,
+    .hr-pill,
+    .theme-toggle,
+    .hero-video-toggle,
+    .hr-outline-circle,
+    .hr-round-link
+  ):hover,
+html[data-theme='dark'] .site-header .header-book:hover,
+html[data-theme='dark'] .featured-rail-controls button:enabled:hover {
+  background-position: 100% 50%;
+  color: #201704;
+  box-shadow:
+    inset 0 1px 0 #fffc,
+    0 5px 26px #ffd65c55;
+}
+html[data-theme='dark'] .mobile-sticky > :is(a, button) + :is(a, button) {
+  border-left-color: #9a750a70;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme='dark'] :is(.button, .hr-pill, .theme-toggle, .hero-video-toggle, .header-book) {
+    transition: none;
+  }
+}
+
+html[data-theme='dark'] .mobile-sticky > button:disabled {
+  opacity: 1;
+  color: #594512;
+}
+@media (max-width: 700px) {
+  html[data-theme='dark'] .replacement-home .hr-hero {
+    background: #242321;
+  }
+  html[data-theme='dark'] .hr-hero .hr-hero-content,
+  html[data-theme='dark'] .hr-hero .hr-kinetic-title .hr-title-line {
+    color: #f5efe3;
+  }
+  html[data-theme='dark'] .hr-hero .hr-kinetic-title .hr-title-line.hr-hero-last {
+    color: #ffe08c;
+  }
+  html[data-theme='dark'] .hr-hero :is(.hr-hero-description, .hr-overline),
+  html[data-theme='dark'] .hr-hero .hr-hero-promises > span {
+    color: #cfc5b4;
+  }
+}

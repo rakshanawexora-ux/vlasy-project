@@ -15,7 +15,7 @@ export default function Transformations() {
       <PageHero
         label="THE POSSIBILITIES"
         title="Hair and beauty inspiration."
-        description="Bring a reference to your consultation. These AI-created editorial images illustrate style ideas; they are not photographs of VLASY clients or proof of treatment results."
+        description="Bring a reference to your consultation. These images illustrate style ideas; they are not photographs of VLASY clients or proof of treatment results."
       />
       <section className="section">
         <TransformationGallery />

@@ -203,11 +203,14 @@ test('illustrative comparison is labelled and works with keyboard and touch', as
 }) => {
   await page.goto('/services/hair-wig-hair-replacement');
   const slider = page.getByRole('slider', { name: 'Compare before and after illustrations' });
-  await expect(page.getByText('AI-generated illustration · not a client result')).toBeVisible();
+  await expect(page.getByText('Illustrative preview · not a client result')).toBeVisible();
   await expect(
-    page.getByText('These AI-generated images are not a real treatment result or a guarantee.', {
-      exact: false,
-    }),
+    page.getByText(
+      'These digitally created images are not a real treatment result or a guarantee.',
+      {
+        exact: false,
+      },
+    ),
   ).toBeVisible();
   await slider.scrollIntoViewIfNeeded();
   for (const portrait of await page.locator('.comparison img').all())
@@ -261,7 +264,7 @@ test('illustrative comparison is labelled and works with keyboard and touch', as
   await mobile.close();
 });
 
-test('dark surfaces and illustrative labels are consistent across routes', async ({ page }) => {
+test('dark surfaces use gold CTAs without image overlay labels', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('vlasy-theme', 'dark'));
   for (const route of [
     '/',
@@ -272,10 +275,12 @@ test('dark surfaces and illustrative labels are consistent across routes', async
     await page.goto(route);
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(36, 35, 33)');
     await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark');
-    if (route === '/')
-      await expect(page.getByText('AI editorial portrait · not a client result')).toBeVisible();
-    else if (route !== '/contact')
-      await expect(page.locator('.illustration-label').first()).toBeVisible();
+    await expect(page.locator('.illustration-label,.hero-illustration-label')).toHaveCount(0);
+    const cta = page.locator('.button,.hr-pill').first();
+    await expect(cta).toHaveCSS('color', 'rgb(32, 23, 4)');
+    expect(await cta.evaluate((el) => getComputedStyle(el).backgroundImage)).toContain(
+      'linear-gradient',
+    );
   }
   await page.goto('/services/hair-wig-hair-replacement');
   await expect(page.getByRole('heading', { name: 'The full cost of care' })).toBeVisible();

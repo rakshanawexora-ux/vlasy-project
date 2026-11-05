@@ -17,6 +17,7 @@ import '@/styles/salon.css';
 import '@/styles/service-discovery.css';
 import '@/styles/enquiry.css';
 import '@/styles/media.css';
+import '@/styles/themes/gold-buttons.css';
 const serif = localFont({
   src: [
     { path: '../public/fonts/serif.woff2', weight: '400', style: 'normal' },

@@ -7,7 +7,7 @@ hair-replacement illustrations re-exported from their original PNG sources.
 The creative direction uses clean backgrounds, stronger hair contrast, neutral
 lighting and realistic skin and hair detail. These are fictional subjects and
 editorial concepts, not actual VLASY clients, staff, premises or documented results.
-Keep all visible disclosures. Related sub-services can share a relevant image.
+Photo overlay badges are removed at the owner’s request. Keep provenance documentation and the illustrative before/after clarification. Related sub-services can share a relevant image.
 The supplied logo is separate and unchanged.
 
 ## Quality

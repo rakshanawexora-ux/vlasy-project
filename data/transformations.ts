@@ -18,7 +18,7 @@ export const transformations = [
     category: 'Extensions',
     image: '/images/studio-v2/extensions-portrait.webp',
     detail:
-      'Explore length and volume options with your stylist. AI editorial inspiration, not a documented client result.',
+      'Explore length and volume options with your stylist. Illustrative reference, not a documented client result.',
   },
   {
     id: 'dimension',
@@ -26,7 +26,7 @@ export const transformations = [
     category: 'Colour',
     image: '/images/studio-v2/colour-portrait.webp',
     detail:
-      'Bring this tonal direction to your consultation. AI editorial inspiration, not a documented client result.',
+      'Bring this tonal direction to your consultation. Illustrative reference, not a documented client result.',
   },
   {
     id: 'wig-fitting',
@@ -34,7 +34,7 @@ export const transformations = [
     category: 'Hair Replacement',
     image: '/images/studio-v2/women-wig-fitting.webp',
     detail:
-      'Discuss comfort, hair type, attachment and maintenance. AI editorial inspiration, not a documented client result.',
+      'Discuss comfort, hair type, attachment and maintenance. Illustrative reference, not a documented client result.',
   },
   {
     id: 'shape',
@@ -42,7 +42,7 @@ export const transformations = [
     category: 'Cuts',
     image: '/images/studio-v2/women-bob-cut.webp',
     detail:
-      'Talk through a haircut that suits your texture and routine. AI editorial inspiration, not a documented client result.',
+      'Talk through a haircut that suits your texture and routine. Illustrative reference, not a documented client result.',
   },
   {
     id: 'occasion',
@@ -50,7 +50,7 @@ export const transformations = [
     category: 'Bridal',
     image: '/images/studio-v2/bridal-portrait.webp',
     detail:
-      'Discuss the outfit, hair and makeup together. AI editorial inspiration, not a documented client result.',
+      'Discuss the outfit, hair and makeup together. Illustrative reference, not a documented client result.',
   },
   {
     id: 'beauty',
@@ -58,7 +58,7 @@ export const transformations = [
     category: 'Beauty',
     image: '/images/studio-v2/beauty-portrait.webp',
     detail:
-      'Explore beauty care with your skin and sensitivities in mind. AI editorial inspiration, not a documented client result.',
+      'Explore beauty care with your skin and sensitivities in mind. Illustrative reference, not a documented client result.',
   },
   {
     id: 'hair-spa',
@@ -66,7 +66,7 @@ export const transformations = [
     category: 'Treatments',
     image: '/images/studio-v2/hair-spa.webp',
     detail:
-      'Discuss conditioning and suitable salon care. AI editorial inspiration, not a documented client result.',
+      'Discuss conditioning and suitable salon care. Illustrative reference, not a documented client result.',
   },
   {
     id: 'nails',
@@ -74,7 +74,7 @@ export const transformations = [
     category: 'Nails',
     image: '/images/studio-v2/manicure.webp',
     detail:
-      'Explore your preferred nail shape, shade and maintenance. AI editorial inspiration, not a documented client result.',
+      'Explore your preferred nail shape, shade and maintenance. Illustrative reference, not a documented client result.',
   },
   {
     id: 'mens-hair',
@@ -82,7 +82,7 @@ export const transformations = [
     category: 'Hair Replacement',
     image: '/images/studio-v2/replacement-portrait.webp',
     detail:
-      'A hairstyle reference for a hair-system consultation. AI editorial inspiration, not a documented client result.',
+      'A hairstyle reference for a hair-system consultation. Illustrative reference, not a documented client result.',
   },
   {
     id: 'grooming',
@@ -90,6 +90,6 @@ export const transformations = [
     category: 'Grooming',
     image: '/images/studio-v2/styling-portrait.webp',
     detail:
-      'Explore a cut and grooming routine that suits you. AI editorial inspiration, not a documented client result.',
+      'Explore a cut and grooming routine that suits you. Illustrative reference, not a documented client result.',
   },
 ];

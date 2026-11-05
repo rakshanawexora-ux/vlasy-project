@@ -81,7 +81,7 @@ navigation, the sitemap or page content without a new product requirement.
 ## Preserve these behaviours
 
 - Keep the supplied logo unchanged. Decorative SVGs are separate assets.
-- Keep AI image disclosures; generated images are not real client results.
+- The image overlay badges were removed at the owner’s request. Keep accurate image provenance in alt text and documentation, and retain the before/after clarification that it is illustrative, not a client result.
 - Theme choice persists across navigation and reloads.
 - Respect reduced motion and data saver; the hero starts with a sharp still, with optional desktop motion after Play.
 - Keep enquiry validation, consent, honeypot and same-origin checks.

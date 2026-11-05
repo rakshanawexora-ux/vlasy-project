@@ -14,7 +14,6 @@ export function Hero() {
       <ScrollProgress />
       <HeroPortrait />
       <HeroVideo />
-      <span className="hero-illustration-label">AI editorial portrait · not a client result</span>
       <div className="hr-hero-overlay" />
       <HairFlow className="hair-flow-hero" />
       <div className="hr-hero-content">

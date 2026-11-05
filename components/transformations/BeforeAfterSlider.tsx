@@ -17,11 +17,11 @@ export function BeforeAfterSlider({
   return (
     <figure className="comparison" aria-labelledby={`${id}-title`}>
       <figcaption id={`${id}-title`}>
-        <strong>AI-generated illustration · not a client result</strong>
+        <strong>Illustrative preview · not a client result</strong>
         <p>
           The same fictional Indian model illustrates advanced hair thinning and a possible
-          hair-system appearance. These AI-generated images are not a real treatment result or a
-          guarantee.
+          hair-system appearance. These digitally created images are not a real treatment result or
+          a guarantee.
         </p>
       </figcaption>
       <div className="before-after">

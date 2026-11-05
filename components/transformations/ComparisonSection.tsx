@@ -15,9 +15,9 @@ export function ComparisonSection() {
           treatment. We will only publish VLASY client comparisons with permission.
         </p>
         <p>
-          Explore an AI-generated illustration of advanced hair thinning and a possible hair
-          replacement appearance on the same fictional Indian model. Actual suitability, coverage
-          and results vary; ask your specialist for verified client examples.
+          Explore an illustration of advanced hair thinning and a possible hair replacement
+          appearance on the same fictional Indian model. Actual suitability, coverage and results
+          vary; ask your specialist for verified client examples.
         </p>
       </div>
       <BeforeAfterSlider

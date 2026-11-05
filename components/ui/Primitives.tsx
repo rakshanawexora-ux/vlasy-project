@@ -61,7 +61,6 @@ export function Photo({
         priority={priority}
         className="photo-img"
       />
-      <span className="illustration-label">AI editorial image</span>
     </div>
   );
 }
