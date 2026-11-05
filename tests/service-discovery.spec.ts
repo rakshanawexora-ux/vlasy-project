@@ -80,6 +80,8 @@ for (const width of [320, 375, 430]) {
       reducedMotion: 'reduce',
     });
     const page = await context.newPage();
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
     await page.addInitScript(() => sessionStorage.setItem('vlasy-enquiry-shown', 'true'));
     await page.goto('/');
     const section = page.getByRole('region', { name: /What we do.*at VLASY/ });
@@ -128,6 +130,7 @@ for (const width of [320, 375, 430]) {
     );
     await cards.last().getByRole('link').click();
     await expect(page).toHaveURL(/\/services\/bridal-special-occasion$/);
+    expect(errors).toEqual([]);
     await context.close();
   });
 }

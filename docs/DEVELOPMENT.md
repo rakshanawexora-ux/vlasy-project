@@ -104,3 +104,7 @@ Homepage feature selection is in `data/featured-services.ts` (five highlights, n
 `data/sub-services.ts` maps every confirmed sub-service to an editorial image. Related services may reuse a relevant reference. `SubServiceGallery` provides search and individual enquiry links. Contact validates the requested sub-service against the selected category before prefilling the editable enquiry message. No separate sub-service pages are created.
 
 The campaign has 52 individual AI images with a 3840-pixel long edge. These are upscaled exports from 1536 × 1024 generated originals, not native 4K. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.
+
+## Removed pages
+
+Academy (including every program route) and Visit Us (including `/locations/kolathur`) have been removed. These URLs return 404 and are excluded from navigation and the sitemap. Training promotions, academy FAQs and enquiry options are removed too. Keep Kolathur contact information on `/contact`; do not recreate these pages without a new request.

@@ -34,7 +34,7 @@ const sans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: { default: SITE_CONFIG.name, template: '%s | VLASY' },
-  description: 'Personalised hair, beauty and professional training in Chennai.',
+  description: 'Personalised hair, beauty and grooming in Chennai.',
   applicationName: SITE_CONFIG.name,
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1 };

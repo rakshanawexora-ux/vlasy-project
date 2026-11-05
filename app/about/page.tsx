@@ -1,13 +1,12 @@
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionLabel, Photo } from '@/components/ui/Primitives';
 import { Process } from '@/components/services/Process';
-import { LocationCards } from '@/components/locations/LocationCards';
 import { FinalCTA } from '@/components/ui/FinalCTA';
 import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
   metadata(
-    'About VLASY Salon & Academy in Chennai',
-    'Get to know VLASY in Kolathur, Chennai. Explore our hair and beauty services, personal consultations and professional training.',
+    'About VLASY Unisex Salon in Chennai',
+    'Get to know VLASY in Kolathur, Chennai. Explore our hair and beauty services and personal consultations.',
     '/about',
   );
 export default function About() {
@@ -16,7 +15,7 @@ export default function About() {
       <PageHero
         label="THE VLASY STORY"
         title="Get to know VLASY."
-        description="Hair, beauty and professional training in Chennai, with a conversation before every recommendation. Find us in Kolathur."
+        description="Hair and beauty in Chennai, with a conversation before every recommendation. Find us in Kolathur."
       />
       <Photo
         className="page-image"
@@ -36,9 +35,9 @@ export default function About() {
         </div>
         <div>
           <p>
-            VLASY Salon & Academy brings together hair services, beauty care and professional
-            training in Chennai. Whether you are considering a hair system or simply ready for a
-            haircut, we start by listening to what you want and what will work with your routine.
+            VLASY Unisex Salon brings together hair services and beauty care in Chennai. Whether you
+            are considering a hair system or simply ready for a haircut, we start by listening to
+            what you want and what will work with your routine.
           </p>
           <p>
             You can ask about the method, preparation, maintenance and cost before deciding. We want
@@ -53,8 +52,8 @@ export default function About() {
       </section>
       <section className="section page-split">
         <Photo
-          src="/images/editorial/2026-11/academy-portrait.webp"
-          alt="AI-generated scene of an instructor and adult students practising hair sectioning"
+          src="/images/editorial/2026-11/salon-process.webp"
+          alt="AI editorial illustration of a stylist discussing hair preferences with a client"
         />
         <div>
           <SectionLabel>PEOPLE & PLACE</SectionLabel>
@@ -69,12 +68,6 @@ export default function About() {
             details with you.
           </p>
         </div>
-      </section>
-      <section className="section">
-        <div className="section-heading">
-          <h2>Visit our Kolathur salon.</h2>
-        </div>
-        <LocationCards />
       </section>
       <FinalCTA />
     </>

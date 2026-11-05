@@ -17,10 +17,8 @@ const MotionLink = motion.create(Link);
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  const reduced = useReducedMotion();
-  return reduced ? null : (
-    <motion.div className="brand-scroll-progress" style={{ scaleX }} aria-hidden="true" />
-  );
+  // Keep identical markup during hydration; CSS hides this decoration for reduced motion.
+  return <motion.div className="brand-scroll-progress" style={{ scaleX }} aria-hidden="true" />;
 }
 
 export function HeroPortrait() {

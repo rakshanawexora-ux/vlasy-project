@@ -76,11 +76,9 @@ test('homepage features selected services and links to the complete catalogue', 
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await section.getByRole('link', { name: 'Explore VLASY Academy', exact: true }).click();
-  await expect(page).toHaveURL(/\/academy$/);
-  await page.getByRole('link', { name: 'Explore this program' }).first().click();
-  await expect(page).toHaveURL(/\/academy\/professional-hairdressing$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Professional Hairdressing');
+  await section.getByRole('link', { name: 'Explore all services', exact: true }).first().click();
+  await expect(page).toHaveURL(/\/services$/);
+  await expect(page.locator('.service-card-visual')).toHaveCount(9);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 

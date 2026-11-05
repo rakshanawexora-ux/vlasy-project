@@ -10,7 +10,7 @@ const legacyNames: Record<string, string> = {
 };
 /** Accept old consultation links while presenting the current confirmed menu. */
 export function normalizeServiceName(value: string) {
-  if (value === 'Academy' || value === 'Other' || !value) return value;
+  if (value === 'Other' || !value) return value;
   return (
     services.find(
       (service) =>

@@ -110,7 +110,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
           description: s.description,
           url: absoluteUrl(`/services/${s.slug}`),
           areaServed: 'Chennai',
-          provider: { '@type': 'BeautySalon', name: 'VLASY Salon & Academy' },
+          provider: { '@type': 'BeautySalon', name: 'VLASY Unisex Salon' },
         }}
       />
     </>

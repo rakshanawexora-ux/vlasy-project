@@ -6,7 +6,7 @@ import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
   metadata(
     'Frequently asked questions',
-    'Answers about hair replacement, extensions, colour, bridal appointments and VLASY Academy.',
+    'Answers about hair replacement, extensions, colour, bridal services and salon appointments.',
     '/faq',
   );
 export default function FAQPage() {
@@ -17,7 +17,7 @@ export default function FAQPage() {
         title="Good questions. Thoughtful answers."
         description="The details matter. Explore a few answers before your first conversation with us."
       />
-      {[...services.map((service) => service.shortName), 'Appointments', 'Academy'].map((c) => (
+      {[...services.map((service) => service.shortName), 'Appointments'].map((c) => (
         <section className="section faq-preview" key={c}>
           <h2>{c}</h2>
           <FAQ category={c} />

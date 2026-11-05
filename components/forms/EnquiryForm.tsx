@@ -123,7 +123,6 @@ export function EnquiryForm({
             {services.map((s) => (
               <option key={s.slug}>{s.name}</option>
             ))}
-            <option>Academy</option>
             <option>Other</option>
           </select>
           {errors.service && (

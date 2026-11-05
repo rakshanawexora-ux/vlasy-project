@@ -20,7 +20,6 @@ export function Footer() {
           {[
             ['Our story', '/about'],
             ['Transformations', '/transformations'],
-            ['Academy', '/academy'],
             ['Journal', '/journal'],
             ['FAQs', '/faq'],
           ].map(([n, h]) => (
@@ -39,7 +38,7 @@ export function Footer() {
         </div>
         <div>
           <span className="footer-label">FIND YOUR SPACE</span>
-          <Link href="/locations/kolathur">Kolathur, Chennai</Link>
+          <p>Kolathur, Chennai</p>
           <Link href="/contact">Contact & enquiries</Link>
         </div>
         <div>
@@ -59,7 +58,7 @@ export function Footer() {
           <p className="footer-note">
             Hair, beauty
             <br />
-            and training.
+            and grooming.
           </p>
         </div>
       </div>
@@ -75,7 +74,7 @@ export function Footer() {
         </p>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} VLASY Salon & Academy.</span>
+        <span>© {new Date().getFullYear()} VLASY Unisex Salon.</span>
         <span>CHENNAI, INDIA</span>
         <div>
           <Link href="/privacy-policy">Privacy policy</Link>

@@ -1,7 +1,7 @@
 import { PageHero } from '@/components/ui/PageHero';
 import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
-  metadata('Privacy policy', 'VLASY Salon & Academy — privacy policy.', '/privacy-policy');
+  metadata('Privacy policy', 'VLASY Unisex Salon — privacy policy.', '/privacy-policy');
 export default function Page() {
   return (
     <>

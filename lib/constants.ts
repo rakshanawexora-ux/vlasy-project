@@ -8,7 +8,7 @@ const siteUrl = new URL(
 ).origin;
 
 export const SITE_CONFIG = {
-  name: 'VLASY Unisex Salon & Academy',
+  name: 'VLASY Unisex Salon',
   url: siteUrl,
   phone: process.env.NEXT_PUBLIC_PHONE || '',
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '',

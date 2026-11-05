@@ -7,7 +7,7 @@ import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
   metadata(
     'Contact & appointments',
-    'Start your VLASY consultation. Enquire about hair, beauty, bridal and academy programs in Chennai.',
+    'Start your VLASY consultation. Enquire about hair, beauty and bridal services in Chennai.',
     '/contact',
   );
 export default async function Contact({
@@ -31,8 +31,8 @@ export default async function Contact({
           <em>VLASY team.</em>
         </h1>
         <p className="muted" style={{ marginTop: 25 }}>
-          Tell us which service or training program you are interested in. Share your preferred
-          branch, date and any questions so the team can discuss the next step.
+          Tell us which salon service you are interested in. Share your preferred branch, date and
+          any questions so the team can discuss the next step.
         </p>
         {subService && (
           <p className="booking-context">
@@ -49,7 +49,7 @@ export default async function Contact({
             <TextLink href={`mailto:${SITE_CONFIG.email}`}>{SITE_CONFIG.email}</TextLink>
           )}
           {SITE_CONFIG.whatsapp && <TextLink href={whatsappUrl()}>Chat on WhatsApp</TextLink>}
-          <TextLink href="/locations/kolathur">Kolathur, Chennai</TextLink>
+          <p>Kolathur, Chennai</p>
         </div>
       </div>
       <EnquiryForm

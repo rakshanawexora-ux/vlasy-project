@@ -1,4 +1,3 @@
-import { programs } from '@/data/academy';
 import type { MetadataRoute } from 'next';
 import { services } from '@/data/services';
 import { articles } from '@/data/journal';
@@ -9,15 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/services',
     '/transformations',
-    '/academy',
-    '/locations',
-    '/locations/kolathur',
     '/journal',
     '/faq',
     '/contact',
     '/privacy-policy',
     '/terms',
-    ...programs.map((p) => `/academy/${p.slug}`),
     ...services.map((s) => `/services/${s.slug}`),
     ...articles.map((a) => `/journal/${a.slug}`),
   ].map((path) => ({

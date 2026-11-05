@@ -61,9 +61,7 @@ export function EnquiryPopup() {
       ? 'Not sure which hair solution is right for you?'
       : path.includes('hair-extensions')
         ? 'Looking for more length or volume?'
-        : path === '/academy'
-          ? 'Interested in building a career in beauty?'
-          : 'Thinking about a transformation?';
+        : 'Thinking about a transformation?';
   return (
     <dialog
       data-lenis-prevent
@@ -88,13 +86,7 @@ export function EnquiryPopup() {
       {open && (
         <EnquiryForm
           compact
-          service={
-            path === '/academy'
-              ? 'Academy'
-              : path === '/' || path.includes('hair-replacement')
-                ? 'Hair Replacement'
-                : ''
-          }
+          service={path === '/' || path.includes('hair-replacement') ? 'Hair Replacement' : ''}
         />
       )}
       <TextLink href={whatsappUrl()}>Prefer WhatsApp?</TextLink>

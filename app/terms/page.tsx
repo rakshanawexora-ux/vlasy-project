@@ -1,7 +1,7 @@
 import { PageHero } from '@/components/ui/PageHero';
 import { metadata } from '@/lib/seo';
 export const generateMetadata = () =>
-  metadata('Terms of use', 'VLASY Salon & Academy — terms of use.', '/terms');
+  metadata('Terms of use', 'VLASY Unisex Salon — terms of use.', '/terms');
 export default function Page() {
   return (
     <>
@@ -24,14 +24,6 @@ export default function Page() {
             Hair and beauty results depend on your individual circumstances, suitability,
             maintenance and the agreed service. Editorial photographs on this site are illustrative
             and do not represent documented client outcomes.
-          </p>
-        </section>
-        <section>
-          <h2>Academy information</h2>
-          <p>
-            Program areas are an initial guide. Confirm course availability, syllabus, fees,
-            schedules and certification in writing before enrolment. No employment or income result
-            is guaranteed.
           </p>
         </section>
         <section>

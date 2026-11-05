@@ -15,7 +15,6 @@ test('homepage presents unisex salon services and working editorial imagery', as
     '.hr-journey',
     '.hr-results',
     '.hr-more',
-    '.hr-locations',
     '.hr-faq',
     '.hr-consultation',
   ])
@@ -81,15 +80,8 @@ test('all core routes resolve with unique metadata', async ({ request }) => {
     '/services/womens-beauty',
     '/services/nail-beauty',
     '/transformations',
-    '/academy',
-    '/academy/professional-hairdressing',
-    '/academy/hair-colour-artistry',
-    '/academy/beauty-makeup',
-    '/academy/bridal-artistry',
 
     '/about',
-    '/locations',
-    '/locations/kolathur',
     '/journal',
     '/journal/finding-your-hair-solution',
     '/journal/your-first-extensions-consultation',
@@ -119,8 +111,8 @@ test('mobile menu, booking bar and no horizontal overflow', async ({ page }) => 
   await page.goto('/');
   await page.getByRole('button', { name: 'Open navigation' }).click();
   await expect(page.getByRole('navigation', { name: 'Mobile navigation' })).toBeVisible();
-  await page.locator('#mobile-nav').getByRole('link', { name: 'Academy', exact: true }).click();
-  await expect(page).toHaveURL(/academy/);
+  await page.locator('#mobile-nav').getByRole('link', { name: 'About', exact: true }).click();
+  await expect(page).toHaveURL(/about/);
   await expect(page.locator('#mobile-nav')).toHaveCount(0);
   await expect(page.locator('.mobile-sticky')).toBeVisible();
   await page.goto('/');
@@ -289,20 +281,37 @@ test('dark surfaces and illustrative labels are consistent across routes', async
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('new page destinations appear in sitemap and unknown programs return 404', async ({
+test('removed Academy and Visit Us pages return 404 and stay out of navigation and sitemap', async ({
+  page,
   request,
 }) => {
-  const sitemap = await request.get('/sitemap.xml');
-  expect(sitemap.status()).toBe(200);
-  const xml = await sitemap.text();
+  const xml = await (await request.get('/sitemap.xml')).text();
+  expect(xml).not.toContain('/academy');
+  expect(xml).not.toContain('/locations');
+  expect(xml).toContain('/services/hair-extensions');
   for (const path of [
+    '/academy',
     '/academy/professional-hairdressing',
     '/academy/hair-colour-artistry',
     '/academy/beauty-makeup',
     '/academy/bridal-artistry',
+    '/locations',
+    '/locations/kolathur',
   ])
-    expect(xml).toContain(path);
-  expect((await request.get('/academy/not-a-program')).status()).toBe(404);
+    expect((await request.get(path)).status(), path).toBe(404);
+  for (const path of ['/', '/about', '/contact', '/faq', '/terms']) {
+    await page.goto(path);
+    await expect(page.locator('a[href^="/academy"],a[href^="/locations"]')).toHaveCount(0);
+    expect(await page.locator('body').innerText()).not.toMatch(/academy|professional training/i);
+  }
+  await expect(
+    page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
+  ).toHaveText(['Home', 'Services', 'About', 'Contact']);
+  await page.goto('/contact?service=Academy');
+  await expect(page.getByLabel('I’m interested in *').locator('option')).not.toContainText([
+    'Academy',
+  ]);
+  await expect(page.getByLabel('I’m interested in *')).toHaveValue('');
 });
 
 test('SEO metadata uses a working share image and describes real service pages', async ({

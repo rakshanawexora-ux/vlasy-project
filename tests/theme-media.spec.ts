@@ -49,8 +49,8 @@ test('light theme supports mobile pages, forms and navigation at common widths',
     '/',
     '/services',
     '/services/hair-wig-hair-replacement',
-    '/academy',
-    '/academy/beauty-makeup',
+    '/about',
+    '/services/womens-beauty',
 
     '/contact',
     '/transformations',
@@ -138,7 +138,7 @@ test('key reading surfaces retain readable text contrast in both themes', async 
       '/',
       '/contact',
       '/services/hair-wig-hair-replacement',
-      '/academy/beauty-makeup',
+      '/services/womens-beauty',
     ]) {
       await page.goto(path);
       // Wait for the client toggle label to reflect the pre-applied saved theme.

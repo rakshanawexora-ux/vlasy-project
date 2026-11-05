@@ -1,4 +1,4 @@
-# VLASY Unisex Salon & Academy
+# VLASY Unisex Salon
 
 A responsive Next.js website for the VLASY unisex salon in Kolathur, Chennai.
 The confirmed menu has nine main service categories and 85 illustrated sub-services. The homepage highlights five categories in a scroll-led sequence with a complete-menu CTA. Each
@@ -40,7 +40,7 @@ The header theme control switches dark/light palettes and remembers the choice i
   fill only confirmed business values. The default SEO domain is deliberately
   `vlasy.example`; replace `NEXT_PUBLIC_SITE_URL` before publishing.
 - Branch addresses, hours and map links: `SITE_CONFIG.locations`.
-- Services, locations, FAQs, academy programs and articles: `data/`.
+- Services, FAQs and articles: `data/`.
 - Verified reviews: `data/testimonials.ts` (empty until supplied).
 - Current imagery: 52 newly generated AI editorial WebP images in `public/images/editorial/2026-11/`, exported with a 3840-pixel long edge from 1536 × 1024 sources (upscaled, not native 4K). Service-specific lead pairs, galleries and sub-service cards share this campaign. These are not VLASY client or branch photographs. Source/replacement guidance: `public/images/README.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
@@ -71,7 +71,7 @@ and Escape dismissal. All motion respects reduced-motion preferences.
 
 Supply approved business contact details, branch addresses, opening hours, map
 pins, licensed real photography, verified reviews and current
-academy program details. Review draft legal content, set the production URL and
+salon service details. Review draft legal content, set the production URL and
 configure a real enquiry provider. Add conversion IDs only with the appropriate
 privacy/consent behavior; the thank-you page has a marked integration point.
 

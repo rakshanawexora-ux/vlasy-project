@@ -6,7 +6,6 @@ import {
   EverydaySection,
   JourneySection,
   HonestResults,
-  LocationsSection,
   FAQSection,
   HairConsultationCTA,
 } from '@/components/home/sections';
@@ -16,7 +15,7 @@ import { absoluteUrl, metadata } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/constants';
 export const generateMetadata = () =>
   metadata(
-    'VLASY Salon & Academy | Hair & Beauty in Chennai',
+    'VLASY Unisex Salon | Hair & Beauty in Chennai',
     'Explore VLASY Unisex Salon in Kolathur: wigs, extensions, haircuts, colouring, treatments, grooming, beauty, bridal and nail services for women and men.',
     '/',
   );
@@ -30,7 +29,6 @@ export default function Home() {
       <EverydaySection />
       <JourneySection />
       <HonestResults />
-      <LocationsSection />
       <FAQSection />
       <HairConsultationCTA />
       <Schema

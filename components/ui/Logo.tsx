@@ -22,11 +22,8 @@ export function Logo({
       />
     </span>
   ) : (
-    <span
-      className={`wordmark ${large ? 'wordmark-large' : ''}`}
-      aria-label="VLASY Salon & Academy"
-    >
-      VLASY{!large && <small>SALON & ACADEMY</small>}
+    <span className={`wordmark ${large ? 'wordmark-large' : ''}`} aria-label="VLASY Unisex Salon">
+      VLASY{!large && <small>UNISEX SALON</small>}
     </span>
   );
 }

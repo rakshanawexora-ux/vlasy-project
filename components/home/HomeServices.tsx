@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { ServiceGraphic } from '@/components/brand/ServiceGraphic';
-import { Photo, SectionLabel } from '@/components/ui/Primitives';
+import { SectionLabel } from '@/components/ui/Primitives';
 import { services } from '@/data/services';
 import { featuredServiceSlugs } from '@/data/featured-services';
 import { FeaturedServiceStory } from './FeaturedServiceStory';
@@ -61,22 +61,6 @@ export function HomeServices() {
           </div>
         </div>
       </div>
-      <Link href="/academy" className="home-academy-feature" aria-label="Explore VLASY Academy">
-        <Photo
-          src="/images/editorial/2026-11/academy-portrait.webp"
-          alt="AI editorial illustration of female students learning hairstyling"
-          imageAudience="women"
-        />
-        <div>
-          <SectionLabel>VLASY ACADEMY</SectionLabel>
-          <h3>Turn your interest into a learning path.</h3>
-          <p>Explore professional hair, colour, beauty and bridal training.</p>
-          <span className="expertise-card-action">
-            Explore training
-            <ArrowUpRight size={18} />
-          </span>
-        </div>
-      </Link>
       <noscript>
         <style>{'.featured-service-card{opacity:1!important;transform:none!important}'}</style>
       </noscript>
