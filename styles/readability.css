@@ -431,7 +431,7 @@ p {
   .footer-bottom {
     font-size: 12px;
   }
-  .mobile-sticky > a {
+  .mobile-sticky > :is(a, button) {
     font-size: 14px;
     min-height: 54px;
   }

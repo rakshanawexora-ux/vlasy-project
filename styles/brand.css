@@ -2273,15 +2273,15 @@ em {
     padding-bottom: 0;
     box-shadow: 0 3px 25px #0002;
   }
-  .mobile-sticky > a {
+  .mobile-sticky > :is(a, button) {
     min-height: 51px;
     font-size: 12px;
     gap: 8px;
   }
-  .mobile-sticky > a:last-child {
+  .mobile-sticky > :is(a, button):last-child {
     background: var(--forest);
   }
-  .mobile-sticky > a svg {
+  .mobile-sticky > :is(a, button) svg {
     width: 15px;
     height: 15px;
   }

@@ -115,6 +115,8 @@ test('mobile menu, booking bar and no horizontal overflow', async ({ page }) => 
   await expect(page).toHaveURL(/about/);
   await expect(page.locator('#mobile-nav')).toHaveCount(0);
   await expect(page.locator('.mobile-sticky')).toBeVisible();
+  await expect(page.locator('.mobile-sticky > *')).toHaveText(['Call', 'WhatsApp']);
+  await expect(page.locator('.mobile-sticky .lucide-calendar-days')).toHaveCount(0);
   await page.goto('/');
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),

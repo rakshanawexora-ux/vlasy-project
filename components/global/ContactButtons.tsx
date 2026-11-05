@@ -1,6 +1,17 @@
 import Link from 'next/link';
-import { MessageCircle, Phone, CalendarDays } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { SITE_CONFIG, whatsappUrl, phoneUrl } from '@/lib/constants';
+import type { ReactNode } from 'react';
+
+function ContactAction({ href, children }: { href?: string; children: ReactNode }) {
+  return href ? (
+    <Link href={href}>{children}</Link>
+  ) : (
+    <button type="button" disabled title="Business number not available yet">
+      {children}
+    </button>
+  );
+}
 export function ContactButtons() {
   return (
     <>
@@ -13,22 +24,14 @@ export function ContactButtons() {
         <span>LET’S TALK</span>
       </Link>
       <div className="mobile-sticky">
-        {SITE_CONFIG.phone && (
-          <Link href={phoneUrl}>
-            <Phone size={17} />
-            Call
-          </Link>
-        )}
-        {SITE_CONFIG.whatsapp && (
-          <Link href={whatsappUrl()}>
-            <MessageCircle size={17} />
-            WhatsApp
-          </Link>
-        )}
-        <Link href="/contact?service=Hair%20Replacement">
-          <CalendarDays size={17} />
-          Book
-        </Link>
+        <ContactAction href={SITE_CONFIG.phone ? phoneUrl : undefined}>
+          <Phone size={17} aria-hidden="true" />
+          Call
+        </ContactAction>
+        <ContactAction href={SITE_CONFIG.whatsapp ? whatsappUrl() : undefined}>
+          <MessageCircle size={17} aria-hidden="true" />
+          WhatsApp
+        </ContactAction>
       </div>
     </>
   );

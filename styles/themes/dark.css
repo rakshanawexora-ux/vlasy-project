@@ -206,7 +206,7 @@ dialog {
   color: var(--ink);
   border-color: #ffffff45;
 }
-.mobile-sticky > a:last-child {
+.mobile-sticky > :is(a, button):last-child {
   background: var(--cream);
   color: #15110b;
 }

@@ -2214,7 +2214,7 @@ dialog::backdrop {
     padding-bottom: env(safe-area-inset-bottom);
     box-shadow: 0 -3px 15px #00000006;
   }
-  .mobile-sticky > a {
+  .mobile-sticky > :is(a, button) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2223,10 +2223,10 @@ dialog::backdrop {
     font-size: 12px;
     min-height: 57px;
   }
-  .mobile-sticky > a + a {
+  .mobile-sticky > :is(a, button) + :is(a, button) {
     border-left: 1px solid var(--line);
   }
-  .mobile-sticky > a:last-child {
+  .mobile-sticky > :is(a, button):last-child {
     background: var(--ink);
     color: var(--paper);
   }

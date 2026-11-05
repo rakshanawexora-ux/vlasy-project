@@ -13,3 +13,14 @@
   margin-top: 16px;
   min-height: 44px;
 }
+
+.mobile-sticky > button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+.mobile-sticky > button:disabled {
+  cursor: not-allowed;
+}
