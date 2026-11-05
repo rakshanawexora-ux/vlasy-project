@@ -34,7 +34,7 @@ export function ConfidenceIntro() {
         <Reveal className="hr-intro-portrait">
           <div className="hr-portrait-frame" data-image-audience="women">
             <Image
-              src="/images/editorial/2026-11/women-bob-cut.webp"
+              src="/images/studio-v2/women-bob-cut.webp"
               alt="AI editorial portrait of a woman with a shoulder-length bob; not a client result"
               fill
               sizes="(max-width:700px) 78vw, 32vw"

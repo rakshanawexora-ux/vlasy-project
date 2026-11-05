@@ -69,7 +69,7 @@ useful; do not repeat keywords unnaturally or invent reviews, qualifications,
 prices, addresses, guarantees or treatment results.
 
 The shared `metadata` helper in `lib/seo.ts` supplies canonical, Open Graph and
-Twitter metadata. Its share image is an existing campaign asset in `public/images/editorial/2026-11/`.
+Twitter metadata. Its share image is an existing campaign asset in `public/images/studio-v2/`.
 Set `NEXT_PUBLIC_SITE_URL` to the confirmed public domain. On Vercel,
 `VERCEL_PROJECT_PRODUCTION_URL` is used when no explicit domain is supplied.
 Local development intentionally falls back to `https://vlasy.example`.
@@ -83,10 +83,9 @@ navigation, the sitemap or page content without a new product requirement.
 - Keep the supplied logo unchanged. Decorative SVGs are separate assets.
 - Keep AI image disclosures; generated images are not real client results.
 - Theme choice persists across navigation and reloads.
-- Respect reduced motion and data saver; hero video has pause/play and a poster fallback.
+- Respect reduced motion and data saver; the hero starts with a sharp still, with optional desktop motion after Play.
 - Keep enquiry validation, consent, honeypot and same-origin checks.
-- Enquiries currently use the existing server-log adapter. A production email/CRM
-  destination still requires a separately configured provider.
+- Enquiries require the private Resend configuration described in `docs/RENDER.md`. Do not report a console log or unconfigured request as delivered.
 - Confirm contact details, opening hours, prices and course details before publishing them.
 
 Next.js development mode can generate `AGENTS.md` and update `next-env.d.ts`.
@@ -103,8 +102,10 @@ Homepage feature selection is in `data/featured-services.ts` (five highlights, n
 
 `data/sub-services.ts` maps every confirmed sub-service to an editorial image. Related services may reuse a relevant reference. `SubServiceGallery` provides search and individual enquiry links. Contact validates the requested sub-service against the selected category before prefilling the editable enquiry message. No separate sub-service pages are created.
 
-The campaign has 52 individual AI images with a 3840-pixel long edge. These are upscaled exports from 1536 × 1024 generated originals, not native 4K. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.
+The current campaign has 47 native-resolution AI images, including a dedicated portrait mobile hero. No upscaling is applied. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.
 
 ## Removed pages
 
 Academy (including every program route) and Visit Us (including `/locations/kolathur`) have been removed. These URLs return 404 and are excluded from navigation and the sitemap. Training promotions, academy FAQs and enquiry options are removed too. Keep Kolathur contact information on `/contact`; do not recreate these pages without a new request.
+
+Photo replacement instructions are in `docs/IMAGES.md`. Render runtime and contact-delivery settings are in `docs/RENDER.md`.

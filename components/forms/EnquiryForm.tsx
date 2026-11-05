@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { useId, useState } from 'react';
 import { ArrowUpRight, LoaderCircle } from 'lucide-react';
 import { services } from '@/data/services';
+import { SITE_CONFIG, whatsappUrl } from '@/lib/constants';
+import { enquiryText } from '@/lib/enquiry-text';
 import { enquirySchema, type EnquiryValues } from '@/lib/validations';
 export function EnquiryForm({
   compact = false,
@@ -24,6 +26,7 @@ export function EnquiryForm({
   const id = (field: string) => `${formId}-${field}`;
   const {
     register,
+    getValues,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<EnquiryValues>({
@@ -54,11 +57,17 @@ export function EnquiryForm({
           utmCampaign: params.get('utm_campaign') || '',
         }),
       });
-      if (!response.ok) throw new Error('failed');
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.success !== true)
+        throw new Error(result?.error || 'Your enquiry could not be sent. Please try again.');
       sessionStorage.setItem('vlasy-enquiry-shown', 'true');
       router.push('/thank-you');
-    } catch {
-      setFailure('Your enquiry could not be sent. Please try again. Your details are still here.');
+    } catch (error) {
+      setFailure(
+        error instanceof Error
+          ? error.message
+          : 'Your enquiry could not be sent. Please try again.',
+      );
     }
   };
   const field = (name: keyof EnquiryValues, label: string, type = 'text') => (
@@ -147,9 +156,12 @@ export function EnquiryForm({
               {...register('preferredDate')}
               min={new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' })}
               aria-invalid={!!errors.preferredDate}
+              aria-describedby={errors.preferredDate ? id('preferredDate-error') : undefined}
             />
             {errors.preferredDate && (
-              <span className="field-error">{errors.preferredDate.message}</span>
+              <span className="field-error" id={id('preferredDate-error')}>
+                {errors.preferredDate.message}
+              </span>
             )}
           </label>
         )}
@@ -157,8 +169,18 @@ export function EnquiryForm({
       {!compact && (
         <label className="form-field">
           Anything you’d like us to know?
-          <textarea id={id('message')} rows={3} {...register('message')} />
-          {errors.message && <span className="field-error">{errors.message.message}</span>}
+          <textarea
+            id={id('message')}
+            rows={3}
+            {...register('message')}
+            aria-invalid={!!errors.message}
+            aria-describedby={errors.message ? id('message-error') : undefined}
+          />
+          {errors.message && (
+            <span className="field-error" id={id('message-error')}>
+              {errors.message.message}
+            </span>
+          )}
         </label>
       )}
       <div className="honeypot" aria-hidden="true">
@@ -173,17 +195,27 @@ export function EnquiryForm({
           type="checkbox"
           {...register('consent')}
           aria-invalid={!!errors.consent}
+          aria-describedby={errors.consent ? id('consent-error') : undefined}
         />
         <span>
           I agree to be contacted by VLASY regarding my enquiry.{' '}
           <a href="/privacy-policy">Privacy policy</a>
         </span>
       </label>
-      {errors.consent && <p className="field-error">{errors.consent.message}</p>}
-      {failure && (
-        <p className="form-error" role="alert">
-          {failure}
+      {errors.consent && (
+        <p className="field-error" id={id('consent-error')}>
+          {errors.consent.message}
         </p>
+      )}
+      {failure && (
+        <div className="form-error" role="alert">
+          <p>{failure}</p>
+          {SITE_CONFIG.whatsapp && (
+            <a className="text-link" href={whatsappUrl(enquiryText(getValues()))}>
+              Continue on WhatsApp
+            </a>
+          )}
+        </div>
       )}
       <button className="button" disabled={isSubmitting} type="submit">
         {isSubmitting ? 'Sending your enquiry…' : compact ? 'Request consultation' : 'Send enquiry'}

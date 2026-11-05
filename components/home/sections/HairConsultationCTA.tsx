@@ -4,7 +4,7 @@ import { HairFlow } from '@/components/brand/HairFlow';
 import { MagneticLink } from '@/components/brand/BrandMotion';
 import { Reveal } from '@/components/ui/Reveal';
 import { hairConsultationUrl } from '@/data/hair-replacement';
-import { whatsappUrl } from '@/lib/constants';
+import { SITE_CONFIG, whatsappUrl } from '@/lib/constants';
 
 export function HairConsultationCTA() {
   return (
@@ -34,7 +34,7 @@ export function HairConsultationCTA() {
               href={whatsappUrl('Hello VLASY, I would like to enquire about hair replacement.')}
               className="hr-cta-whatsapp"
             >
-              Enquire on WhatsApp
+              {SITE_CONFIG.whatsapp ? 'Enquire on WhatsApp' : 'Contact the team'}
               <ArrowRight size={15} />
             </Link>
           </div>

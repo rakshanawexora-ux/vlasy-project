@@ -2,7 +2,7 @@ import type { Service } from './services';
 export type ServiceFrame = { src: string; alt: string; caption: string };
 export type ServicePhotography = { heading: string; introduction: string; frames: ServiceFrame[] };
 const frame = (file: string, alt: string, caption: string): ServiceFrame => ({
-  src: `/images/editorial/2026-11/${file}.webp`,
+  src: `/images/studio-v2/${file}.webp`,
   alt: `AI editorial illustration: ${alt}`,
   caption,
 });
@@ -46,7 +46,7 @@ export const servicePhotography: Record<string, ServicePhotography> = {
       ),
       frame(
         'extensions-portrait',
-        'woman with long textured hair',
+        'woman with long straight dark hair',
         'Your preferred length and movement',
       ),
     ],
@@ -57,7 +57,7 @@ export const servicePhotography: Record<string, ServicePhotography> = {
       'Haircuts for women, men and children, with styling for everyday wear or a special occasion.',
     frames: [
       frame('women-blow-dry', 'woman receiving a blow-dry', 'A finish for your occasion'),
-      frame('women-bob-cut', 'woman with a shoulder-length bob', 'Explore shape and length'),
+      frame('women-bob-cut', 'woman with a precision bob haircut', 'Explore shape and length'),
       frame('styling-process', 'stylist cutting a man’s hair', 'Haircuts and styling for men'),
     ],
   },
@@ -144,7 +144,7 @@ export const servicePhotography: Record<string, ServicePhotography> = {
         'jasmine-adorned bridal hairstyle',
         'Hair and accessories, brought together',
       ),
-      frame('bridal-portrait', 'bride in a champagne and maroon saree', 'A personal occasion look'),
+      frame('bridal-portrait', 'bride in a maroon silk saree', 'A personal occasion look'),
     ],
   },
   'nail-beauty': {

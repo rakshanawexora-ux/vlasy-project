@@ -1,0 +1,40 @@
+/* Show hair detail clearly on phones instead of fading a photo beneath the copy. */
+@media (max-width: 700px) {
+  .hr-hero .hero-video,
+  .hr-hero .hero-video-toggle,
+  .hr-hero .hr-hero-overlay,
+  .hr-hero .hair-flow-hero {
+    display: none;
+  }
+  .replacement-home .hr-hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 390px 22px 32px;
+    background: #f9f4eb;
+  }
+  .hr-hero .hr-moving-image {
+    inset: 0 0 auto;
+    height: 360px;
+    transform: none !important;
+  }
+  .hr-moving-image .hr-hero-photo {
+    object-position: 50% 35%;
+  }
+  .hr-hero .hero-illustration-label {
+    top: 316px;
+    bottom: auto;
+    font-size: 11px;
+  }
+  .hr-hero .hr-hero-content {
+    color: #30271b;
+  }
+  .hr-hero .hr-hero-base {
+    position: relative;
+    inset: auto;
+    margin-top: 28px;
+  }
+  .hr-hero .hr-hero-promises > span {
+    color: #625540;
+  }
+}

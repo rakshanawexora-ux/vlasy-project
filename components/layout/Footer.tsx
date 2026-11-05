@@ -51,10 +51,12 @@ export function Footer() {
             Facebook
             <ArrowUpRight size={12} />
           </Link>
-          <Link href={whatsappUrl()}>
-            WhatsApp
-            <ArrowUpRight size={12} />
-          </Link>
+          {SITE_CONFIG.whatsapp && (
+            <Link href={whatsappUrl()}>
+              WhatsApp
+              <ArrowUpRight size={12} />
+            </Link>
+          )}
           <p className="footer-note">
             Hair, beauty
             <br />

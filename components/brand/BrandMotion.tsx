@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import Link from 'next/link';
 import {
   motion,
@@ -25,20 +25,33 @@ export function HeroPortrait() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 70]);
   const reduced = useReducedMotion();
+  const mobile = getImageProps({
+    src: '/images/studio-v2/unisex-hero-mobile.webp',
+    alt: '',
+    width: 1024,
+    height: 1536,
+    quality: 90,
+    sizes: '1000px',
+  }).props;
   return (
     <motion.div
       className="hr-moving-image"
       data-image-audience="women"
       style={reduced ? undefined : { y }}
     >
-      <Image
-        src="/images/editorial/2026-11/unisex-hero.webp"
-        alt="AI editorial portrait of an Indian woman with naturally styled hair; not a client result"
-        fill
-        priority
-        sizes="(max-width: 700px) 1100px, 100vw"
-        className="hero-image hr-hero-photo"
-      />
+      <picture>
+        <source media="(max-width: 700px)" srcSet={mobile.srcSet} sizes="1000px" />
+        <Image
+          src="/images/studio-v2/unisex-hero.webp"
+          alt="AI editorial portrait of an Indian woman with naturally styled hair; not a client result"
+          fill
+          loading="eager"
+          fetchPriority="high"
+          quality={90}
+          sizes="100vw"
+          className="hero-image hr-hero-photo"
+        />
+      </picture>
     </motion.div>
   );
 }

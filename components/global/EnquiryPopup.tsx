@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { TextLink, SectionLabel } from '@/components/ui/Primitives';
-import { whatsappUrl } from '@/lib/constants';
+import { SITE_CONFIG, whatsappUrl } from '@/lib/constants';
 export function EnquiryPopup() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
@@ -89,7 +89,7 @@ export function EnquiryPopup() {
           service={path === '/' || path.includes('hair-replacement') ? 'Hair Replacement' : ''}
         />
       )}
-      <TextLink href={whatsappUrl()}>Prefer WhatsApp?</TextLink>
+      {SITE_CONFIG.whatsapp && <TextLink href={whatsappUrl()}>Prefer WhatsApp?</TextLink>}
     </dialog>
   );
 }

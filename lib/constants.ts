@@ -2,6 +2,7 @@
 const configuredUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.RENDER_EXTERNAL_URL ||
   'https://vlasy.example';
 const siteUrl = new URL(
   /^https?:\/\//.test(configuredUrl) ? configuredUrl : `https://${configuredUrl}`,

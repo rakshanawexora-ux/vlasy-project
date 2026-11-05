@@ -9,7 +9,7 @@ export function ReplacementStory() {
     <section className="hr-story">
       <div className="hr-story-photo">
         <Photo
-          src="/images/editorial/2026-11/salon-process.webp"
+          src="/images/studio-v2/salon-process.webp"
           imageAudience="men"
           alt="AI editorial scene of an Indian stylist and man discussing his hair in a consultation"
         />

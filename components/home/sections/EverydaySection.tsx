@@ -36,7 +36,7 @@ export function EverydaySection() {
         </article>
         <article className="hr-benefit-photo">
           <Photo
-            src="/images/editorial/2026-11/women-blow-dry.webp"
+            src="/images/studio-v2/women-blow-dry.webp"
             imageAudience="women"
             alt="AI editorial illustration of a stylist blow-drying a woman’s hair"
           />

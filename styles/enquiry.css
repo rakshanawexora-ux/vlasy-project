@@ -1,0 +1,15 @@
+.contact-availability {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--soft);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-top: 24px;
+}
+.form-error .text-link {
+  margin-top: 16px;
+  min-height: 44px;
+}

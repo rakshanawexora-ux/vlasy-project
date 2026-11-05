@@ -22,18 +22,19 @@ export function HeroVideo() {
   const video = useRef<HTMLVideoElement>(null);
   const manuallyPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
+  const [requested, setRequested] = useState(false);
   const [failed, setFailed] = useState(false);
   const reduced = useReducedMotion();
   const savingData = useSyncExternalStore(subscribe, saveData, () => true);
   useEffect(() => {
     const media = video.current;
-    if (!media || reduced !== false || savingData) return;
+    if (!media || !requested || reduced !== false || savingData) return;
     let visible = true;
     const sync = () => {
       if (visible && !document.hidden && !manuallyPaused.current) void media.play().catch(() => {});
       else media.pause();
     };
-    media.src = '/videos/unisex-hero-2026-11.mp4';
+    media.src = '/videos/studio-hero.mp4';
     media.load();
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -51,8 +52,12 @@ export function HeroVideo() {
       media.removeAttribute('src');
       media.load();
     };
-  }, [reduced, savingData]);
+  }, [reduced, savingData, requested]);
   const toggle = () => {
+    if (!requested) {
+      setRequested(true);
+      return;
+    }
     const media = video.current;
     if (!media) return;
     if (playing) {

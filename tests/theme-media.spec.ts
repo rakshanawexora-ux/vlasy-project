@@ -68,12 +68,15 @@ test('light theme supports mobile pages, forms and navigation at common widths',
   await expect(page.locator('.field-error').first()).toHaveCSS('color', 'rgb(154, 51, 38)');
 });
 
-test('hero motion loop plays silently and offers pause and offscreen handling', async ({
+test('hero keeps the sharp photo by default and plays optional motion with pause controls', async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');
   const video = page.locator('.hero-video');
+  await expect(page.getByRole('button', { name: 'Play hero video' })).toBeVisible();
+  expect(await video.getAttribute('src')).toBeNull();
+  await page.getByRole('button', { name: 'Play hero video' }).click();
   await expect
     .poll(() => video.evaluate((media: HTMLVideoElement) => media.readyState >= 2 && !media.paused))
     .toBe(true);
@@ -104,8 +107,7 @@ test('hero retains static fallback for reduced motion, data saver and media fail
       await page.addInitScript(() =>
         Object.defineProperty(navigator, 'connection', { value: { saveData: true } }),
       );
-    if (mode === 'failure')
-      await page.route('**/videos/unisex-hero-2026-11.mp4', (route) => route.abort());
+    if (mode === 'failure') await page.route('**/videos/studio-hero.mp4', (route) => route.abort());
     const requests: string[] = [];
     page.on('request', (request) => {
       if (request.url().includes('/videos/')) requests.push(request.url());
@@ -121,12 +123,14 @@ test('hero retains static fallback for reduced motion, data saver and media fail
     if (mode !== 'failure') {
       expect(requests).toHaveLength(0);
       expect(await page.locator('.hero-video').getAttribute('src')).toBeNull();
-    } else
+    } else {
+      await page.getByRole('button', { name: 'Play hero video' }).click();
       await expect
         .poll(() =>
           page.locator('.hero-video').evaluate((media: HTMLVideoElement) => Boolean(media.error)),
         )
         .toBe(true);
+    }
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await context.close();
   }

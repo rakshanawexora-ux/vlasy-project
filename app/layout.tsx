@@ -15,6 +15,8 @@ import '@/styles/themes/light.css';
 import '@/styles/readability.css';
 import '@/styles/salon.css';
 import '@/styles/service-discovery.css';
+import '@/styles/enquiry.css';
+import '@/styles/media.css';
 const serif = localFont({
   src: [
     { path: '../public/fonts/serif.woff2', weight: '400', style: 'normal' },

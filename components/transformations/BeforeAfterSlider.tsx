@@ -27,6 +27,7 @@ export function BeforeAfterSlider({
       <div className="before-after">
         <Image
           fill
+          quality={90}
           src={after}
           alt={`After illustration: ${alt}`}
           sizes="(max-width:700px) 100vw, 50vw"
@@ -34,6 +35,7 @@ export function BeforeAfterSlider({
         <div className="before-image" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>
           <Image
             fill
+            quality={90}
             src={before}
             alt={`Before illustration: ${alt}`}
             sizes="(max-width:700px) 100vw, 50vw"

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: vlasy-project
+    runtime: node
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start -- --port $PORT
+    healthCheckPath: /contact
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://vlasy-project.onrender.com
+      - key: NEXT_PUBLIC_PHONE
+        sync: false
+      - key: NEXT_PUBLIC_WHATSAPP
+        sync: false
+      - key: NEXT_PUBLIC_EMAIL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: ENQUIRY_FROM_EMAIL
+        sync: false
+      - key: ENQUIRY_TO_EMAIL
+        sync: false

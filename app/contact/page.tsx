@@ -4,6 +4,7 @@ import { SectionLabel, TextLink } from '@/components/ui/Primitives';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { SITE_CONFIG, whatsappUrl, phoneUrl } from '@/lib/constants';
 import { metadata } from '@/lib/seo';
+import { canDeliverEnquiries } from '@/lib/enquiry-delivery';
 export const generateMetadata = () =>
   metadata(
     'Contact & appointments',
@@ -34,6 +35,14 @@ export default async function Contact({
           Tell us which salon service you are interested in. Share your preferred branch, date and
           any questions so the team can discuss the next step.
         </p>
+        {!canDeliverEnquiries() && (
+          <p className="contact-availability" role="status">
+            Online enquiries are temporarily unavailable.{' '}
+            {SITE_CONFIG.phone || SITE_CONFIG.whatsapp || SITE_CONFIG.email
+              ? 'Please use the contact options below.'
+              : 'Please try again later.'}
+          </p>
+        )}
         {subService && (
           <p className="booking-context">
             Your selected service: <strong>{subService}</strong>

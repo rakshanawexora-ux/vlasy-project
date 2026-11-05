@@ -21,8 +21,8 @@ export function ComparisonSection() {
         </p>
       </div>
       <BeforeAfterSlider
-        before="/images/editorial/2026-11/hair-replacement-before-illustration.webp"
-        after="/images/editorial/2026-11/hair-replacement-after-illustration.webp"
+        before="/images/studio-v2/hair-replacement-before-illustration.webp"
+        after="/images/studio-v2/hair-replacement-after-illustration.webp"
         alt="Fictional Indian man showing advanced top-of-scalp hair loss before and a fuller short hairstyle after simulated hair replacement"
       />
     </section>

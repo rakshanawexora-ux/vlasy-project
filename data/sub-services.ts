@@ -116,10 +116,10 @@ const descriptions: Record<string, string> = {
   'keratin-bond': 'Tipped hair-extension strands on a salon tray',
   'micro-ring': 'A stylist working with small hair-extension rings',
   'extensions-detail': 'A stylist matching an extension weft',
-  'extensions-portrait': 'A woman with long textured hair',
+  'extensions-portrait': 'A woman with long straight dark hair',
   'extensions-process': 'A stylist sectioning long hair',
   'styling-portrait': 'A man with a short textured haircut',
-  'women-bob-cut': 'A woman with a shoulder-length bob',
+  'women-bob-cut': 'A woman with a precision bob haircut',
   'kids-haircut': 'A child receiving a haircut with a parent nearby',
   'women-blow-dry': 'A stylist blow-drying a woman’s hair',
   'pixie-cut': 'A woman with a short pixie haircut',
@@ -154,7 +154,7 @@ export function getSubServices(service: Service): SubService[] {
   return service.offerings.map((name, index) => ({
     id: `${service.slug}-${index + 1}`,
     name,
-    image: `/images/editorial/2026-11/${sources[index]}.webp`,
+    image: `/images/studio-v2/${sources[index]}.webp`,
     alt: `${descriptions[sources[index]]}. AI editorial reference for ${name}.`,
   }));
 }

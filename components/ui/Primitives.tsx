@@ -52,7 +52,15 @@ export function Photo({
 }) {
   return (
     <div className={`photo ${className}`} data-image-audience={imageAudience}>
-      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="photo-img" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        quality={90}
+        priority={priority}
+        className="photo-img"
+      />
       <span className="illustration-label">AI editorial image</span>
     </div>
   );

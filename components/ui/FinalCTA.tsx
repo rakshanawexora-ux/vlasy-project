@@ -1,5 +1,5 @@
 import { ActionLink, SectionLabel, TextLink } from './Primitives';
-import { whatsappUrl } from '@/lib/constants';
+import { SITE_CONFIG, whatsappUrl } from '@/lib/constants';
 export function FinalCTA() {
   return (
     <section className="final-cta">
@@ -15,7 +15,9 @@ export function FinalCTA() {
       </p>
       <div className="button-row">
         <ActionLink href="/contact">Request an appointment</ActionLink>
-        <TextLink href={whatsappUrl()}>WhatsApp us</TextLink>
+        <TextLink href={SITE_CONFIG.whatsapp ? whatsappUrl() : '/contact'}>
+          {SITE_CONFIG.whatsapp ? 'WhatsApp us' : 'Ask a question'}
+        </TextLink>
       </div>
     </section>
   );
