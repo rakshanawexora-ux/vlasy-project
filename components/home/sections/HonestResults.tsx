@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
 import { SectionLabel, Photo } from '@/components/ui/Primitives';
 import { Reveal } from '@/components/ui/Reveal';
 import { hairConsultationUrl } from '@/data/hair-replacement';
@@ -10,7 +9,7 @@ export function HonestResults() {
       <Reveal className="hr-results-copy">
         <SectionLabel>CONFIDENCE STARTS WITH CLARITY</SectionLabel>
         <h2>
-          Let’s talk about
+          Explore
           <br />
           <span>your possibilities.</span>
         </h2>
@@ -21,7 +20,6 @@ export function HonestResults() {
         </p>
         <Link className="hr-pill hr-pill-dark" href={hairConsultationUrl}>
           Discuss your hair options
-          <ArrowUpRight size={18} />
         </Link>
         <span className="hr-results-note">
           Style inspiration, not documented client results. Real VLASY stories will be added with
@@ -37,7 +35,6 @@ export function HonestResults() {
         <div className="hr-results-caption">
           <span>THE STARTING POINT</span>
           <strong>You, on your terms.</strong>
-          <ArrowUpRight size={24} />
         </div>
       </div>
     </section>

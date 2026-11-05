@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, MoveUpRight } from 'lucide-react';
+import { MoveUpRight } from 'lucide-react';
 import { HairFlow } from '@/components/brand/HairFlow';
 import { SectionLabel } from '@/components/ui/Primitives';
 import { Reveal } from '@/components/ui/Reveal';
@@ -39,10 +39,7 @@ export function ConfidenceIntro() {
               fill
               sizes="(max-width:700px) 78vw, 32vw"
             />
-            <span>
-              INDIVIDUAL BY DESIGN
-              <ArrowUpRight size={17} />
-            </span>
+            <span>INDIVIDUAL BY DESIGN</span>
           </div>
           <span className="hr-portrait-caption">AI EDITORIAL PORTRAIT / NOT A CLIENT RESULT</span>
         </Reveal>
@@ -61,7 +58,6 @@ export function ConfidenceIntro() {
           </p>
           <Link href="/services/hair-wig-hair-replacement" className="hr-inline-link">
             Explore hair replacement
-            <ArrowUpRight size={19} />
           </Link>
         </Reveal>
       </div>

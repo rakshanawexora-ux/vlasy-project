@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Photo } from '@/components/ui/Primitives';
 import type { Service } from '@/data/services';
@@ -18,7 +18,8 @@ export function FeaturedServiceStory({
   const target = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 140, damping: 30 });
+  const y = useTransform(smoothProgress, [0, 1], ['-6%', '6%']);
   return (
     <motion.article
       ref={target}

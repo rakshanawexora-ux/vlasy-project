@@ -31,7 +31,7 @@ executor's supported escalated execution mode.
 
 ## Theme and hero media
 
-The header theme control switches dark/light palettes and remembers the choice in local storage. The default light theme is applied before hydration to prevent a palette flash. The hero includes a 10-second silent motion loop made from the AI editorial artwork, not recorded salon footage, with pause/play, static fallback, reduced-motion and data-saver handling. See `public/videos/README.md` for replacement guidance.
+The header theme control switches dark/light palettes and remembers the choice in local storage. The hero rotates five related service photographs every seven seconds, with previous/next and pause controls. It pauses during interaction, offscreen and in hidden tabs; reduced motion and data saver disable automatic rotation. The headline stays still, with no hero video, zoom or scroll parallax. Configure slides in `data/hero-slides.ts`.
 
 ## Content & integrations
 

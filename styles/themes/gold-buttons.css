@@ -6,6 +6,7 @@ html[data-theme='dark']
     .hr-pill,
     .theme-toggle,
     .hero-video-toggle,
+    .hero-carousel-control,
     .hr-outline-circle,
     .hr-round-link
   ),
@@ -39,6 +40,7 @@ html[data-theme='dark']
     .hr-pill,
     .theme-toggle,
     .hero-video-toggle,
+    .hero-carousel-control,
     .hr-outline-circle,
     .hr-round-link
   ):hover,
@@ -54,7 +56,15 @@ html[data-theme='dark'] .mobile-sticky > :is(a, button) + :is(a, button) {
   border-left-color: #9a750a70;
 }
 @media (prefers-reduced-motion: reduce) {
-  html[data-theme='dark'] :is(.button, .hr-pill, .theme-toggle, .hero-video-toggle, .header-book) {
+  html[data-theme='dark']
+    :is(
+      .button,
+      .hr-pill,
+      .theme-toggle,
+      .hero-video-toggle,
+      .hero-carousel-control,
+      .header-book
+    ) {
     transition: none;
   }
 }

@@ -184,7 +184,8 @@ test('supplied logo loads and decorative vectors respect reduced motion', async 
       logo.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0),
     )
     .toBe(true);
-  await expect(page.locator('.hair-flow-hero path')).toHaveCount(13);
+  await expect(page.locator('.hair-flow-hero path')).toHaveCount(0);
+  await expect(page.locator('.hair-flow-footer path')).toHaveCount(13);
   await expect(page.locator('.hair-flow-consultation')).toHaveAttribute('aria-hidden', 'true');
   await expect(page.locator('#hero-title')).toBeVisible();
   await page.locator('.footer-brand-stage').scrollIntoViewIfNeeded();

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useId, useState } from 'react';
-import { ArrowUpRight, LoaderCircle } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
 import { services } from '@/data/services';
 import { SITE_CONFIG, whatsappUrl } from '@/lib/constants';
 import { enquiryText } from '@/lib/enquiry-text';
@@ -219,7 +219,7 @@ export function EnquiryForm({
       )}
       <button className="button" disabled={isSubmitting} type="submit">
         {isSubmitting ? 'Sending your enquiry…' : compact ? 'Request consultation' : 'Send enquiry'}
-        {isSubmitting ? <LoaderCircle size={17} className="spin" /> : <ArrowUpRight size={17} />}
+        {isSubmitting && <LoaderCircle size={17} className="spin" />}
       </button>
       <p className="form-note">
         An enquiry is the beginning of a conversation. Appointments are confirmed by our team.

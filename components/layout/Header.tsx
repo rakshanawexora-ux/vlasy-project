@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { navigation } from '@/data/navigation';
 import { services } from '@/data/services';
 import { ThemeToggle } from '@/components/global/ThemeToggle';
@@ -116,7 +116,6 @@ export function Header() {
         <span className="header-book-short" aria-hidden="true">
           Book
         </span>
-        <ArrowUpRight size={15} aria-hidden="true" />
       </Link>
       <ThemeToggle />
       <button
@@ -142,14 +141,12 @@ export function Header() {
               </h2>
               <Link href="/services" onClick={close} className="text-link">
                 Explore all services
-                <ArrowUpRight size={16} />
               </Link>
             </div>
             <div className="mega-links">
               {services.map((s) => (
                 <Link key={s.slug} href={`/services/${s.slug}`} onClick={close}>
                   {s.shortName}
-                  <ArrowUpRight size={16} />
                 </Link>
               ))}
             </div>
@@ -168,7 +165,6 @@ export function Header() {
               }
             >
               {n.label}
-              <ArrowUpRight size={22} />
             </Link>
           ))}
           <div className="mobile-services">
@@ -180,7 +176,6 @@ export function Header() {
           </div>
           <Link href="/contact" onClick={close} className="button">
             Let’s begin
-            <ArrowUpRight size={16} />
           </Link>
         </nav>
       )}

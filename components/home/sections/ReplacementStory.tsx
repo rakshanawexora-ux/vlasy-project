@@ -50,7 +50,7 @@ export function ReplacementStory() {
           <ArrowUpRight size={18} />
         </Link>
         <span className="hr-small-disclaimer">
-          Suitability and results vary. Let’s talk about what is realistic for you.
+          Suitability and results vary. Ask us what is realistic for you.
         </span>
       </Reveal>
     </section>

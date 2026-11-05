@@ -9,10 +9,6 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <p>Good hair. New possibilities.</p>
-        <Link href="/contact" className="text-link">
-          Let’s talk
-          <ArrowUpRight size={18} />
-        </Link>
       </div>
       <div className="footer-columns">
         <div>

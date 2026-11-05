@@ -1,59 +1,37 @@
 import Link from 'next/link';
-import { ArrowDown, ArrowUpRight, Scissors, Sparkles, HeartHandshake } from 'lucide-react';
-import { HairFlow } from '@/components/brand/HairFlow';
-import {
-  HeroPortrait,
-  KineticHeadline,
-  MagneticLink,
-  ScrollProgress,
-} from '@/components/brand/BrandMotion';
-import { HeroVideo } from './HeroVideo';
+import { ArrowDown, Scissors, Sparkles, HeartHandshake } from 'lucide-react';
+import { HeroCarousel } from './HeroCarousel';
 export function Hero() {
   return (
     <section className="hr-hero" aria-labelledby="hero-title">
-      <ScrollProgress />
-      <HeroPortrait />
-      <HeroVideo />
+      <HeroCarousel />
       <div className="hr-hero-overlay" />
-      <HairFlow className="hair-flow-hero" />
       <div className="hr-hero-content">
         <p className="hr-overline">
           <span />
           HAIR · BEAUTY · GROOMING
         </p>
-        <KineticHeadline />
+        <h1 id="hero-title" className="hr-kinetic-title">
+          {['YOUR STYLE.', 'YOUR WAY.', 'VLASY.'].map((line, index) => (
+            <span className={`hr-title-line ${index === 2 ? 'hr-hero-last' : ''}`} key={line}>
+              <span>{line}</span>
+            </span>
+          ))}
+        </h1>
         <p className="hr-hero-description">
           Premium hair, beauty and grooming in Kolathur, Chennai.
           <br />
           Services for women and men.
         </p>
         <div className="hero-service-actions">
-          <MagneticLink href="/contact" className="hr-pill hr-pill-cream">
+          <Link href="/contact" className="hr-pill hr-pill-cream">
             Book an appointment
-            <ArrowUpRight size={19} aria-hidden="true" />
-          </MagneticLink>
+          </Link>
           <Link href="/services" className="hero-services-link">
             Explore all services
-            <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
         </div>
       </div>
-      <Link href="/services/hair-wig-hair-replacement" className="hr-hero-note">
-        <span className="hr-note-icon">
-          <Sparkles size={28} strokeWidth={1} />
-        </span>
-        <span>
-          <small>A PERSONAL APPROACH</small>
-          <strong>
-            Hair wigs.
-            <br />A fit that feels like you.
-          </strong>
-          <span className="hr-note-link">
-            Explore wigs & replacement
-            <ArrowUpRight size={16} />
-          </span>
-        </span>
-      </Link>
       <div className="hr-hero-base">
         <div className="hr-hero-promises">
           <span>

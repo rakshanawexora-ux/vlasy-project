@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { HairFlow } from '@/components/brand/HairFlow';
 import { MagneticLink } from '@/components/brand/BrandMotion';
 import { Reveal } from '@/components/ui/Reveal';
@@ -12,7 +11,6 @@ export function HairConsultationCTA() {
       <HairFlow className="hair-flow-consultation" />
       <div className="hr-cta-top">
         <span>YOUR NEXT CHAPTER STARTS WITH A CONVERSATION.</span>
-        <ArrowUpRight size={25} strokeWidth={1} />
       </div>
       <Reveal>
         <h2>
@@ -28,15 +26,15 @@ export function HairConsultationCTA() {
           <div>
             <MagneticLink href={hairConsultationUrl} className="hr-pill hr-pill-cream">
               Book a hair consultation
-              <ArrowUpRight size={19} />
             </MagneticLink>
-            <Link
-              href={whatsappUrl('Hello VLASY, I would like to enquire about hair replacement.')}
-              className="hr-cta-whatsapp"
-            >
-              {SITE_CONFIG.whatsapp ? 'Enquire on WhatsApp' : 'Contact the team'}
-              <ArrowRight size={15} />
-            </Link>
+            {SITE_CONFIG.whatsapp && (
+              <Link
+                href={whatsappUrl('Hello VLASY, I would like to enquire about hair replacement.')}
+                className="hr-cta-whatsapp"
+              >
+                Enquire on WhatsApp
+              </Link>
+            )}
           </div>
         </div>
       </Reveal>

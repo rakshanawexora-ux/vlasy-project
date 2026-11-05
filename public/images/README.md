@@ -19,9 +19,9 @@ is applied. `docs/editorial-assets.json` records source checksums and dimensions
 The old enlarged campaign has been removed from the published image directory.
 
 Phones use a portrait source through `<picture>`, avoiding extreme crops of a
-wide shot. The hero displays a sharp still image by default. The native-sized
-silent motion loop is an optional desktop enhancement, loaded only after Play.
-Reduced motion and data saver continue to use a still image.
+wide shot. The hero crossfades related service photographs with manual controls and a pause
+button. Reduced motion and data saver disable automatic rotation. No hero video,
+zoom or scroll movement is used.
 
 The comparison pair remains explicitly illustrative, with the same fictional
 Indian man, pose and lighting before and after a simulated hair-system appearance.

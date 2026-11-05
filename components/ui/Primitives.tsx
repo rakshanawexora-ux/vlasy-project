@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
 export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <span className="eyebrow">
@@ -23,7 +22,6 @@ export function ActionLink({
   return (
     <Link href={href} className={`button ${light ? 'button-light' : ''} ${className}`}>
       {children}
-      <ArrowUpRight size={17} aria-hidden="true" />
     </Link>
   );
 }
@@ -31,7 +29,6 @@ export function TextLink({ href, children }: { href: string; children: React.Rea
   return (
     <Link href={href} className="text-link">
       {children}
-      <ArrowUpRight size={17} aria-hidden="true" />
     </Link>
   );
 }

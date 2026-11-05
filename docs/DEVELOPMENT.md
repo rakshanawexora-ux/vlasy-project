@@ -83,7 +83,7 @@ navigation, the sitemap or page content without a new product requirement.
 - Keep the supplied logo unchanged. Decorative SVGs are separate assets.
 - The image overlay badges were removed at the owner’s request. Keep accurate image provenance in alt text and documentation, and retain the before/after clarification that it is illustrative, not a client result.
 - Theme choice persists across navigation and reloads.
-- Respect reduced motion and data saver; the hero starts with a sharp still, with optional desktop motion after Play.
+- Respect reduced motion and data saver: hero rotation stops automatically, while manual previous/next controls stay available. No hero video, zoom, headline animation or parallax.
 - Keep enquiry validation, consent, honeypot and same-origin checks.
 - Enquiries require the private Resend configuration described in `docs/RENDER.md`. Do not report a console log or unconfigured request as delivered.
 - Confirm contact details, opening hours, prices and course details before publishing them.
@@ -109,3 +109,7 @@ The current campaign has 47 native-resolution AI images, including a dedicated p
 Academy (including every program route) and Visit Us (including `/locations/kolathur`) have been removed. These URLs return 404 and are excluded from navigation and the sitemap. Training promotions, academy FAQs and enquiry options are removed too. Keep Kolathur contact information on `/contact`; do not recreate these pages without a new request.
 
 Photo replacement instructions are in `docs/IMAGES.md`. Render runtime and contact-delivery settings are in `docs/RENDER.md`.
+
+## Hero carousel and interactions
+
+`data/hero-slides.ts` pairs each of the five service images with its caption, accessible description and destination. `HeroCarousel` crossfades every seven seconds, with pause/play and previous/next controls; manual selection pauses rotation. Hover, focus, offscreen state and document visibility pause the timer. Reduced motion and data saver disable automatic rotation. Keep the logo and headline still. Use `FeaturedServiceStory` for subtle spring-smoothed parallax below the hero. CTA text uses weight 600. Repeated decorative CTA arrows and the Contact the team / Let’s talk actions were removed at the owner’s request.

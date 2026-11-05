@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
 import { ServiceGraphic } from '@/components/brand/ServiceGraphic';
 import { SectionLabel } from '@/components/ui/Primitives';
 import { services } from '@/data/services';
@@ -32,7 +31,6 @@ export function HomeServices() {
             </p>
             <Link className="button featured-all-link" href="/services">
               Explore all services
-              <ArrowUpRight size={18} />
             </Link>
             <p className="featured-service-hint">5 featured categories · full menu available</p>
           </div>
@@ -56,7 +54,6 @@ export function HomeServices() {
             </p>
             <Link href="/services" className="button">
               Explore all services
-              <ArrowUpRight size={18} />
             </Link>
           </div>
         </div>
