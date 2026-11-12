@@ -15,6 +15,7 @@ test('confirmed catalogue has nine named pages and all 85 sub-services', async (
   request,
 }) => {
   const images = new Set<string>();
+  const categoryPhotos = new Set<string>();
   await page.setViewportSize({ width: 375, height: 812 });
   let total = 0;
   for (const [slug, name, count] of catalogue) {
@@ -32,9 +33,19 @@ test('confirmed catalogue has nine named pages and all 85 sub-services', async (
       images.add(new URL(src!, 'http://127.0.0.1:3000').searchParams.get('url') || src!);
       expect(await image.getAttribute('alt')).not.toContain('undefined');
     }
+    for (const image of await page
+      .locator('.service-lead-pair img,.service-editorial-grid img,.subservice-card img')
+      .all()) {
+      const src = await image.getAttribute('src');
+      const original = new URL(src!, 'http://127.0.0.1:3000').searchParams.get('url') || src!;
+      expect(categoryPhotos.has(original), `Repeated photo on ${slug}: ${original}`).toBe(false);
+      categoryPhotos.add(original);
+    }
     total += count;
   }
   expect(total).toBe(85);
+  expect(images.size).toBe(85);
+  expect(categoryPhotos.size).toBe(130);
   for (const src of images) {
     const response = await request.get(src);
     expect(response.status(), src).toBe(200);

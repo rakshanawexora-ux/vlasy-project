@@ -3,7 +3,7 @@
 import Image, { getImageProps } from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
+import { ArrowDown, Scissors, Sparkles, HeartHandshake } from 'lucide-react';
 import { heroSlides } from '@/data/hero-slides';
 
 type Connection = {
@@ -28,14 +28,12 @@ function subscribePreference(notify: () => void) {
   };
 }
 
-/** Only the pictures crossfade: the headline, photograph scale and page position stay still. */
+/** Image and copy share one index and a six-second timer. Motion/data preferences are respected. */
 export function HeroCarousel() {
-  const region = useRef<HTMLDivElement>(null);
+  const region = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [interacting, setInteracting] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [announcement, setAnnouncement] = useState('');
   const allowed = useSyncExternalStore(subscribePreference, automaticSlidesAllowed, () => false);
   useEffect(() => {
     const element = region.current;
@@ -57,23 +55,17 @@ export function HeroCarousel() {
     };
   }, []);
   useEffect(() => {
-    if (!allowed || paused || interacting || !visible) return;
+    if (!allowed || interacting || !visible) return;
     const timer = window.setInterval(
       () => setActive((index) => (index + 1) % heroSlides.length),
-      7000,
+      6000,
     );
     return () => window.clearInterval(timer);
-  }, [allowed, paused, interacting, visible]);
-  function select(direction: number) {
-    const next = (active + direction + heroSlides.length) % heroSlides.length;
-    setActive(next);
-    setPaused(true);
-    setAnnouncement(`${next + 1} of ${heroSlides.length}: ${heroSlides[next].title}`);
-  }
+  }, [allowed, interacting, visible]);
   return (
-    <div
+    <section
       ref={region}
-      className="hero-carousel"
+      className="hr-hero hero-carousel"
       role="region"
       aria-roledescription="carousel"
       aria-label="Featured salon services"
@@ -127,51 +119,53 @@ export function HeroCarousel() {
           );
         })}
       </div>
-      <div className="hero-carousel-panel">
-        <div className="hero-carousel-caption">
-          <span aria-hidden="true">
-            0{active + 1} / 0{heroSlides.length}
-          </span>
-          <Link href={heroSlides[active].href}>{heroSlides[active].title}</Link>
-        </div>
-        <div className="hero-carousel-controls">
-          <button
-            type="button"
-            className="hero-carousel-control"
-            aria-label="Previous hero slide"
-            onClick={() => select(-1)}
-          >
-            <ArrowLeft size={18} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className="hero-carousel-control"
-            aria-label={paused || !allowed ? 'Play hero slideshow' : 'Pause hero slideshow'}
-            disabled={!allowed}
-            onClick={() => setPaused(!paused)}
-            title={
-              !allowed ? 'Automatic slides are off for your motion or data preference' : undefined
-            }
-          >
-            {paused || !allowed ? (
-              <Play size={16} aria-hidden="true" />
-            ) : (
-              <Pause size={16} aria-hidden="true" />
-            )}
-          </button>
-          <button
-            type="button"
-            className="hero-carousel-control"
-            aria-label="Next hero slide"
-            onClick={() => select(1)}
-          >
-            <ArrowRight size={18} aria-hidden="true" />
-          </button>
+      <div className="hr-hero-overlay" />
+      <div className="hr-hero-content">
+        <p className="hr-overline">
+          <span />
+          {heroSlides[active].eyebrow}
+        </p>
+        <h1 id="hero-title" className="hr-kinetic-title">
+          {heroSlides[active].headline.map((line, index) => (
+            <span className={`hr-title-line ${index === 2 ? 'hr-hero-last' : ''}`} key={index}>
+              <span>{line}</span>
+            </span>
+          ))}
+        </h1>
+        <p className="hr-hero-description">{heroSlides[active].description}</p>
+        <div className="hero-service-actions">
+          <Link href={heroSlides[active].href} className="hr-pill hr-pill-cream">
+            {heroSlides[active].cta}
+          </Link>
+          <Link href="/services" className="hero-services-link">
+            Explore all services
+          </Link>
         </div>
       </div>
-      <span className="sr-only" role="status" aria-live="polite">
-        {announcement}
-      </span>
-    </div>
+      <div className="hr-hero-base">
+        <div className="hr-hero-promises">
+          <span>
+            <Scissors size={19} strokeWidth={1.2} />
+            Hair, beauty
+            <br />& grooming
+          </span>
+          <span>
+            <Sparkles size={19} strokeWidth={1.2} />
+            Women
+            <br />& men
+          </span>
+          <span>
+            <HeartHandshake size={19} strokeWidth={1.2} />
+            Personal care
+            <br />
+            in Kolathur
+          </span>
+        </div>
+        <a href="#services" className="hr-scroll">
+          EXPLORE OUR SERVICES
+          <ArrowDown size={15} />
+        </a>
+      </div>
+    </section>
   );
 }

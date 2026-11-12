@@ -9,7 +9,7 @@ with an optional saved dark theme. Homepage client-focused image placements
 follow an 80% women / 20% men creative direction. All generated editorial images
 are visibly labelled and are not represented as real VLASY client results.
 The supplied logo is preserved. Motion respects reduced-motion and data-saver
-preferences, and the female-led hero loop includes a pause/play control.
+preferences, and the female-led hero rotates automatically.
 
 ## Develop
 
@@ -31,7 +31,7 @@ executor's supported escalated execution mode.
 
 ## Theme and hero media
 
-The header theme control switches dark/light palettes and remembers the choice in local storage. The hero rotates five related service photographs every seven seconds, with previous/next and pause controls. It pauses during interaction, offscreen and in hidden tabs; reduced motion and data saver disable automatic rotation. The headline stays still, with no hero video, zoom or scroll parallax. Configure slides in `data/hero-slides.ts`.
+The header theme control switches dark/light palettes and remembers the choice in local storage. The hero rotates five related service photographs, headings, descriptions and links together every six seconds, without manual controls. It pauses during interaction, offscreen and in hidden tabs; reduced motion and data saver disable automatic rotation. There is no hero video, zoom or scroll parallax. Configure slides in `data/hero-slides.ts`.
 
 ## Content & integrations
 
@@ -42,7 +42,7 @@ The header theme control switches dark/light palettes and remembers the choice i
 - Branch addresses, hours and map links: `SITE_CONFIG.locations`.
 - Services, FAQs and articles: `data/`.
 - Verified reviews: `data/testimonials.ts` (empty until supplied).
-- Current imagery: 47 native-resolution AI editorial images in `public/images/studio-v2/`, including a separate mobile hero. No artificial 4K upscaling; photo overlay badges are removed; provenance and illustrative comparison notes remain. See `public/images/README.md` and `docs/IMAGES.md`.
+- Current imagery: 47 campaign images plus 93 distinct service images, all at native resolution in `public/images/studio-v2/` and `public/images/services-unique/`, including a separate mobile hero. No artificial 4K upscaling; photo overlay badges are removed; provenance and illustrative comparison notes remain. See `public/images/README.md` and `docs/IMAGES.md`.
 - Fonts are Google Fonts distributed through Fontsource and self-hosted with
   `next/font/local` because direct Google Fonts access is blocked in this runtime.
 - Logo asset and replacement instructions: `public/logo/README.md`. Both themes

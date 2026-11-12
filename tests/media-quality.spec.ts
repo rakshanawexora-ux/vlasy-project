@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { test, expect } from './fixtures';
 
 test('campaign exports preserve native resolution rather than upscaling smaller sources', () => {
@@ -30,4 +31,23 @@ test('phones load their portrait source at high quality without a low-resolution
   expect(source).toContain('q=90');
   expect(videos).toHaveLength(0);
   await expect(page.locator('.hero-video-toggle')).not.toBeVisible();
+});
+
+test('new service images are distinct native-resolution exports with no upscaling', () => {
+  const manifest = JSON.parse(readFileSync('docs/service-image-assets.json', 'utf8'));
+  expect(manifest.assets).toHaveLength(93);
+  const hashes = new Set<string>();
+  for (const asset of manifest.assets) {
+    expect(asset.upscaled, asset.file).toBe(false);
+    expect(asset.width).toBe(asset.nativeWidth);
+    expect(asset.height).toBe(asset.nativeHeight);
+    expect(asset.nativeWidth).toBeGreaterThanOrEqual(1536);
+    expect(asset.nativeHeight).toBeGreaterThanOrEqual(1024);
+    const hash = createHash('sha256')
+      .update(readFileSync(`public/${asset.file}`))
+      .digest('hex');
+    expect(hash).toBe(asset.sha256);
+    hashes.add(hash);
+  }
+  expect(hashes.size).toBe(93);
 });

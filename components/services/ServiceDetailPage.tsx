@@ -1,3 +1,4 @@
+import { serviceSearchContent } from '@/data/local-seo';
 import { getSubServices } from '@/data/sub-services';
 import { SubServiceGallery } from './SubServiceGallery';
 import { notFound } from 'next/navigation';
@@ -15,7 +16,11 @@ import { EnquiryForm } from '@/components/forms/EnquiryForm';
 export function servicePageMetadata(slug: string) {
   const service = getService(slug);
   return service
-    ? metadata(`${service.shortName} in Chennai`, service.description, `/services/${service.slug}`)
+    ? metadata(
+        serviceSearchContent[slug].title,
+        serviceSearchContent[slug].description,
+        `/services/${service.slug}`,
+      )
     : {};
 }
 export function ServiceDetailPage({ slug }: { slug: string }) {
@@ -52,6 +57,13 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
           to discuss.
         </p>
         <SubServiceGallery category={s.shortName} serviceName={s.name} items={getSubServices(s)} />
+      </section>
+      <section className="section page-split">
+        <div>
+          <SectionLabel>AT VLASY, KOLATHUR</SectionLabel>
+          <h2>{serviceSearchContent[s.slug].heading}</h2>
+        </div>
+        <p>{serviceSearchContent[s.slug].copy}</p>
       </section>
       <ServicePhotoStory slug={s.slug} />
       <section className="section">
@@ -109,7 +121,16 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
           name: s.name,
           description: s.description,
           url: absoluteUrl(`/services/${s.slug}`),
-          areaServed: 'Chennai',
+          areaServed: { '@type': 'City', name: 'Chennai' },
+          serviceType: s.shortName,
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: s.name,
+            itemListElement: s.offerings.map((name) => ({
+              '@type': 'Offer',
+              itemOffered: { '@type': 'Service', name },
+            })),
+          },
           provider: { '@type': 'BeautySalon', name: 'VLASY Unisex Salon' },
         }}
       />

@@ -83,7 +83,7 @@ navigation, the sitemap or page content without a new product requirement.
 - Keep the supplied logo unchanged. Decorative SVGs are separate assets.
 - The image overlay badges were removed at the owner’s request. Keep accurate image provenance in alt text and documentation, and retain the before/after clarification that it is illustrative, not a client result.
 - Theme choice persists across navigation and reloads.
-- Respect reduced motion and data saver: hero rotation stops automatically, while manual previous/next controls stay available. No hero video, zoom, headline animation or parallax.
+- Respect reduced motion and data saver: hero rotation stops automatically, with no manual slide controls. No hero video, zoom, headline animation or parallax. Image and copy update together every six seconds.
 - Keep enquiry validation, consent, honeypot and same-origin checks.
 - Enquiries require the private Resend configuration described in `docs/RENDER.md`. Do not report a console log or unconfigured request as delivered.
 - Confirm contact details, opening hours, prices and course details before publishing them.
@@ -102,7 +102,7 @@ Homepage feature selection is in `data/featured-services.ts` (five highlights, n
 
 `data/sub-services.ts` maps every confirmed sub-service to an editorial image. Related services may reuse a relevant reference. `SubServiceGallery` provides search and individual enquiry links. Contact validates the requested sub-service against the selected category before prefilling the editable enquiry message. No separate sub-service pages are created.
 
-The current campaign has 47 native-resolution AI images, including a dedicated portrait mobile hero. No upscaling is applied. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.
+The current campaign has 47 native-resolution AI images, including a dedicated portrait mobile hero, plus 93 distinct service photographs in `public/images/services-unique/`. The separate manifest `docs/service-image-assets.json` records their native dimensions, hashes and service assignments. No upscaling is applied. See `public/images/README.md` and `docs/editorial-assets.json` for provenance and dimensions. `Photo` accepts a `sizes` override so card layouts request appropriately sized responsive variants.
 
 ## Removed pages
 
@@ -112,4 +112,4 @@ Photo replacement instructions are in `docs/IMAGES.md`. Render runtime and conta
 
 ## Hero carousel and interactions
 
-`data/hero-slides.ts` pairs each of the five service images with its caption, accessible description and destination. `HeroCarousel` crossfades every seven seconds, with pause/play and previous/next controls; manual selection pauses rotation. Hover, focus, offscreen state and document visibility pause the timer. Reduced motion and data saver disable automatic rotation. Keep the logo and headline still. Use `FeaturedServiceStory` for subtle spring-smoothed parallax below the hero. CTA text uses weight 600. Repeated decorative CTA arrows and the Contact the team / Let’s talk actions were removed at the owner’s request.
+`data/hero-slides.ts` pairs each of the five service images with its headline, description, CTA and destination. `HeroCarousel` updates the image and content together every six seconds without manual controls. Hover, focus, offscreen state and document visibility pause the timer. Reduced motion and data saver disable automatic rotation. Keep the logo still and avoid zoom or parallax in the hero. Use `FeaturedServiceStory` for subtle spring-smoothed parallax below the hero. CTA text uses weight 600. Repeated decorative CTA arrows and the Contact the team / Let’s talk actions were removed at the owner’s request.

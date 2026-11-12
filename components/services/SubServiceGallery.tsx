@@ -79,8 +79,8 @@ export function SubServiceGallery({
         </div>
       )}
       <p className="subservice-note">
-        Images are style references, not documented client results. Related services may share a
-        reference image. Ask us about suitability, pricing and appointment availability.
+        Images are style references, not documented client results. Ask us about suitability,
+        pricing and appointment availability.
       </p>
     </div>
   );

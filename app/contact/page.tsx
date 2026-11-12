@@ -59,6 +59,10 @@ export default async function Contact({
           )}
           {SITE_CONFIG.whatsapp && <TextLink href={whatsappUrl()}>Chat on WhatsApp</TextLink>}
           <p>Kolathur, Chennai</p>
+          <p>
+            Visiting from Perambur, Villivakkam or Anna Nagar? Ask our Kolathur team for directions
+            and confirm your service availability before travelling.
+          </p>
         </div>
       </div>
       <EnquiryForm

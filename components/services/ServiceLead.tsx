@@ -1,7 +1,7 @@
 import { Photo } from '@/components/ui/Primitives';
 import { servicePhotography } from '@/data/service-photography';
 export function ServiceLead({ slug, src, name }: { slug: string; src: string; name: string }) {
-  const detail = servicePhotography[slug].frames[0];
+  const detail = servicePhotography[slug].leadDetail;
   return (
     <div className="service-lead-pair">
       <Photo

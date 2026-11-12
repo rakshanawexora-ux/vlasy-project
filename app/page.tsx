@@ -15,7 +15,7 @@ import { absoluteUrl, metadata } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/constants';
 export const generateMetadata = () =>
   metadata(
-    'VLASY Unisex Salon | Hair & Beauty in Chennai',
+    'VLASY Unisex Salon in Kolathur, Chennai | Hair & Beauty',
     'Explore VLASY Unisex Salon in Kolathur: wigs, extensions, haircuts, colouring, treatments, grooming, beauty, bridal and nail services for women and men.',
     '/',
   );

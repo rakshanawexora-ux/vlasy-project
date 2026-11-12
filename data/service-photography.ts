@@ -1,9 +1,16 @@
 import type { Service } from './services';
 export type ServiceFrame = { src: string; alt: string; caption: string };
-export type ServicePhotography = { heading: string; introduction: string; frames: ServiceFrame[] };
+export type ServicePhotography = {
+  heading: string;
+  introduction: string;
+  leadDetail: ServiceFrame;
+  frames: ServiceFrame[];
+};
 const frame = (file: string, alt: string, caption: string): ServiceFrame => ({
-  src: `/images/studio-v2/${file}.webp`,
-  alt: `AI editorial illustration: ${alt}`,
+  src: file.startsWith('new:')
+    ? `/images/services-unique/editorial/${file.slice(4)}.webp`
+    : `/images/studio-v2/${file}.webp`,
+  alt: `${alt}; illustrative style reference`,
   caption,
 });
 export const servicePhotography: Record<string, ServicePhotography> = {
@@ -11,21 +18,26 @@ export const servicePhotography: Record<string, ServicePhotography> = {
     heading: 'A fit, finish and care plan for you.',
     introduction:
       'Explore wig options for women and men, with a clear discussion of comfort, styling and servicing.',
+    leadDetail: frame(
+      'replacement-detail',
+      'A lace-base hair system on an ivory stand',
+      'Compare base and hairline details',
+    ),
     frames: [
       frame(
-        'women-wig-fitting',
-        'stylist fitting a wig for an Indian woman',
-        'A personal fitting consultation',
-      ),
-      frame(
         'replacement-portrait',
-        'man with a short natural hairstyle; not a treatment result',
-        'Style options for men',
+        'Indian man with a textured short hair-system style',
+        'Explore styling for men',
       ),
       frame(
-        'replacement-detail',
-        'lace-base hair system on a mannequin head',
-        'Understand the base and maintenance',
+        'replacement-process',
+        'Stylist discussing a hair system with an Indian man',
+        'Discuss fitting and attachment',
+      ),
+      frame(
+        'new:wig-care-detail',
+        'Stylist brushing a removable dark wig on a mannequin',
+        'Plan ongoing wig care',
       ),
     ],
   },
@@ -33,21 +45,26 @@ export const servicePhotography: Record<string, ServicePhotography> = {
     heading: 'Length and volume, thoughtfully blended.',
     introduction:
       'Compare the method, colour match and care requirements before choosing your extensions.',
+    leadDetail: frame(
+      'extensions-detail',
+      'Stylist matching a dark hair-extension weft',
+      'Match colour and texture',
+    ),
     frames: [
       frame(
         'extensions-process',
-        'stylist sectioning long hair',
+        'Stylist sectioning long dark hair',
         'Careful sectioning and blending',
       ),
       frame(
-        'extensions-detail',
-        'stylist matching an extension weft',
-        'Explore the right extension method',
+        'clip-in',
+        'Dark clip-in extension wefts with small attachment clips',
+        'Explore removable extensions',
       ),
       frame(
-        'extensions-portrait',
-        'woman with long straight dark hair',
-        'Your preferred length and movement',
+        'tape-in',
+        'Flat tape-in extension tabs in sectioned hair',
+        'Understand tape-in attachments',
       ),
     ],
   },
@@ -55,31 +72,41 @@ export const servicePhotography: Record<string, ServicePhotography> = {
     heading: 'The shape you want. A routine that works.',
     introduction:
       'Haircuts for women, men and children, with styling for everyday wear or a special occasion.',
+    leadDetail: frame(
+      'women-blow-dry',
+      'Woman receiving a professional blow-dry',
+      'Finish and movement',
+    ),
     frames: [
-      frame('women-blow-dry', 'woman receiving a blow-dry', 'A finish for your occasion'),
-      frame('women-bob-cut', 'woman with a precision bob haircut', 'Explore shape and length'),
-      frame('styling-process', 'stylist cutting a man’s hair', 'Haircuts and styling for men'),
+      frame('kids-haircut', 'Child receiving a salon haircut', 'Haircuts for younger clients'),
+      frame('pixie-cut', 'Indian woman with a short pixie haircut', 'Explore a shorter shape'),
+      frame(
+        'new:layer-cut-detail',
+        'Indian woman with a softly layered haircut',
+        'Layers with movement',
+      ),
     ],
   },
   'hair-colouring': {
     heading: 'Explore your next colour direction.',
     introduction:
       'Share your inspiration, previous colour and preferred upkeep so the team can discuss a realistic plan.',
+    leadDetail: frame(
+      'colour-process',
+      'Colourist applying hair colour with a brush',
+      'Colour planned around your hair',
+    ),
     frames: [
+      frame('colour-detail', 'Hair colour application with foils', 'Highlights and placement'),
       frame(
-        'colour-process',
-        'colourist applying colour with a brush',
-        'Colour planned around your hair',
+        'new:colour-swatches-detail',
+        'Hair colour swatches on a salon worktop',
+        'Find your colour direction',
       ),
       frame(
-        'colour-detail',
-        'hair colour application with foils',
-        'Highlights, placement and technique',
-      ),
-      frame(
-        'colour-portrait',
-        'hair with subtle warm colour',
-        'A finish to discuss with your stylist',
+        'new:colour-consultation',
+        'Indian woman discussing colour swatches with her stylist',
+        'Agree on tone and upkeep',
       ),
     ],
   },
@@ -87,21 +114,26 @@ export const servicePhotography: Record<string, ServicePhotography> = {
     heading: 'Care for the hair you have.',
     introduction:
       'Talk through frizz, dryness, damage or scalp concerns before agreeing on a suitable cosmetic service.',
+    leadDetail: frame(
+      'head-massage',
+      'Indian man receiving a salon head massage',
+      'A moment of scalp care',
+    ),
     frames: [
       frame(
-        'hair-spa',
-        'woman receiving a conditioning hair treatment',
-        'Hair spa and conditioning care',
+        'new:conditioning-mask-detail',
+        'Conditioning mask prepared beside a salon wash basin',
+        'Conditioning for dry lengths',
       ),
       frame(
-        'women-blow-dry',
-        'stylist drying and smoothing a woman’s hair',
-        'Discuss treatment and finishing options',
+        'new:smoothing-process-detail',
+        'Stylist smoothing sectioned hair with a professional iron',
+        'Discuss smoothing options',
       ),
       frame(
-        'beauty-process',
-        'clean towels and preparation bowls',
-        'Preparation and personalised aftercare',
+        'new:scalp-consultation-detail',
+        'Stylist examining a neat parting during a scalp consultation',
+        'Start with a scalp conversation',
       ),
     ],
   },
@@ -109,59 +141,71 @@ export const servicePhotography: Record<string, ServicePhotography> = {
     heading: 'Grooming that fits your everyday life.',
     introduction:
       'From a beard tidy-up to a complete grooming appointment, agree on the details before you begin.',
+    leadDetail: frame(
+      'styling-process',
+      'Barber cutting a man’s hair',
+      'A haircut shaped around you',
+    ),
     frames: [
-      frame('styling-process', 'stylist cutting a man’s hair', 'A haircut shaped around you'),
-      frame('styling-detail', 'close-up of a short men’s haircut', 'Detail in the cut and finish'),
-      frame('styling-portrait', 'man with a short textured hairstyle', 'A look you can maintain'),
+      frame(
+        'styling-detail',
+        'Close view of a short men’s haircut',
+        'Detail in the cut and finish',
+      ),
+      frame('beard-trim', 'Barber tidying a man’s beard', 'Shape and definition'),
+      frame('clean-shave', 'Man receiving a professional shave', 'A clean, considered finish'),
     ],
   },
   'womens-beauty': {
     heading: 'A little time for personal care.',
     introduction:
       'Explore your beauty routine with attention to skin comfort, preparation and the occasion ahead.',
+    leadDetail: frame(
+      'beauty-detail',
+      'Woman receiving a facial massage',
+      'Time for personal care',
+    ),
     frames: [
+      frame('beauty-process', 'Clean skincare preparation bowls and towels', 'Careful preparation'),
+      frame('threading', 'Beauty professional threading an eyebrow', 'Brow shaping and definition'),
       frame(
-        'beauty-portrait',
-        'woman receiving a facial mask',
-        'Facial and skin-care consultations',
+        'waxing',
+        'Beauty professional applying wax to a forearm',
+        'Discuss your beauty routine',
       ),
-      frame('beauty-detail', 'woman receiving a gentle facial massage', 'Time to pause and reset'),
-      frame('beauty-process', 'towel and skincare preparation', 'Care in every step'),
     ],
   },
   'bridal-special-occasion': {
     heading: 'Your occasion, planned in the details.',
     introduction:
       'Coordinate hair, makeup, draping and styling with your outfit, preferences and event schedule.',
+    leadDetail: frame(
+      'bridal-process',
+      'Makeup artist preparing an Indian bride',
+      'Makeup around your preferences',
+    ),
     frames: [
+      frame('bridal-detail', 'Jasmine-adorned bridal hairstyle', 'Hair and accessories together'),
       frame(
-        'bridal-process',
-        'makeup artist preparing an Indian bride',
-        'Makeup planned around your preferences',
+        'airbrush-makeup',
+        'Makeup artist using an airbrush tool',
+        'Discuss your preferred finish',
       ),
-      frame(
-        'bridal-detail',
-        'jasmine-adorned bridal hairstyle',
-        'Hair and accessories, brought together',
-      ),
-      frame('bridal-portrait', 'bride in a maroon silk saree', 'A personal occasion look'),
+      frame('saree-draping', 'Stylist arranging silk saree pleats', 'Draping for your occasion'),
     ],
   },
   'nail-beauty': {
     heading: 'A polished finish, down to the details.',
     introduction:
       'Choose a shape, colour and care routine for your hands and feet, with suitability discussed first.',
+    leadDetail: frame('pedicure', 'Professional pedicure in a salon', 'Care for your feet'),
     frames: [
+      frame('nail-art', 'Champagne and gold floral nail art', 'Colour and individual details'),
+      frame('nail-extensions', 'Nail technician shaping extensions', 'Choose shape and length'),
       frame(
-        'manicure',
-        'nail technician applying polish to a woman’s hands',
-        'Manicure, polish and nail art',
-      ),
-      frame('pedicure', 'professional pedicure in a salon', 'Pedicure and foot-care options'),
-      frame(
-        'beauty-tools-detail',
-        'clean beauty tools on a workstation',
-        'Preparation and careful finishing',
+        'new:nail-tools-detail',
+        'Manicure tools and polish prepared on a clean towel',
+        'Preparation and finishing',
       ),
     ],
   },

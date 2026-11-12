@@ -17,7 +17,7 @@ export function metadata(title: string, description: string, path: string): Meta
       locale: 'en_IN',
       siteName: SITE_CONFIG.name,
       images: [
-        { url: image, width: 1672, height: 941, alt: 'VLASY — AI editorial hair inspiration' },
+        { url: image, width: 1536, height: 1024, alt: 'VLASY — AI editorial hair inspiration' },
       ],
     },
     twitter: { card: 'summary_large_image', title, description, images: [image] },
