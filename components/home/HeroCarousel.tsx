@@ -32,7 +32,7 @@ function subscribePreference(notify: () => void) {
 export function HeroCarousel() {
   const region = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
-  const [interacting, setInteracting] = useState(false);
+  const [focusWithin, setFocusWithin] = useState(false);
   const [visible, setVisible] = useState(true);
   const allowed = useSyncExternalStore(subscribePreference, automaticSlidesAllowed, () => false);
   useEffect(() => {
@@ -55,13 +55,13 @@ export function HeroCarousel() {
     };
   }, []);
   useEffect(() => {
-    if (!allowed || interacting || !visible) return;
+    if (!allowed || focusWithin || !visible) return;
     const timer = window.setInterval(
       () => setActive((index) => (index + 1) % heroSlides.length),
       6000,
     );
     return () => window.clearInterval(timer);
-  }, [allowed, interacting, visible]);
+  }, [allowed, focusWithin, visible]);
   return (
     <section
       ref={region}
@@ -70,11 +70,9 @@ export function HeroCarousel() {
       aria-roledescription="carousel"
       aria-label="Featured salon services"
       data-active-slide={active + 1}
-      onMouseEnter={() => setInteracting(true)}
-      onMouseLeave={() => setInteracting(false)}
-      onFocusCapture={() => setInteracting(true)}
+      onFocusCapture={() => setFocusWithin(true)}
       onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false);
+        if (!event.currentTarget.contains(event.relatedTarget)) setFocusWithin(false);
       }}
     >
       <div className="hero-slides">

@@ -3,7 +3,9 @@ import { test, expect } from './fixtures';
 test('hero changes its picture, heading, description and destination every six seconds without manual controls', async ({
   page,
 }) => {
-  await page.clock.install();
+  const clockStart = new Date('2026-11-13T00:00:00Z');
+  await page.clock.install({ time: clockStart });
+  await page.clock.pauseAt(new Date(clockStart.getTime() + 1000));
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');
   const hero = page.locator('.hero-carousel');
@@ -31,7 +33,7 @@ test('hero changes its picture, heading, description and destination every six s
   await expect(page.locator('.hr-title-line > span').first()).toHaveCSS('transform', 'none');
 });
 
-test('hero pauses while a visitor reads with the pointer or focuses a service link', async ({
+test('hero continues under the pointer and pauses only while a service link has keyboard focus', async ({
   page,
 }) => {
   await page.clock.install();
@@ -39,14 +41,17 @@ test('hero pauses while a visitor reads with the pointer or focuses a service li
   await page.goto('/');
   const hero = page.locator('.hero-carousel');
   await hero.locator('h1').hover();
-  await page.clock.runFor(13000);
-  await expect(hero).toHaveAttribute('data-active-slide', '1');
-  await page.mouse.move(0, 0);
   await page.clock.runFor(6100);
   await expect(hero).toHaveAttribute('data-active-slide', '2');
   await hero.locator('.hero-service-actions a').first().focus();
   await page.clock.runFor(13000);
   await expect(hero).toHaveAttribute('data-active-slide', '2');
+  await hero
+    .locator('.hero-service-actions a')
+    .first()
+    .evaluate((link: HTMLElement) => link.blur());
+  await page.clock.runFor(6100);
+  await expect(hero).toHaveAttribute('data-active-slide', '3');
 });
 
 test('motion and data preferences keep the automatic hero static and mobile content stays within the screen', async ({
