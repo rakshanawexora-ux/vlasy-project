@@ -1,6 +1,6 @@
 import { test, expect } from './fixtures';
 
-test('hero changes its picture, heading, description and destination every six seconds without manual controls', async ({
+test('hero changes its picture, heading, description and destination every four seconds without manual controls', async ({
   page,
 }) => {
   const clockStart = new Date('2026-11-13T00:00:00Z');
@@ -14,7 +14,15 @@ test('hero changes its picture, heading, description and destination every six s
   await expect(hero.locator('h1')).toContainText('YOUR STYLE.');
   await expect(hero.locator('.hero-service-actions .hr-pill')).toHaveCSS('font-weight', '600');
   await expect(hero.locator('.hero-image')).toHaveAttribute('src', /unisex-hero/);
-  await page.clock.runFor(5900);
+  const placement = await hero.evaluate((element) => {
+    const heroBox = element.getBoundingClientRect();
+    const imageBox = element.querySelector('.hero-slides')!.getBoundingClientRect();
+    return (imageBox.left - heroBox.left) / heroBox.width;
+  });
+  expect(placement).toBeCloseTo(0.4, 1);
+  await expect(hero.locator('.hero-slide').first()).toHaveCSS('transition-duration', '1s');
+  await expect(hero.locator('.hero-copy')).toHaveCSS('animation-name', 'hero-copy-fade');
+  await page.clock.runFor(3900);
   await expect(hero).toHaveAttribute('data-active-slide', '1');
   await page.clock.runFor(200);
   await expect(hero).toHaveAttribute('data-active-slide', '2');
@@ -24,7 +32,7 @@ test('hero changes its picture, heading, description and destination every six s
   await expect(
     hero.getByRole('link', { name: 'Explore hair colour', exact: true }),
   ).toHaveAttribute('href', '/services/hair-colouring');
-  await page.clock.runFor(6000);
+  await page.clock.runFor(4000);
   await expect(hero).toHaveAttribute('data-active-slide', '3');
   await expect(hero.locator('h1')).toContainText('MORE LENGTH.');
   await expect(
@@ -41,7 +49,7 @@ test('hero continues under the pointer and pauses only while a service link has 
   await page.goto('/');
   const hero = page.locator('.hero-carousel');
   await hero.locator('h1').hover();
-  await page.clock.runFor(6100);
+  await page.clock.runFor(4100);
   await expect(hero).toHaveAttribute('data-active-slide', '2');
   await hero.locator('.hero-service-actions a').first().focus();
   await page.clock.runFor(13000);
@@ -50,7 +58,7 @@ test('hero continues under the pointer and pauses only while a service link has 
     .locator('.hero-service-actions a')
     .first()
     .evaluate((link: HTMLElement) => link.blur());
-  await page.clock.runFor(6100);
+  await page.clock.runFor(4100);
   await expect(hero).toHaveAttribute('data-active-slide', '3');
 });
 

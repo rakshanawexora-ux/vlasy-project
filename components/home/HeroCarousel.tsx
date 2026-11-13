@@ -28,7 +28,7 @@ function subscribePreference(notify: () => void) {
   };
 }
 
-/** Image and copy share one index and a six-second timer. Motion/data preferences are respected. */
+/** Image and copy share one index and a four-second timer. Motion/data preferences are respected. */
 export function HeroCarousel() {
   const region = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
@@ -58,7 +58,7 @@ export function HeroCarousel() {
     if (!allowed || focusWithin || !visible) return;
     const timer = window.setInterval(
       () => setActive((index) => (index + 1) % heroSlides.length),
-      6000,
+      4000,
     );
     return () => window.clearInterval(timer);
   }, [allowed, focusWithin, visible]);
@@ -119,25 +119,27 @@ export function HeroCarousel() {
       </div>
       <div className="hr-hero-overlay" />
       <div className="hr-hero-content">
-        <p className="hr-overline">
-          <span />
-          {heroSlides[active].eyebrow}
-        </p>
-        <h1 id="hero-title" className="hr-kinetic-title">
-          {heroSlides[active].headline.map((line, index) => (
-            <span className={`hr-title-line ${index === 2 ? 'hr-hero-last' : ''}`} key={index}>
-              <span>{line}</span>
-            </span>
-          ))}
-        </h1>
-        <p className="hr-hero-description">{heroSlides[active].description}</p>
-        <div className="hero-service-actions">
-          <Link href={heroSlides[active].href} className="hr-pill hr-pill-cream">
-            {heroSlides[active].cta}
-          </Link>
-          <Link href="/services" className="hero-services-link">
-            Explore all services
-          </Link>
+        <div className="hero-copy" key={active}>
+          <p className="hr-overline">
+            <span />
+            {heroSlides[active].eyebrow}
+          </p>
+          <h1 id="hero-title" className="hr-kinetic-title">
+            {heroSlides[active].headline.map((line, index) => (
+              <span className={`hr-title-line ${index === 2 ? 'hr-hero-last' : ''}`} key={index}>
+                <span>{line}</span>
+              </span>
+            ))}
+          </h1>
+          <p className="hr-hero-description">{heroSlides[active].description}</p>
+          <div className="hero-service-actions">
+            <Link href={heroSlides[active].href} className="hr-pill hr-pill-cream">
+              {heroSlides[active].cta}
+            </Link>
+            <Link href="/services" className="hero-services-link">
+              Explore all services
+            </Link>
+          </div>
         </div>
       </div>
       <div className="hr-hero-base">

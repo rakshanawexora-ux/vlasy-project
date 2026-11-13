@@ -31,7 +31,7 @@ executor's supported escalated execution mode.
 
 ## Theme and hero media
 
-The header theme control switches dark/light palettes and remembers the choice in local storage. The hero rotates five related service photographs, headings, descriptions and links together every six seconds, without manual controls. It pauses while a hero link has keyboard focus, offscreen and in hidden tabs; reduced motion and data saver disable automatic rotation. There is no hero video, zoom or scroll parallax. Configure slides in `data/hero-slides.ts`.
+The header theme control switches dark/light palettes and remembers the choice in local storage. The hero rotates five related service photographs, headings, descriptions and links together every four seconds, without manual controls. Photographs occupy the right-hand desktop panel and crossfade over one second; the copy fades in without movement. It pauses while a hero link has keyboard focus, offscreen and in hidden tabs; reduced motion and data saver disable automatic rotation. There is no hero video, zoom or scroll parallax. Configure slides in `data/hero-slides.ts`.
 
 ## Content & integrations
 
